@@ -28,3 +28,5 @@ D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\net8.0-windows\DeTai_QuanLyCuaHangThuCung.csproj.AssemblyReference.cache
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\net8.0-windows\DeTai_Qu.5E379021.Up2Date
+D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\net8.0-windows\DeTai_QuanLyCuaHangThuCung.sourcelink.json
+D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\net8.0-windows\DeTai_QuanLyCuaHangThuCung.Properties.Resources.resources
