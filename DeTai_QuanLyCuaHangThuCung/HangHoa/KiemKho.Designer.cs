@@ -32,7 +32,7 @@
             lbl_nhomsp = new Label();
             cmb_tencsdl = new ComboBox();
             txt_nhapmasp = new TextBox();
-            dgv_thietlapgia = new DataGridView();
+            dgv_kiemkho = new DataGridView();
             makho = new DataGridViewTextBoxColumn();
             masp = new DataGridViewTextBoxColumn();
             tensp = new DataGridViewTextBoxColumn();
@@ -40,7 +40,7 @@
             slhethong = new DataGridViewTextBoxColumn();
             slthucte = new DataGridViewTextBoxColumn();
             ghichu = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dgv_thietlapgia).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_kiemkho).BeginInit();
             SuspendLayout();
             // 
             // lbl_nhapma
@@ -76,15 +76,15 @@
             txt_nhapmasp.Size = new Size(169, 27);
             txt_nhapmasp.TabIndex = 10;
             // 
-            // dgv_thietlapgia
+            // dgv_kiemkho
             // 
-            dgv_thietlapgia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_thietlapgia.Columns.AddRange(new DataGridViewColumn[] { makho, masp, tensp, ngaynhap, slhethong, slthucte, ghichu });
-            dgv_thietlapgia.Location = new Point(12, 152);
-            dgv_thietlapgia.Name = "dgv_thietlapgia";
-            dgv_thietlapgia.RowHeadersWidth = 51;
-            dgv_thietlapgia.Size = new Size(929, 286);
-            dgv_thietlapgia.TabIndex = 9;
+            dgv_kiemkho.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_kiemkho.Columns.AddRange(new DataGridViewColumn[] { makho, masp, tensp, ngaynhap, slhethong, slthucte, ghichu });
+            dgv_kiemkho.Location = new Point(12, 152);
+            dgv_kiemkho.Name = "dgv_kiemkho";
+            dgv_kiemkho.RowHeadersWidth = 51;
+            dgv_kiemkho.Size = new Size(978, 286);
+            dgv_kiemkho.TabIndex = 9;
             // 
             // makho
             // 
@@ -144,10 +144,10 @@
             Controls.Add(lbl_nhomsp);
             Controls.Add(cmb_tencsdl);
             Controls.Add(txt_nhapmasp);
-            Controls.Add(dgv_thietlapgia);
+            Controls.Add(dgv_kiemkho);
             Name = "frm_KiemKho";
             Text = "Kiểm Kho";
-            ((System.ComponentModel.ISupportInitialize)dgv_thietlapgia).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_kiemkho).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,7 +158,7 @@
         private Label lbl_nhomsp;
         private ComboBox cmb_tencsdl;
         private TextBox txt_nhapmasp;
-        private DataGridView dgv_thietlapgia;
+        private DataGridView dgv_kiemkho;
         private DataGridViewTextBoxColumn makho;
         private DataGridViewTextBoxColumn masp;
         private DataGridViewTextBoxColumn tensp;

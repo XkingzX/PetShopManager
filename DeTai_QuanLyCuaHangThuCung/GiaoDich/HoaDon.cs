@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DeTai_QuanLyCuaHangThuCung.HangHoa
+namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
 {
-    public partial class frm_ThietLapGia : Form
+    public partial class frm_hoadon : Form
     {
-        public frm_ThietLapGia()
+        
+        public frm_hoadon()
         {
             InitializeComponent();
+            dgv_danhmucsp.AutoSizeColumnsMode =  DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }

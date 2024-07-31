@@ -37,6 +37,7 @@
             label4 = new Label();
             textBox4 = new TextBox();
             btn_hoanthanh = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -105,7 +106,7 @@
             // 
             // btn_hoanthanh
             // 
-            btn_hoanthanh.Location = new Point(95, 203);
+            btn_hoanthanh.Location = new Point(31, 203);
             btn_hoanthanh.Name = "btn_hoanthanh";
             btn_hoanthanh.Size = new Size(104, 53);
             btn_hoanthanh.TabIndex = 2;
@@ -113,11 +114,22 @@
             btn_hoanthanh.UseVisualStyleBackColor = true;
             btn_hoanthanh.Click += btn_hoanthanh_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(141, 203);
+            button1.Name = "button1";
+            button1.Size = new Size(104, 53);
+            button1.TabIndex = 2;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btn_hoanthanh_Click;
+            // 
             // frm_NhapLieu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(304, 268);
+            Controls.Add(button1);
             Controls.Add(btn_hoanthanh);
             Controls.Add(textBox4);
             Controls.Add(label4);
@@ -144,5 +156,6 @@
         private Label label4;
         private TextBox textBox4;
         private Button btn_hoanthanh;
+        private Button button1;
     }
 }

@@ -1,4 +1,5 @@
-﻿using DeTai_QuanLyCuaHangThuCung.HangHoa;
+﻿using DeTai_QuanLyCuaHangThuCung.GiaoDich;
+using DeTai_QuanLyCuaHangThuCung.HangHoa;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {
@@ -26,14 +27,6 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         }
 
-        private void mn_thietlapgia_Click(object sender, EventArgs e)
-        {
-            frm_ThietLapGia frm = new frm_ThietLapGia();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
         private void mn_kiemkho_Click(object sender, EventArgs e)
         {
             frm_KiemKho frm = new frm_KiemKho();
@@ -42,6 +35,13 @@ namespace DeTai_QuanLyCuaHangThuCung
             frm.Show();
         }
 
+        private void mn_hoadon_Click(object sender, EventArgs e)
+        {
+            frm_hoadon frm = new frm_hoadon();
+            frm.MdiParent = this;
+            frm.Dock= DockStyle.Fill;
+            frm.Show();
+        }
     }
 
 }

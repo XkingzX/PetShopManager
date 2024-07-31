@@ -32,13 +32,13 @@
             mn_tongquan = new ToolStripMenuItem();
             mn_hanghoa = new ToolStripMenuItem();
             mn_danhmuc = new ToolStripMenuItem();
-            mn_thietlapgia = new ToolStripMenuItem();
             mn_kiemkho = new ToolStripMenuItem();
             mn_giaodich = new ToolStripMenuItem();
             mn_hoadon = new ToolStripMenuItem();
             mn_nhaphang = new ToolStripMenuItem();
             mn_trahang = new ToolStripMenuItem();
             mn_chuyenhang = new ToolStripMenuItem();
+            đơnHàngToolStripMenuItem = new ToolStripMenuItem();
             mn_khachhang = new ToolStripMenuItem();
             mn_thongtinkhachhang = new ToolStripMenuItem();
             mn_baocao = new ToolStripMenuItem();
@@ -50,7 +50,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { mn_tongquan, mn_hanghoa, mn_giaodich, mn_khachhang, mn_baocao, mn_banonline, mn_nhanvien });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { mn_tongquan, mn_hanghoa, mn_giaodich, đơnHàngToolStripMenuItem, mn_khachhang, mn_baocao, mn_banonline, mn_nhanvien });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1018, 28);
@@ -66,7 +66,7 @@
             // 
             // mn_hanghoa
             // 
-            mn_hanghoa.DropDownItems.AddRange(new ToolStripItem[] { mn_danhmuc, mn_thietlapgia, mn_kiemkho });
+            mn_hanghoa.DropDownItems.AddRange(new ToolStripItem[] { mn_danhmuc, mn_kiemkho });
             mn_hanghoa.Name = "mn_hanghoa";
             mn_hanghoa.Size = new Size(91, 24);
             mn_hanghoa.Text = "Hàng Hóa";
@@ -77,13 +77,6 @@
             mn_danhmuc.Size = new Size(224, 26);
             mn_danhmuc.Text = "Danh Mục";
             mn_danhmuc.Click += mn_danhmuc_Click;
-            // 
-            // mn_thietlapgia
-            // 
-            mn_thietlapgia.Name = "mn_thietlapgia";
-            mn_thietlapgia.Size = new Size(224, 26);
-            mn_thietlapgia.Text = "Thiết Lập Giá";
-            mn_thietlapgia.Click += mn_thietlapgia_Click;
             // 
             // mn_kiemkho
             // 
@@ -102,26 +95,33 @@
             // mn_hoadon
             // 
             mn_hoadon.Name = "mn_hoadon";
-            mn_hoadon.Size = new Size(180, 26);
+            mn_hoadon.Size = new Size(224, 26);
             mn_hoadon.Text = "Hóa Đơn";
+            mn_hoadon.Click += mn_hoadon_Click;
             // 
             // mn_nhaphang
             // 
             mn_nhaphang.Name = "mn_nhaphang";
-            mn_nhaphang.Size = new Size(180, 26);
+            mn_nhaphang.Size = new Size(224, 26);
             mn_nhaphang.Text = "Nhập Hàng";
             // 
             // mn_trahang
             // 
             mn_trahang.Name = "mn_trahang";
-            mn_trahang.Size = new Size(180, 26);
+            mn_trahang.Size = new Size(224, 26);
             mn_trahang.Text = "Trả Hàng";
             // 
             // mn_chuyenhang
             // 
             mn_chuyenhang.Name = "mn_chuyenhang";
-            mn_chuyenhang.Size = new Size(180, 26);
+            mn_chuyenhang.Size = new Size(224, 26);
             mn_chuyenhang.Text = "Chuyển Hàng";
+            // 
+            // đơnHàngToolStripMenuItem
+            // 
+            đơnHàngToolStripMenuItem.Name = "đơnHàngToolStripMenuItem";
+            đơnHàngToolStripMenuItem.Size = new Size(91, 24);
+            đơnHàngToolStripMenuItem.Text = "Đơn Hàng";
             // 
             // mn_khachhang
             // 
@@ -180,7 +180,6 @@
         private ToolStripMenuItem mn_banonline;
         private ToolStripMenuItem mn_nhanvien;
         private ToolStripMenuItem mn_danhmuc;
-        private ToolStripMenuItem mn_thietlapgia;
         private ToolStripMenuItem mn_kiemkho;
         private ToolStripMenuItem mn_hoadon;
         private ToolStripMenuItem mn_nhaphang;
@@ -188,5 +187,6 @@
         private ToolStripMenuItem mn_chuyenhang;
         private ToolStripMenuItem mn_thongtinkhachhang;
         private ToolStripMenuItem mn_baocao;
+        private ToolStripMenuItem đơnHàngToolStripMenuItem;
     }
 }

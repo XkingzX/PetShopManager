@@ -37,19 +37,21 @@
             btn_xoa = new Button();
             btn_them = new Button();
             btn_sua = new Button();
-            lbl_tensp = new Label();
-            ptr_hinhsanpham = new PictureBox();
-            lbl_motasp = new Label();
             groupBox1 = new GroupBox();
-            gr_chucnang = new GroupBox();
+            gr_timkiem = new GroupBox();
             lbl_nhapma = new Label();
             lbl_nhomsp = new Label();
             cmb_tencsdl = new ComboBox();
             txt_nhapmasp = new TextBox();
+            gr_hinhsp = new GroupBox();
+            lbl_motasp = new Label();
+            ptr_hinhsanpham = new PictureBox();
+            btn_insp = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_danhmucsp).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ptr_hinhsanpham).BeginInit();
             groupBox1.SuspendLayout();
-            gr_chucnang.SuspendLayout();
+            gr_timkiem.SuspendLayout();
+            gr_hinhsp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptr_hinhsanpham).BeginInit();
             SuspendLayout();
             // 
             // dgv_danhmucsp
@@ -125,36 +127,6 @@
             btn_sua.Text = "Sửa";
             btn_sua.UseVisualStyleBackColor = true;
             // 
-            // lbl_tensp
-            // 
-            lbl_tensp.AutoSize = true;
-            lbl_tensp.Location = new Point(674, 32);
-            lbl_tensp.Name = "lbl_tensp";
-            lbl_tensp.Size = new Size(101, 20);
-            lbl_tensp.TabIndex = 4;
-            lbl_tensp.Text = "Tên Sản Phẩm";
-            // 
-            // ptr_hinhsanpham
-            // 
-            ptr_hinhsanpham.BackgroundImageLayout = ImageLayout.None;
-            ptr_hinhsanpham.BorderStyle = BorderStyle.FixedSingle;
-            ptr_hinhsanpham.Image = Properties.Resources.thuc_an_thu_cung_8_2157;
-            ptr_hinhsanpham.Location = new Point(674, 65);
-            ptr_hinhsanpham.Name = "ptr_hinhsanpham";
-            ptr_hinhsanpham.Size = new Size(310, 225);
-            ptr_hinhsanpham.SizeMode = PictureBoxSizeMode.Zoom;
-            ptr_hinhsanpham.TabIndex = 5;
-            ptr_hinhsanpham.TabStop = false;
-            // 
-            // lbl_motasp
-            // 
-            lbl_motasp.AutoSize = true;
-            lbl_motasp.Location = new Point(674, 303);
-            lbl_motasp.Name = "lbl_motasp";
-            lbl_motasp.Size = new Size(55, 20);
-            lbl_motasp.TabIndex = 6;
-            lbl_motasp.Text = "Mô tả: ";
-            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(btn_them);
@@ -167,18 +139,18 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Công cụ";
             // 
-            // gr_chucnang
+            // gr_timkiem
             // 
-            gr_chucnang.Controls.Add(lbl_nhapma);
-            gr_chucnang.Controls.Add(lbl_nhomsp);
-            gr_chucnang.Controls.Add(cmb_tencsdl);
-            gr_chucnang.Controls.Add(txt_nhapmasp);
-            gr_chucnang.Location = new Point(12, 12);
-            gr_chucnang.Name = "gr_chucnang";
-            gr_chucnang.Size = new Size(250, 125);
-            gr_chucnang.TabIndex = 8;
-            gr_chucnang.TabStop = false;
-            gr_chucnang.Text = "Chức Năng";
+            gr_timkiem.Controls.Add(lbl_nhapma);
+            gr_timkiem.Controls.Add(lbl_nhomsp);
+            gr_timkiem.Controls.Add(cmb_tencsdl);
+            gr_timkiem.Controls.Add(txt_nhapmasp);
+            gr_timkiem.Location = new Point(12, 12);
+            gr_timkiem.Name = "gr_timkiem";
+            gr_timkiem.Size = new Size(250, 125);
+            gr_timkiem.TabIndex = 8;
+            gr_timkiem.TabStop = false;
+            gr_timkiem.Text = "Tìm kiếm";
             // 
             // lbl_nhapma
             // 
@@ -213,29 +185,70 @@
             txt_nhapmasp.Size = new Size(169, 27);
             txt_nhapmasp.TabIndex = 5;
             // 
+            // gr_hinhsp
+            // 
+            gr_hinhsp.Controls.Add(lbl_motasp);
+            gr_hinhsp.Controls.Add(ptr_hinhsanpham);
+            gr_hinhsp.Location = new Point(659, 12);
+            gr_hinhsp.Name = "gr_hinhsp";
+            gr_hinhsp.Size = new Size(332, 344);
+            gr_hinhsp.TabIndex = 9;
+            gr_hinhsp.TabStop = false;
+            gr_hinhsp.Text = "Hình ảnh sản phẩm";
+            // 
+            // lbl_motasp
+            // 
+            lbl_motasp.AutoSize = true;
+            lbl_motasp.Location = new Point(18, 244);
+            lbl_motasp.Name = "lbl_motasp";
+            lbl_motasp.Size = new Size(55, 20);
+            lbl_motasp.TabIndex = 8;
+            lbl_motasp.Text = "Mô tả: ";
+            // 
+            // ptr_hinhsanpham
+            // 
+            ptr_hinhsanpham.BackgroundImageLayout = ImageLayout.None;
+            ptr_hinhsanpham.BorderStyle = BorderStyle.FixedSingle;
+            ptr_hinhsanpham.Image = Properties.Resources.thuc_an_thu_cung_8_2157;
+            ptr_hinhsanpham.Location = new Point(18, 36);
+            ptr_hinhsanpham.Name = "ptr_hinhsanpham";
+            ptr_hinhsanpham.Size = new Size(295, 195);
+            ptr_hinhsanpham.SizeMode = PictureBoxSizeMode.Zoom;
+            ptr_hinhsanpham.TabIndex = 7;
+            ptr_hinhsanpham.TabStop = false;
+            // 
+            // btn_insp
+            // 
+            btn_insp.Location = new Point(743, 377);
+            btn_insp.Name = "btn_insp";
+            btn_insp.Size = new Size(155, 51);
+            btn_insp.TabIndex = 2;
+            btn_insp.Text = "In mã sản phẩm";
+            btn_insp.UseVisualStyleBackColor = true;
+            // 
             // frm_danhmuc
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1018, 450);
-            Controls.Add(gr_chucnang);
+            Controls.Add(btn_insp);
+            Controls.Add(gr_hinhsp);
+            Controls.Add(gr_timkiem);
             Controls.Add(groupBox1);
-            Controls.Add(lbl_motasp);
-            Controls.Add(ptr_hinhsanpham);
-            Controls.Add(lbl_tensp);
             Controls.Add(dgv_danhmucsp);
             Name = "frm_danhmuc";
             Text = "Danh Mục Sản Phẩm";
             WindowState = FormWindowState.Maximized;
             Load += frm_danhmuc_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_danhmucsp).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ptr_hinhsanpham).EndInit();
             groupBox1.ResumeLayout(false);
-            gr_chucnang.ResumeLayout(false);
-            gr_chucnang.PerformLayout();
+            gr_timkiem.ResumeLayout(false);
+            gr_timkiem.PerformLayout();
+            gr_hinhsp.ResumeLayout(false);
+            gr_hinhsp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ptr_hinhsanpham).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -244,19 +257,20 @@
         private Button btn_xoa;
         private Button btn_them;
         private Button btn_sua;
-        private Label lbl_tensp;
-        private PictureBox ptr_hinhsanpham;
-        private Label lbl_motasp;
         private DataGridViewTextBoxColumn masp;
         private DataGridViewTextBoxColumn tensp;
         private DataGridViewTextBoxColumn gia;
         private DataGridViewTextBoxColumn soluong;
         private DataGridViewTextBoxColumn loai;
         private GroupBox groupBox1;
-        private GroupBox gr_chucnang;
+        private GroupBox gr_timkiem;
         private Label lbl_nhapma;
         private Label lbl_nhomsp;
         private ComboBox cmb_tencsdl;
         private TextBox txt_nhapmasp;
+        private GroupBox gr_hinhsp;
+        private Label lbl_motasp;
+        private PictureBox ptr_hinhsanpham;
+        private Button btn_insp;
     }
 }

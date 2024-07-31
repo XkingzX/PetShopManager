@@ -15,6 +15,7 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
         public frm_KiemKho()
         {
             InitializeComponent();
+            dgv_kiemkho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }
