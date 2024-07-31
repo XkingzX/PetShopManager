@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj": {}
+    "D:\\concat\\PetShopManager\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj": {}
   },
   "projects": {
-    "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj": {
+    "D:\\concat\\PetShopManager\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj",
+        "projectUniqueName": "D:\\concat\\PetShopManager\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj",
         "projectName": "DeTai_QuanLyCuaHangThuCung",
-        "projectPath": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj",
-        "packagesPath": "C:\\Users\\ngoti\\.nuget\\packages\\",
-        "outputPath": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\obj\\",
+        "projectPath": "D:\\concat\\PetShopManager\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj",
+        "packagesPath": "C:\\Users\\huykh\\.nuget\\packages\\",
+        "outputPath": "D:\\concat\\PetShopManager\\DeTai_QuanLyCuaHangThuCung\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ngoti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huykh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,22 +39,11 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "dependencies": {
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.6, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -61,15 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            },
-            "Microsoft.WindowsDesktop.App.WindowsForms": {
-              "privateAssets": "none"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
