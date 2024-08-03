@@ -44,7 +44,9 @@
             mn_baocao = new ToolStripMenuItem();
             mn_banonline = new ToolStripMenuItem();
             mn_nhanvien = new ToolStripMenuItem();
+            pr_anhnen = new PictureBox();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pr_anhnen).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -74,14 +76,14 @@
             // mn_danhmuc
             // 
             mn_danhmuc.Name = "mn_danhmuc";
-            mn_danhmuc.Size = new Size(224, 26);
+            mn_danhmuc.Size = new Size(159, 26);
             mn_danhmuc.Text = "Danh Mục";
             mn_danhmuc.Click += mn_danhmuc_Click;
             // 
             // mn_kiemkho
             // 
             mn_kiemkho.Name = "mn_kiemkho";
-            mn_kiemkho.Size = new Size(224, 26);
+            mn_kiemkho.Size = new Size(159, 26);
             mn_kiemkho.Text = "Kiểm Kho";
             mn_kiemkho.Click += mn_kiemkho_Click;
             // 
@@ -95,26 +97,26 @@
             // mn_hoadon
             // 
             mn_hoadon.Name = "mn_hoadon";
-            mn_hoadon.Size = new Size(224, 26);
+            mn_hoadon.Size = new Size(180, 26);
             mn_hoadon.Text = "Hóa Đơn";
             mn_hoadon.Click += mn_hoadon_Click;
             // 
             // mn_nhaphang
             // 
             mn_nhaphang.Name = "mn_nhaphang";
-            mn_nhaphang.Size = new Size(224, 26);
+            mn_nhaphang.Size = new Size(180, 26);
             mn_nhaphang.Text = "Nhập Hàng";
             // 
             // mn_trahang
             // 
             mn_trahang.Name = "mn_trahang";
-            mn_trahang.Size = new Size(224, 26);
+            mn_trahang.Size = new Size(180, 26);
             mn_trahang.Text = "Trả Hàng";
             // 
             // mn_chuyenhang
             // 
             mn_chuyenhang.Name = "mn_chuyenhang";
-            mn_chuyenhang.Size = new Size(224, 26);
+            mn_chuyenhang.Size = new Size(180, 26);
             mn_chuyenhang.Text = "Chuyển Hàng";
             // 
             // đơnHàngToolStripMenuItem
@@ -154,18 +156,34 @@
             mn_nhanvien.Size = new Size(91, 24);
             mn_nhanvien.Text = "Nhân Viên";
             // 
+            // pr_anhnen
+            // 
+            pr_anhnen.BackColor = Color.FromArgb(254, 179, 78);
+            pr_anhnen.BackgroundImage = Properties.Resources.fotor_ai_2024080319127;
+            pr_anhnen.BackgroundImageLayout = ImageLayout.Zoom;
+            pr_anhnen.Location = new Point(0, 25);
+            pr_anhnen.Name = "pr_anhnen";
+            pr_anhnen.Size = new Size(1018, 509);
+            pr_anhnen.TabIndex = 2;
+            pr_anhnen.TabStop = false;
+            // 
             // frm_trangchu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1018, 534);
+            Controls.Add(pr_anhnen);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "frm_trangchu";
+            RightToLeft = RightToLeft.No;
             Text = "Cừa Hàng Thú Cưng - Pet Shop";
+            FormClosing += Trangchu_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pr_anhnen).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,5 +206,6 @@
         private ToolStripMenuItem mn_thongtinkhachhang;
         private ToolStripMenuItem mn_baocao;
         private ToolStripMenuItem đơnHàngToolStripMenuItem;
+        private PictureBox pr_anhnen;
     }
 }

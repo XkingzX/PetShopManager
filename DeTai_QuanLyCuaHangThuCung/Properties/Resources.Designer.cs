@@ -63,6 +63,26 @@ namespace DeTai_QuanLyCuaHangThuCung.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exit_icon_exit_sign_exit_symbol_free_vector {
+            get {
+                object obj = ResourceManager.GetObject("exit-icon-exit-sign-exit-symbol-free-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fotor_ai_2024080319127 {
+            get {
+                object obj = ResourceManager.GetObject("fotor-ai-2024080319127", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap thuc_an_thu_cung_8_2157 {
             get {
                 object obj = ResourceManager.GetObject("thuc-an-thu-cung-8-2157", resourceCulture);

@@ -121,4 +121,10 @@
   <data name="thuc-an-thu-cung-8-2157" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\thuc-an-thu-cung-8-2157.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="exit-icon-exit-sign-exit-symbol-free-vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit-icon-exit-sign-exit-symbol-free-vector.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fotor-ai-2024080319127" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fotor-ai-2024080319127.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

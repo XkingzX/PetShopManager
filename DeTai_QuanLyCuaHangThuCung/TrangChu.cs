@@ -39,8 +39,21 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             frm_hoadon frm = new frm_hoadon();
             frm.MdiParent = this;
-            frm.Dock= DockStyle.Fill;
+            frm.Dock = DockStyle.Fill;
             frm.Show();
+        }
+
+        private void Trangchu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 
