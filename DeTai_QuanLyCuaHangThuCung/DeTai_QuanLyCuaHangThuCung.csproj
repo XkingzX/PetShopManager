@@ -28,4 +28,9 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="KhachHang\" />
+    <Folder Include="BaoCao\" />
+  </ItemGroup>
+
 </Project>

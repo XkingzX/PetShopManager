@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             dgv_danhmucsp = new DataGridView();
-            masp = new DataGridViewTextBoxColumn();
-            tensp = new DataGridViewTextBoxColumn();
-            gia = new DataGridViewTextBoxColumn();
-            soluong = new DataGridViewTextBoxColumn();
-            loai = new DataGridViewTextBoxColumn();
             btn_xoa = new Button();
             btn_them = new Button();
             btn_sua = new Button();
@@ -57,47 +52,11 @@
             // dgv_danhmucsp
             // 
             dgv_danhmucsp.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_danhmucsp.Columns.AddRange(new DataGridViewColumn[] { masp, tensp, gia, soluong, loai });
             dgv_danhmucsp.Location = new Point(12, 152);
             dgv_danhmucsp.Name = "dgv_danhmucsp";
             dgv_danhmucsp.RowHeadersWidth = 51;
             dgv_danhmucsp.Size = new Size(630, 286);
             dgv_danhmucsp.TabIndex = 0;
-            // 
-            // masp
-            // 
-            masp.HeaderText = "Mã Sản Phẩm";
-            masp.MinimumWidth = 6;
-            masp.Name = "masp";
-            masp.Width = 125;
-            // 
-            // tensp
-            // 
-            tensp.HeaderText = "Tên Sản Phẩm";
-            tensp.MinimumWidth = 6;
-            tensp.Name = "tensp";
-            tensp.Width = 125;
-            // 
-            // gia
-            // 
-            gia.HeaderText = "Giá";
-            gia.MinimumWidth = 6;
-            gia.Name = "gia";
-            gia.Width = 125;
-            // 
-            // soluong
-            // 
-            soluong.HeaderText = "Số lượng";
-            soluong.MinimumWidth = 6;
-            soluong.Name = "soluong";
-            soluong.Width = 125;
-            // 
-            // loai
-            // 
-            loai.HeaderText = "Loại Sản Phẩm";
-            loai.MinimumWidth = 6;
-            loai.Name = "loai";
-            loai.Width = 125;
             // 
             // btn_xoa
             // 
@@ -107,6 +66,7 @@
             btn_xoa.TabIndex = 1;
             btn_xoa.Text = "Xóa";
             btn_xoa.UseVisualStyleBackColor = true;
+            btn_xoa.Click += btn_xoa_Click;
             // 
             // btn_them
             // 
@@ -126,6 +86,7 @@
             btn_sua.TabIndex = 1;
             btn_sua.Text = "Sửa";
             btn_sua.UseVisualStyleBackColor = true;
+            btn_sua.Click += btn_sua_Click;
             // 
             // groupBox1
             // 
@@ -257,11 +218,6 @@
         private Button btn_xoa;
         private Button btn_them;
         private Button btn_sua;
-        private DataGridViewTextBoxColumn masp;
-        private DataGridViewTextBoxColumn tensp;
-        private DataGridViewTextBoxColumn gia;
-        private DataGridViewTextBoxColumn soluong;
-        private DataGridViewTextBoxColumn loai;
         private GroupBox groupBox1;
         private GroupBox gr_timkiem;
         private Label lbl_nhapma;

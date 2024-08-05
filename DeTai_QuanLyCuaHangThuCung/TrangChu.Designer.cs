@@ -44,9 +44,7 @@
             mn_baocao = new ToolStripMenuItem();
             mn_banonline = new ToolStripMenuItem();
             mn_nhanvien = new ToolStripMenuItem();
-            pr_anhnen = new PictureBox();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pr_anhnen).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -156,24 +154,13 @@
             mn_nhanvien.Size = new Size(91, 24);
             mn_nhanvien.Text = "Nhân Viên";
             // 
-            // pr_anhnen
-            // 
-            pr_anhnen.BackColor = Color.FromArgb(254, 179, 78);
-            pr_anhnen.BackgroundImage = Properties.Resources.fotor_ai_2024080319127;
-            pr_anhnen.BackgroundImageLayout = ImageLayout.Zoom;
-            pr_anhnen.Location = new Point(0, 25);
-            pr_anhnen.Name = "pr_anhnen";
-            pr_anhnen.Size = new Size(1018, 509);
-            pr_anhnen.TabIndex = 2;
-            pr_anhnen.TabStop = false;
-            // 
             // frm_trangchu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1018, 534);
-            Controls.Add(pr_anhnen);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
@@ -183,7 +170,6 @@
             FormClosing += Trangchu_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pr_anhnen).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -206,6 +192,5 @@
         private ToolStripMenuItem mn_thongtinkhachhang;
         private ToolStripMenuItem mn_baocao;
         private ToolStripMenuItem đơnHàngToolStripMenuItem;
-        private PictureBox pr_anhnen;
     }
 }

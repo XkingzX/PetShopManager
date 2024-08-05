@@ -1,5 +1,4 @@
-﻿using DeTai_QuanLyCuaHangThuCung.GiaoDich;
-using DeTai_QuanLyCuaHangThuCung.HangHoa;
+﻿using DeTai_QuanLyCuaHangThuCung.HangHoa;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {
@@ -37,7 +36,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         private void mn_hoadon_Click(object sender, EventArgs e)
         {
-            frm_hoadon frm = new frm_hoadon();
+            MuaHang frm = new MuaHang();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();
@@ -49,10 +48,6 @@ namespace DeTai_QuanLyCuaHangThuCung
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
-            }
-            else if (result == DialogResult.No)
-            {
-                e.Cancel = true;
             }
         }
     }

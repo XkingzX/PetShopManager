@@ -11,7 +11,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 {
     class DataProvider
     {
-        static string cnStr = @"Data Source=TIENTOI;Initial Catalog=BT_Tuan7_QuanLySinhVien;Integrated Security=True;Trust Server Certificate=True;";
+        static string cnStr = @"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
         static SqlConnection cn;
         static public DataTable LoadCSDL(string sql)
         {
