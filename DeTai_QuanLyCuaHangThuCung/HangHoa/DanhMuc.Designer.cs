@@ -36,7 +36,7 @@
             gr_timkiem = new GroupBox();
             lbl_nhapma = new Label();
             lbl_nhomsp = new Label();
-            cmb_tencsdl = new ComboBox();
+            cmb_nhomsp = new ComboBox();
             txt_nhapmasp = new TextBox();
             gr_hinhsp = new GroupBox();
             lbl_motasp = new Label();
@@ -55,8 +55,10 @@
             dgv_danhmucsp.Location = new Point(12, 152);
             dgv_danhmucsp.Name = "dgv_danhmucsp";
             dgv_danhmucsp.RowHeadersWidth = 51;
+            dgv_danhmucsp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_danhmucsp.Size = new Size(630, 286);
             dgv_danhmucsp.TabIndex = 0;
+            dgv_danhmucsp.Click += dgv_danhmucsp_Click;
             // 
             // btn_xoa
             // 
@@ -104,7 +106,7 @@
             // 
             gr_timkiem.Controls.Add(lbl_nhapma);
             gr_timkiem.Controls.Add(lbl_nhomsp);
-            gr_timkiem.Controls.Add(cmb_tencsdl);
+            gr_timkiem.Controls.Add(cmb_nhomsp);
             gr_timkiem.Controls.Add(txt_nhapmasp);
             gr_timkiem.Location = new Point(12, 12);
             gr_timkiem.Name = "gr_timkiem";
@@ -131,13 +133,13 @@
             lbl_nhomsp.TabIndex = 8;
             lbl_nhomsp.Text = "Nhóm sản phẩm";
             // 
-            // cmb_tencsdl
+            // cmb_nhomsp
             // 
-            cmb_tencsdl.FormattingEnabled = true;
-            cmb_tencsdl.Location = new Point(28, 95);
-            cmb_tencsdl.Name = "cmb_tencsdl";
-            cmb_tencsdl.Size = new Size(169, 28);
-            cmb_tencsdl.TabIndex = 6;
+            cmb_nhomsp.FormattingEnabled = true;
+            cmb_nhomsp.Location = new Point(28, 95);
+            cmb_nhomsp.Name = "cmb_nhomsp";
+            cmb_nhomsp.Size = new Size(169, 28);
+            cmb_nhomsp.TabIndex = 6;
             // 
             // txt_nhapmasp
             // 
@@ -170,7 +172,6 @@
             // 
             ptr_hinhsanpham.BackgroundImageLayout = ImageLayout.None;
             ptr_hinhsanpham.BorderStyle = BorderStyle.FixedSingle;
-            ptr_hinhsanpham.Image = Properties.Resources.thuc_an_thu_cung_8_2157;
             ptr_hinhsanpham.Location = new Point(18, 36);
             ptr_hinhsanpham.Name = "ptr_hinhsanpham";
             ptr_hinhsanpham.Size = new Size(295, 195);
@@ -222,7 +223,7 @@
         private GroupBox gr_timkiem;
         private Label lbl_nhapma;
         private Label lbl_nhomsp;
-        private ComboBox cmb_tencsdl;
+        private ComboBox cmb_nhomsp;
         private TextBox txt_nhapmasp;
         private GroupBox gr_hinhsp;
         private Label lbl_motasp;

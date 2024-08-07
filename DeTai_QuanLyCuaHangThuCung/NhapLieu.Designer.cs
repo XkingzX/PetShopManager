@@ -38,9 +38,9 @@
             txt_loaisp = new TextBox();
             button1 = new Button();
             btn_luu = new Button();
-            pictureBox1 = new PictureBox();
+            ptr_chonhinh = new PictureBox();
             btn_chonhinh = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptr_chonhinh).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -115,6 +115,7 @@
             button1.TabIndex = 2;
             button1.Text = "Hủy";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btn_luu
             // 
@@ -126,14 +127,14 @@
             btn_luu.UseVisualStyleBackColor = true;
             btn_luu.Click += btn_luu_Click;
             // 
-            // pictureBox1
+            // ptr_chonhinh
             // 
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(359, 6);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(205, 172);
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            ptr_chonhinh.BackgroundImageLayout = ImageLayout.Stretch;
+            ptr_chonhinh.Location = new Point(359, 6);
+            ptr_chonhinh.Name = "ptr_chonhinh";
+            ptr_chonhinh.Size = new Size(205, 172);
+            ptr_chonhinh.TabIndex = 3;
+            ptr_chonhinh.TabStop = false;
             // 
             // btn_chonhinh
             // 
@@ -151,7 +152,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(588, 268);
             Controls.Add(btn_chonhinh);
-            Controls.Add(pictureBox1);
+            Controls.Add(ptr_chonhinh);
             Controls.Add(button1);
             Controls.Add(btn_luu);
             Controls.Add(txt_loaisp);
@@ -164,7 +165,8 @@
             Controls.Add(label1);
             Name = "frm_NhapLieu";
             Text = "Nhập Dữ Liệu";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Load += frm_NhapLieu_Load;
+            ((System.ComponentModel.ISupportInitialize)ptr_chonhinh).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,7 +183,7 @@
         private TextBox txt_loaisp;
         private Button button1;
         private Button btn_luu;
-        private PictureBox pictureBox1;
+        private PictureBox ptr_chonhinh;
         private Button btn_chonhinh;
     }
 }

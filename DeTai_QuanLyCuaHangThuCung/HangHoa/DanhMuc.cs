@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {
@@ -23,7 +24,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void ketnoicsdl()
         {
             cn.Open();
-            string sql = "select * from SANPHAM";
+            string sql = "select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá', LOAI as N'Loại', HINH as N'Hình Sản Phẩm' from SANPHAM";
             SqlCommand cmd = new SqlCommand(sql, cn);
             cmd.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -32,6 +33,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             cn.Close();
             dgv_danhmucsp.DataSource = dt;
             dgv_danhmucsp.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_danhmucsp.Columns["Hình Sản Phẩm"].Visible = false;
         }
 
         private void frm_danhmuc_Load(object sender, EventArgs e)
@@ -68,10 +70,10 @@ namespace DeTai_QuanLyCuaHangThuCung
 
                         ketnoicsdl();
 
-                        MessageBox.Show("=== Thêm thông tin ===","Mã sản phẩm: " + maSP +
+                        MessageBox.Show("Mã sản phẩm: " + maSP +
                             "\nTên sản phẩm: " + tenSP +
                             "\nGiá sản phẩm: " + giaSP +
-                            "\nLoại sản phẩm: " + loaiSP);
+                            "\nLoại sản phẩm: " + loaiSP, "=== Thêm thông tin ===");
                     }
                     catch (Exception) { }
                 }
@@ -92,6 +94,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             if (string.IsNullOrEmpty(maSP))
             {
                 MessageBox.Show("Vui lòng nhập mã sản phẩm để tìm kiếm.");
+                ketnoicsdl();
                 dgv_danhmucsp.DataSource = null;
                 return;
             }
@@ -99,6 +102,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             {
                 cn.Open();
                 string tukhoa = txt_nhapmasp.Text;
+                // Dấu $ để định dạng chuỗi là chuỗi định dạng SELECT * FROM SANPHAM WHERE MASP = 'tukhoa'
                 string query = $"SELECT * FROM SANPHAM WHERE MASP = '{tukhoa}'";
                 SqlCommand cm = new SqlCommand(query, cn);
                 cm.Parameters.AddWithValue("@MASP", maSP);
@@ -116,6 +120,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 else
                 {
                     MessageBox.Show("Không tìm thấy sản phẩm với mã: " + maSP);
+                    ketnoicsdl();
                 }
             }
             catch (Exception) { }
@@ -132,7 +137,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này?", "Xác nhận", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                string maSP = dgv_danhmucsp.SelectedRows[0].Cells["MASP"].Value.ToString();
+                string maSP = dgv_danhmucsp.SelectedRows[0].Cells["Mã Sản Phẩm"].Value.ToString();
                 cn.Open();
                 string query = "DELETE SANPHAM WHERE MASP = @maSP";
                 using (SqlCommand cmd = new SqlCommand(query, cn))
@@ -156,10 +161,18 @@ namespace DeTai_QuanLyCuaHangThuCung
                 return;
             }
             DataGridViewRow row = dgv_danhmucsp.SelectedRows[0];
-            string maSP = row.Cells["MASP"].Value.ToString();
-            string tenSP = row.Cells["TENSP"].Value.ToString();
-            string giaSP = row.Cells["GIA"].Value.ToString();
-            string loaiSP = row.Cells["LOAI"].Value.ToString();
+            //string maSP = row.Cells["MASP"].Value.ToString();
+            //string tenSP = row.Cells["TENSP"].Value.ToString();
+            //string giaSP = row.Cells["GIA"].Value.ToString();
+            //string loaiSP = row.Cells["LOAI"].Value.ToString();
+
+            //?.ToString() sẽ trả về null nếu row.Cells["MASP"].Value là null
+            //?? string.Empty sẽ thay thế giá trị null bằng chuỗi rỗng
+            string maSP = row.Cells["Mã Sản Phẩm"].Value?.ToString() ?? string.Empty;
+            string tenSP = row.Cells["Tên Sản Phẩm"].Value?.ToString() ?? string.Empty;
+            string giaSP = row.Cells["Giá"].Value?.ToString() ?? string.Empty;
+            string loaiSP = row.Cells["Loại"].Value?.ToString() ?? string.Empty;
+
             using (frm_NhapLieu frm = new frm_NhapLieu("Sửa Sản Phẩm", "Lưu", "Edit", maSP, tenSP, giaSP, loaiSP))
             {
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -188,9 +201,61 @@ namespace DeTai_QuanLyCuaHangThuCung
 
                         MessageBox.Show("Sản phẩm đã được cập nhật.");
                     }
-                    catch (Exception){}
+                    catch (Exception) { }
                 }
             }
         }
+
+        //private void dgv_danhmucsp_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (dgv_danhmucsp.SelectedRows.Count > 0)
+        //        {
+        //            // Lấy hàng được chọn
+        //            DataGridViewRow selectedRow = dgv_danhmucsp.SelectedRows[0];
+        //            cmb_nhomsp.Text = dgv_danhmucsp.SelectedRows[0].Cells[3].Value.ToString();
+        //            Byte[] image = selectedRow.Cells[4].Value as byte[];
+        //            if (image == null || image.Length == 0)
+        //            {
+        //                ptr_hinhsanpham.Image = null;
+        //            }
+        //            else
+        //            {
+        //                using (var stream = new MemoryStream(image))
+        //                {
+        //                    ptr_hinhsanpham.Image = Image.FromStream(stream);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch { }
+        //}
+        private void dgv_danhmucsp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgv_danhmucsp.SelectedRows.Count > 0)
+                {
+                    cmb_nhomsp.Text = dgv_danhmucsp.SelectedRows[0].Cells[3].Value.ToString();
+                    DataGridViewRow selectedRow = dgv_danhmucsp.SelectedRows[0];
+                    byte[] image = selectedRow.Cells[4].Value as byte[];
+
+                    if (image == null || image.Length == 0)
+                    {
+                        ptr_hinhsanpham.Image = null;
+                    }
+                    else
+                    {
+                        using (var stream = new MemoryStream(image))
+                        {
+                            ptr_hinhsanpham.Image = Image.FromStream(stream);
+                        }
+                    }
+                }
+            }
+            catch {}
+        }
+
     }
 }

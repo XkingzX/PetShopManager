@@ -271,7 +271,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         // Phương thức xóa khách hàng
         private void XoaKhachHang(string maKhachHang)
         {
@@ -293,6 +293,6 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }               
+        }
     }
 }

@@ -54,6 +54,7 @@
             dgv_kiemkho.Location = new Point(12, 152);
             dgv_kiemkho.Name = "dgv_kiemkho";
             dgv_kiemkho.RowHeadersWidth = 51;
+            dgv_kiemkho.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_kiemkho.Size = new Size(978, 286);
             dgv_kiemkho.TabIndex = 9;
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,9 @@ namespace DeTai_QuanLyCuaHangThuCung
         public string giaSP { get; set; }
         public string loaiSP { get; set; }
         public string mode;
+        
+
+        //Truyền vào 1 số tham số
         public frm_NhapLieu(string title, string buttonText, string mode = "Add", string maSP = "", string tenSP = "", string giaSP = "", string loaiSP = "")
         {
             InitializeComponent();
@@ -34,25 +38,88 @@ namespace DeTai_QuanLyCuaHangThuCung
                 txt_loaisp.Text = loaiSP;
             }
         }
-
+        private string imagePath = null;
+        private void ketnoicsdl()
+        {
+            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+            {
+                string query = "SELECT * FROM SANPHAM";
+                SqlDataAdapter da = new SqlDataAdapter(query, cn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+            }
+        }
         private void btn_chonhinh_Click(object sender, EventArgs e)
         {
             OpenFileDialog layhinh = new OpenFileDialog();
             layhinh.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
             if (layhinh.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.ImageLocation = layhinh.FileName;
+                imagePath = layhinh.FileName;
+                ptr_chonhinh.ImageLocation = imagePath;
+                ptr_chonhinh.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
-
         private void btn_luu_Click(object sender, EventArgs e)
         {
-            maSP = txt_maSP.Text;
-            tenSP = txt_tensp.Text;
-            giaSP = txt_giasp.Text;
-            loaiSP = txt_loaisp.Text;
-            this.DialogResult = DialogResult.OK;
+            if (string.IsNullOrWhiteSpace(txt_maSP.Text) ||
+                string.IsNullOrWhiteSpace(txt_tensp.Text) ||
+                string.IsNullOrWhiteSpace(txt_giasp.Text) ||
+                string.IsNullOrWhiteSpace(txt_loaisp.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ các thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (imagePath == null)
+            {
+                MessageBox.Show("Vui lòng chọn một hình ảnh.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+                maSP = txt_maSP.Text;
+                tenSP = txt_tensp.Text;
+                giaSP = txt_giasp.Text;
+                loaiSP = txt_loaisp.Text;
+            try
+            {
+                byte[] imageData;
+                using (FileStream stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    imageData = reader.ReadBytes((int)stream.Length);
+                }
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                {
+                    cn.Open();
+                    string query = "INSERT INTO SANPHAM (MASP, TENSP, GIA, LOAI, Hinh) VALUES (@MASP, @TENSP, @GIA, @LOAI, @Image)";
+                    using (SqlCommand cmd = new SqlCommand(query, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@MASP", maSP);
+                        cmd.Parameters.AddWithValue("@TENSP", tenSP);
+                        cmd.Parameters.AddWithValue("@GIA", giaSP);
+                        cmd.Parameters.AddWithValue("@LOAI", loaiSP);
+                        cmd.Parameters.AddWithValue("@Image", imageData);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                    MessageBox.Show("Lưu dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ketnoicsdl();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
             this.Close();
+        }
+
+        private void frm_NhapLieu_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
