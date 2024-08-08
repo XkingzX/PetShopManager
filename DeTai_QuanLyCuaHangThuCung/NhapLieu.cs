@@ -18,17 +18,18 @@ namespace DeTai_QuanLyCuaHangThuCung
         public string tenSP { get; set; }
         public string giaSP { get; set; }
         public string loaiSP { get; set; }
+        public string mota { get; set; }
         public string mode;
-        
+
 
         //Truyền vào 1 số tham số
-        public frm_NhapLieu(string title, string buttonText, string mode = "Add", string maSP = "", string tenSP = "", string giaSP = "", string loaiSP = "")
+        public frm_NhapLieu(string title, string buttonText, string mode = "Add", string maSP = "", string tenSP = "", string giaSP = "", string loaiSP = "", string mota = "")
         {
             InitializeComponent();
             this.Text = title;
             btn_luu.Text = buttonText;
             this.mode = mode;
-
+            rtxt_mota.Text = mota;
 
             if (mode == "Edit")
             {
@@ -36,6 +37,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 txt_tensp.Text = tenSP;
                 txt_giasp.Text = giaSP;
                 txt_loaisp.Text = loaiSP;
+                rtxt_mota.Text = mota;
             }
         }
         private string imagePath = null;
@@ -75,10 +77,11 @@ namespace DeTai_QuanLyCuaHangThuCung
                 MessageBox.Show("Vui lòng chọn một hình ảnh.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-                maSP = txt_maSP.Text;
-                tenSP = txt_tensp.Text;
-                giaSP = txt_giasp.Text;
-                loaiSP = txt_loaisp.Text;
+            maSP = txt_maSP.Text;
+            tenSP = txt_tensp.Text;
+            giaSP = txt_giasp.Text;
+            loaiSP = txt_loaisp.Text;
+            mota = rtxt_mota.Text;
             try
             {
                 byte[] imageData;
@@ -90,7 +93,15 @@ namespace DeTai_QuanLyCuaHangThuCung
                 using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
                     cn.Open();
-                    string query = "INSERT INTO SANPHAM (MASP, TENSP, GIA, LOAI, Hinh) VALUES (@MASP, @TENSP, @GIA, @LOAI, @Image)";
+                    string query;
+                    if (mode == "Edit")
+                    {
+                        query = "UPDATE SANPHAM SET TENSP = @TENSP, GIA = @GIA, LOAI = @LOAI, Hinh = @Image, MOTA = @MOTA WHERE MASP = @MASP";
+                    }
+                    else
+                    {
+                        query = "INSERT INTO SANPHAM (MASP, TENSP, GIA, LOAI, Hinh, MOTA) VALUES (@MASP, @TENSP, @GIA, @LOAI, @Image, @MOTA)";
+                    }
                     using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
                         cmd.Parameters.AddWithValue("@MASP", maSP);
@@ -98,14 +109,15 @@ namespace DeTai_QuanLyCuaHangThuCung
                         cmd.Parameters.AddWithValue("@GIA", giaSP);
                         cmd.Parameters.AddWithValue("@LOAI", loaiSP);
                         cmd.Parameters.AddWithValue("@Image", imageData);
+                        cmd.Parameters.AddWithValue("@MOTA", mota);
 
                         cmd.ExecuteNonQuery();
                     }
                 }
-                    MessageBox.Show("Lưu dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ketnoicsdl();
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                MessageBox.Show("Lưu dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ketnoicsdl();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {

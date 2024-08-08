@@ -32,20 +32,21 @@
             gr_timkiem = new GroupBox();
             lbl_nhapma = new Label();
             lbl_nhomsp = new Label();
-            txt_nhapmasp = new TextBox();
-            groupBox1 = new GroupBox();
+            txt_ngaynhap = new TextBox();
+            txt_nhapmapk = new TextBox();
+            gr_congcu = new GroupBox();
             btn_them = new Button();
             btn_xoa = new Button();
             btn_sua = new Button();
-            groupBox2 = new GroupBox();
-            label2 = new Label();
-            label1 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            gr_thongtin = new GroupBox();
+            lbl_nguoitao = new Label();
+            lbl_trangthai = new Label();
+            txt_nguoitao = new TextBox();
+            txt_trangthai = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgv_kiemkho).BeginInit();
             gr_timkiem.SuspendLayout();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
+            gr_congcu.SuspendLayout();
+            gr_thongtin.SuspendLayout();
             SuspendLayout();
             // 
             // dgv_kiemkho
@@ -57,12 +58,14 @@
             dgv_kiemkho.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_kiemkho.Size = new Size(978, 286);
             dgv_kiemkho.TabIndex = 9;
+            dgv_kiemkho.Click += dgv_kiemkho_Click;
             // 
             // gr_timkiem
             // 
             gr_timkiem.Controls.Add(lbl_nhapma);
             gr_timkiem.Controls.Add(lbl_nhomsp);
-            gr_timkiem.Controls.Add(txt_nhapmasp);
+            gr_timkiem.Controls.Add(txt_ngaynhap);
+            gr_timkiem.Controls.Add(txt_nhapmapk);
             gr_timkiem.Location = new Point(12, 12);
             gr_timkiem.Name = "gr_timkiem";
             gr_timkiem.Size = new Size(250, 125);
@@ -88,24 +91,31 @@
             lbl_nhomsp.TabIndex = 8;
             lbl_nhomsp.Text = "Ngày nhập";
             // 
-            // txt_nhapmasp
+            // txt_ngaynhap
             // 
-            txt_nhapmasp.Location = new Point(28, 43);
-            txt_nhapmasp.Name = "txt_nhapmasp";
-            txt_nhapmasp.Size = new Size(169, 27);
-            txt_nhapmasp.TabIndex = 5;
+            txt_ngaynhap.Location = new Point(28, 98);
+            txt_ngaynhap.Name = "txt_ngaynhap";
+            txt_ngaynhap.Size = new Size(169, 27);
+            txt_ngaynhap.TabIndex = 5;
             // 
-            // groupBox1
+            // txt_nhapmapk
             // 
-            groupBox1.Controls.Add(btn_them);
-            groupBox1.Controls.Add(btn_xoa);
-            groupBox1.Controls.Add(btn_sua);
-            groupBox1.Location = new Point(319, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(323, 125);
-            groupBox1.TabIndex = 10;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Công cụ";
+            txt_nhapmapk.Location = new Point(28, 43);
+            txt_nhapmapk.Name = "txt_nhapmapk";
+            txt_nhapmapk.Size = new Size(169, 27);
+            txt_nhapmapk.TabIndex = 5;
+            // 
+            // gr_congcu
+            // 
+            gr_congcu.Controls.Add(btn_them);
+            gr_congcu.Controls.Add(btn_xoa);
+            gr_congcu.Controls.Add(btn_sua);
+            gr_congcu.Location = new Point(319, 12);
+            gr_congcu.Name = "gr_congcu";
+            gr_congcu.Size = new Size(323, 125);
+            gr_congcu.TabIndex = 10;
+            gr_congcu.TabStop = false;
+            gr_congcu.Text = "Công cụ";
             // 
             // btn_them
             // 
@@ -134,59 +144,59 @@
             btn_sua.Text = "Sửa";
             btn_sua.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // gr_thongtin
             // 
-            groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(label1);
-            groupBox2.Controls.Add(textBox2);
-            groupBox2.Controls.Add(textBox1);
-            groupBox2.Location = new Point(684, 12);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(306, 125);
-            groupBox2.TabIndex = 12;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Thông tin";
+            gr_thongtin.Controls.Add(lbl_nguoitao);
+            gr_thongtin.Controls.Add(lbl_trangthai);
+            gr_thongtin.Controls.Add(txt_nguoitao);
+            gr_thongtin.Controls.Add(txt_trangthai);
+            gr_thongtin.Location = new Point(684, 12);
+            gr_thongtin.Name = "gr_thongtin";
+            gr_thongtin.Size = new Size(306, 125);
+            gr_thongtin.TabIndex = 12;
+            gr_thongtin.TabStop = false;
+            gr_thongtin.Text = "Thông tin";
             // 
-            // label2
+            // lbl_nguoitao
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(21, 73);
-            label2.Name = "label2";
-            label2.Size = new Size(80, 20);
-            label2.TabIndex = 7;
-            label2.Text = "Người tạo:";
+            lbl_nguoitao.AutoSize = true;
+            lbl_nguoitao.Location = new Point(21, 73);
+            lbl_nguoitao.Name = "lbl_nguoitao";
+            lbl_nguoitao.Size = new Size(80, 20);
+            lbl_nguoitao.TabIndex = 7;
+            lbl_nguoitao.Text = "Người tạo:";
             // 
-            // label1
+            // lbl_trangthai
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(21, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(82, 20);
-            label1.TabIndex = 7;
-            label1.Text = "Trạng thái: ";
+            lbl_trangthai.AutoSize = true;
+            lbl_trangthai.Location = new Point(21, 29);
+            lbl_trangthai.Name = "lbl_trangthai";
+            lbl_trangthai.Size = new Size(82, 20);
+            lbl_trangthai.TabIndex = 7;
+            lbl_trangthai.Text = "Trạng thái: ";
             // 
-            // textBox2
+            // txt_nguoitao
             // 
-            textBox2.Location = new Point(109, 66);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(169, 27);
-            textBox2.TabIndex = 5;
+            txt_nguoitao.Location = new Point(109, 66);
+            txt_nguoitao.Name = "txt_nguoitao";
+            txt_nguoitao.Size = new Size(169, 27);
+            txt_nguoitao.TabIndex = 5;
             // 
-            // textBox1
+            // txt_trangthai
             // 
-            textBox1.Location = new Point(109, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(169, 27);
-            textBox1.TabIndex = 5;
+            txt_trangthai.Location = new Point(109, 22);
+            txt_trangthai.Name = "txt_trangthai";
+            txt_trangthai.Size = new Size(169, 27);
+            txt_trangthai.TabIndex = 5;
             // 
             // frm_KiemKho
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1018, 450);
-            Controls.Add(groupBox2);
+            Controls.Add(gr_thongtin);
             Controls.Add(gr_timkiem);
-            Controls.Add(groupBox1);
+            Controls.Add(gr_congcu);
             Controls.Add(dgv_kiemkho);
             Name = "frm_KiemKho";
             Text = "Kiểm Kho";
@@ -194,9 +204,9 @@
             ((System.ComponentModel.ISupportInitialize)dgv_kiemkho).EndInit();
             gr_timkiem.ResumeLayout(false);
             gr_timkiem.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            gr_congcu.ResumeLayout(false);
+            gr_thongtin.ResumeLayout(false);
+            gr_thongtin.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -205,15 +215,16 @@
         private GroupBox gr_timkiem;
         private Label lbl_nhapma;
         private Label lbl_nhomsp;
-        private TextBox txt_nhapmasp;
-        private GroupBox groupBox1;
+        private TextBox txt_nhapmapk;
+        private GroupBox gr_congcu;
         private Button btn_them;
         private Button btn_xoa;
         private Button btn_sua;
-        private GroupBox groupBox2;
-        private Label label1;
-        private Label label2;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private GroupBox gr_thongtin;
+        private Label lbl_trangthai;
+        private Label lbl_nguoitao;
+        private TextBox txt_nguoitao;
+        private TextBox txt_trangthai;
+        private TextBox txt_ngaynhap;
     }
 }

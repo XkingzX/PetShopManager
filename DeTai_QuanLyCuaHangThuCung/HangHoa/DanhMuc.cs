@@ -24,7 +24,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void ketnoicsdl()
         {
             cn.Open();
-            string sql = "select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá', LOAI as N'Loại', HINH as N'Hình Sản Phẩm' from SANPHAM";
+            string sql = "select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá', LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA from SANPHAM";
             SqlCommand cmd = new SqlCommand(sql, cn);
             cmd.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -34,6 +34,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             dgv_danhmucsp.DataSource = dt;
             dgv_danhmucsp.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_danhmucsp.Columns["Hình Sản Phẩm"].Visible = false;
+            dgv_danhmucsp.Columns["MOTA"].Visible = false;
         }
 
         private void frm_danhmuc_Load(object sender, EventArgs e)
@@ -121,6 +122,8 @@ namespace DeTai_QuanLyCuaHangThuCung
                 {
                     MessageBox.Show("Không tìm thấy sản phẩm với mã: " + maSP);
                     ketnoicsdl();
+                    txt_nhapmasp.Clear();
+                    txt_nhapmasp.Focus();
                 }
             }
             catch (Exception) { }
@@ -238,6 +241,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 if (dgv_danhmucsp.SelectedRows.Count > 0)
                 {
                     cmb_nhomsp.Text = dgv_danhmucsp.SelectedRows[0].Cells[3].Value.ToString();
+                    lbl_motasp.Text = "Mô tả: " + dgv_danhmucsp.SelectedRows[0].Cells[5].Value.ToString();
                     DataGridViewRow selectedRow = dgv_danhmucsp.SelectedRows[0];
                     byte[] image = selectedRow.Cells[4].Value as byte[];
 

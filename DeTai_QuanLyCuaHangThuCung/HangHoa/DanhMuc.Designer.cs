@@ -39,6 +39,7 @@
             cmb_nhomsp = new ComboBox();
             txt_nhapmasp = new TextBox();
             gr_hinhsp = new GroupBox();
+            lbl_mota = new Label();
             lbl_motasp = new Label();
             ptr_hinhsanpham = new PictureBox();
             btn_insp = new Button();
@@ -150,6 +151,7 @@
             // 
             // gr_hinhsp
             // 
+            gr_hinhsp.Controls.Add(lbl_mota);
             gr_hinhsp.Controls.Add(lbl_motasp);
             gr_hinhsp.Controls.Add(ptr_hinhsanpham);
             gr_hinhsp.Location = new Point(659, 12);
@@ -158,6 +160,15 @@
             gr_hinhsp.TabIndex = 9;
             gr_hinhsp.TabStop = false;
             gr_hinhsp.Text = "Hình ảnh sản phẩm";
+            // 
+            // lbl_mota
+            // 
+            lbl_mota.AutoSize = true;
+            lbl_mota.Enabled = false;
+            lbl_mota.Location = new Point(69, 244);
+            lbl_mota.Name = "lbl_mota";
+            lbl_mota.Size = new Size(0, 20);
+            lbl_mota.TabIndex = 9;
             // 
             // lbl_motasp
             // 
@@ -229,5 +240,6 @@
         private Label lbl_motasp;
         private PictureBox ptr_hinhsanpham;
         private Button btn_insp;
+        private Label lbl_mota;
     }
 }

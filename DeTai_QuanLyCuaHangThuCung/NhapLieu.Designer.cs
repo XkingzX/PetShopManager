@@ -40,6 +40,9 @@
             btn_luu = new Button();
             ptr_chonhinh = new PictureBox();
             btn_chonhinh = new Button();
+            lbl_mota = new Label();
+            rtxt_mota = new RichTextBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)ptr_chonhinh).BeginInit();
             SuspendLayout();
             // 
@@ -109,7 +112,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(190, 203);
+            button1.Location = new Point(218, 331);
             button1.Name = "button1";
             button1.Size = new Size(104, 53);
             button1.TabIndex = 2;
@@ -119,7 +122,7 @@
             // 
             // btn_luu
             // 
-            btn_luu.Location = new Point(57, 203);
+            btn_luu.Location = new Point(57, 331);
             btn_luu.Name = "btn_luu";
             btn_luu.Size = new Size(104, 53);
             btn_luu.TabIndex = 2;
@@ -138,7 +141,7 @@
             // 
             // btn_chonhinh
             // 
-            btn_chonhinh.Location = new Point(411, 203);
+            btn_chonhinh.Location = new Point(411, 204);
             btn_chonhinh.Name = "btn_chonhinh";
             btn_chonhinh.Size = new Size(94, 53);
             btn_chonhinh.TabIndex = 4;
@@ -146,11 +149,38 @@
             btn_chonhinh.UseVisualStyleBackColor = true;
             btn_chonhinh.Click += btn_chonhinh_Click;
             // 
+            // lbl_mota
+            // 
+            lbl_mota.AutoSize = true;
+            lbl_mota.Location = new Point(12, 204);
+            lbl_mota.Name = "lbl_mota";
+            lbl_mota.Size = new Size(51, 20);
+            lbl_mota.TabIndex = 5;
+            lbl_mota.Text = "Mô tả:";
+            // 
+            // rtxt_mota
+            // 
+            rtxt_mota.Location = new Point(116, 201);
+            rtxt_mota.Name = "rtxt_mota";
+            rtxt_mota.Size = new Size(206, 105);
+            rtxt_mota.TabIndex = 6;
+            rtxt_mota.Text = "";
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(334, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(10, 393);
+            panel1.TabIndex = 7;
+            // 
             // frm_NhapLieu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(588, 268);
+            ClientSize = new Size(588, 396);
+            Controls.Add(panel1);
+            Controls.Add(rtxt_mota);
+            Controls.Add(lbl_mota);
             Controls.Add(btn_chonhinh);
             Controls.Add(ptr_chonhinh);
             Controls.Add(button1);
@@ -185,5 +215,8 @@
         private Button btn_luu;
         private PictureBox ptr_chonhinh;
         private Button btn_chonhinh;
+        private Label lbl_mota;
+        private RichTextBox rtxt_mota;
+        private Panel panel1;
     }
 }
