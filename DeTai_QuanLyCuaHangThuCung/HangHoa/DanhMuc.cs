@@ -67,14 +67,8 @@ namespace DeTai_QuanLyCuaHangThuCung
 
                             cmd.ExecuteNonQuery();
                         }
-                        cn.Close();
-
                         ketnoicsdl();
-
-                        MessageBox.Show("Mã sản phẩm: " + maSP +
-                            "\nTên sản phẩm: " + tenSP +
-                            "\nGiá sản phẩm: " + giaSP +
-                            "\nLoại sản phẩm: " + loaiSP, "=== Thêm thông tin ===");
+                        cn.Close();
                     }
                     catch (Exception) { }
                 }

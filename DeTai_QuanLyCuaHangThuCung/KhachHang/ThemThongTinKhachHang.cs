@@ -25,7 +25,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         }
 
         // Chuỗi kết nối cơ sở dữ liệu
-        private string cstr = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=QuanLyBanHangPETS;Integrated Security=True;TrustServerCertificate=True";
+        private string cstr = @"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
 
         // Phương thức kiểm tra kết nối cơ sở dữ liệu
         private void TestConnection()
@@ -143,7 +143,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void TaoMaKhachHang()
         {
             // Tạo mã khách hàng theo định dạng KH******
-            string maKhachHang = "KH" + GenerateRandomNumberString(6);
+            string maKhachHang = "KH" + GenerateRandomNumberString(2);
             txtMaKH.Text = maKhachHang;
         }
 

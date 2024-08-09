@@ -23,30 +23,28 @@ go
 ---------------------------------------------
 -- NHANVIEN
 CREATE TABLE NHANVIEN(
-	MANV	char(4) not null,	
+	MANV	char(4) not null primary key,	
 	HOTEN	varchar(40),
 	SODT	varchar(20),
-	NGVL	smalldatetime	
-	constraint pk_nv primary key(MANV)
+	NGVL	datetime
 )
 go
 ---------------------------------------------
 -- SANPHAM
 CREATE TABLE SANPHAM(
-	MASP	char(4) not null,
+	MASP	char(4) not null primary key,
 	TENSP	varchar(40),
 	GIA		money,
 	LOAI	varchar(20),
 	HINH	VARBINARY(MAX),
 	MOTA	nvarchar(250),
-	constraint pk_sp primary key(MASP)	
 )
 go
 
 CREATE TABLE KHO(
 	MAPK	char(4) not null primary key,
 	MASP	char(4) not null foreign key references SANPHAM(MASP),
-	NGAYNHAP smalldatetime,
+	NGAYNHAP datetime,
 	SLHETHONG int,
 	SLTHUCTE int,
 	GHICHU nvarchar(50),
@@ -92,6 +90,15 @@ insert into SANPHAM values
 ('SP03','Vien bi','90000','Do Choi',null, null),
 ('SP04','Cat dau nanh','120000','Cat',null, null)
 go
+
+--KHO
+INSERT INTO KHO (MAPK, MASP, NGAYNHAP, SLHETHONG, SLTHUCTE, GHICHU, TRANGTHAI, MANV) VALUES
+('PK01', 'SP01', GETDATE(), 10, 9, N'Nhập kho lần đầu', N'Lệch kho', 'NV01'),
+('PK02', 'SP02', GETDATE(), 10, 10, N'Nhập kho lần đầu', N'Đủ', 'NV02');
+go
+INSERT INTO KHO (MAPK, MASP, NGAYNHAP, SLTHUCTE, GHICHU, TRANGTHAI, MANV) VALUES
+('PK03', 'SP03', GETDATE(), 9, N'Nhập kho lần đầu', N'Lệch kho', 'NV03')
+
 -- NHANVIEN
 insert into nhanvien values('NV01','Nguyen Hoang Minh','','16/04/2004')
 insert into nhanvien values('NV02','Ngo Tien Toi','','21/04/2004')
@@ -99,8 +106,9 @@ insert into nhanvien values('NV03','Chu The Truong','','27/04/2004')
 insert into nhanvien values('NV04','Do Trung Tin','','24/06/2004')
 go
 
--- Thêm các loại khách hàng vào bảng LoaiKhachHang
+-- LoaiKhachHang
 INSERT INTO LoaiKhachHang (MaLoaiKH, TenLoaiKH) VALUES (1, N'Khách hàng mới');
 INSERT INTO LoaiKhachHang (MaLoaiKH, TenLoaiKH) VALUES (2, N'Khách hàng thân thiết');
 INSERT INTO LoaiKhachHang (MaLoaiKH, TenLoaiKH) VALUES (3, N'Khách hàng VIP')
 go
+

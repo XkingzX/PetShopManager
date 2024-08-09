@@ -130,7 +130,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
         }
 
         // Chuỗi kết nối cơ sở dữ liệu
-        private string cstr = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=QuanLyBanHangPETS;Integrated Security=True;TrustServerCertificate=True";
+        private string cstr = @"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
 
 
         // Phương thức kiểm tra kết nối cơ sở dữ liệu

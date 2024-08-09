@@ -31,20 +31,20 @@
             label1 = new Label();
             txt_maPK = new TextBox();
             label2 = new Label();
-            txt_ngaynhap = new TextBox();
             label3 = new Label();
             txt_masp = new TextBox();
             label4 = new Label();
-            txt_loaisp = new TextBox();
+            txt_soluongtt = new TextBox();
             button1 = new Button();
             btn_luu = new Button();
             lbl_mota = new Label();
-            rtxt_mota = new RichTextBox();
+            rtxt_ghichu = new RichTextBox();
             label5 = new Label();
             ckb_layngay = new CheckBox();
             label6 = new Label();
             txt_ngaynhaptudong = new TextBox();
             txt_nguoitao = new TextBox();
+            dtp_ngaynhap = new DateTimePicker();
             SuspendLayout();
             // 
             // label1
@@ -72,13 +72,6 @@
             label2.TabIndex = 0;
             label2.Text = "Ngày nhập";
             // 
-            // txt_ngaynhap
-            // 
-            txt_ngaynhap.Location = new Point(137, 104);
-            txt_ngaynhap.Name = "txt_ngaynhap";
-            txt_ngaynhap.Size = new Size(170, 27);
-            txt_ngaynhap.TabIndex = 1;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -104,12 +97,12 @@
             label4.TabIndex = 0;
             label4.Text = "Số lượng thực tế";
             // 
-            // txt_loaisp
+            // txt_soluongtt
             // 
-            txt_loaisp.Location = new Point(137, 151);
-            txt_loaisp.Name = "txt_loaisp";
-            txt_loaisp.Size = new Size(206, 27);
-            txt_loaisp.TabIndex = 1;
+            txt_soluongtt.Location = new Point(137, 151);
+            txt_soluongtt.Name = "txt_soluongtt";
+            txt_soluongtt.Size = new Size(206, 27);
+            txt_soluongtt.TabIndex = 1;
             // 
             // button1
             // 
@@ -140,13 +133,13 @@
             lbl_mota.TabIndex = 5;
             lbl_mota.Text = "Ghi chú:";
             // 
-            // rtxt_mota
+            // rtxt_ghichu
             // 
-            rtxt_mota.Location = new Point(137, 201);
-            rtxt_mota.Name = "rtxt_mota";
-            rtxt_mota.Size = new Size(206, 105);
-            rtxt_mota.TabIndex = 6;
-            rtxt_mota.Text = "";
+            rtxt_ghichu.Location = new Point(137, 201);
+            rtxt_ghichu.Name = "rtxt_ghichu";
+            rtxt_ghichu.Size = new Size(206, 105);
+            rtxt_ghichu.TabIndex = 6;
+            rtxt_ghichu.Text = "";
             // 
             // label5
             // 
@@ -165,6 +158,7 @@
             ckb_layngay.Size = new Size(18, 17);
             ckb_layngay.TabIndex = 7;
             ckb_layngay.UseVisualStyleBackColor = true;
+            ckb_layngay.CheckedChanged += ckb_layngay_CheckedChanged;
             // 
             // label6
             // 
@@ -189,23 +183,31 @@
             txt_nguoitao.Size = new Size(170, 27);
             txt_nguoitao.TabIndex = 1;
             // 
+            // dtp_ngaynhap
+            // 
+            dtp_ngaynhap.Location = new Point(137, 102);
+            dtp_ngaynhap.Margin = new Padding(3, 4, 3, 4);
+            dtp_ngaynhap.Name = "dtp_ngaynhap";
+            dtp_ngaynhap.Size = new Size(173, 27);
+            dtp_ngaynhap.TabIndex = 8;
+            // 
             // frm_NhapKho
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(620, 396);
+            Controls.Add(dtp_ngaynhap);
             Controls.Add(ckb_layngay);
-            Controls.Add(rtxt_mota);
+            Controls.Add(rtxt_ghichu);
             Controls.Add(lbl_mota);
             Controls.Add(button1);
             Controls.Add(btn_luu);
-            Controls.Add(txt_loaisp);
+            Controls.Add(txt_soluongtt);
             Controls.Add(label4);
             Controls.Add(txt_masp);
             Controls.Add(label3);
             Controls.Add(txt_nguoitao);
             Controls.Add(txt_ngaynhaptudong);
-            Controls.Add(txt_ngaynhap);
             Controls.Add(label6);
             Controls.Add(label2);
             Controls.Add(label5);
@@ -223,19 +225,19 @@
         private Label label1;
         private TextBox txt_maPK;
         private Label label2;
-        private TextBox txt_ngaynhap;
         private Label label3;
         private TextBox txt_masp;
         private Label label4;
-        private TextBox txt_loaisp;
+        private TextBox txt_soluongtt;
         private Button button1;
         private Button btn_luu;
         private Label lbl_mota;
-        private RichTextBox rtxt_mota;
+        private RichTextBox rtxt_ghichu;
         private Label label5;
         private CheckBox ckb_layngay;
         private Label label6;
         private TextBox txt_ngaynhaptudong;
         private TextBox txt_nguoitao;
+        private DateTimePicker dtp_ngaynhap;
     }
 }

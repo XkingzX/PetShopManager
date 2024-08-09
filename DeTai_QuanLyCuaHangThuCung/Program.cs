@@ -1,4 +1,5 @@
 using DeTai_QuanLyCuaHangThuCung.HangHoa;
+using DeTai_QuanLyCuaHangThuCung.QuanLyKH;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {

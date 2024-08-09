@@ -125,6 +125,7 @@
             btn_them.TabIndex = 1;
             btn_them.Text = "Thêm";
             btn_them.UseVisualStyleBackColor = true;
+            btn_them.Click += btn_them_Click;
             // 
             // btn_xoa
             // 
@@ -134,6 +135,7 @@
             btn_xoa.TabIndex = 1;
             btn_xoa.Text = "Xóa";
             btn_xoa.UseVisualStyleBackColor = true;
+            btn_xoa.Click += btn_xoa_Click;
             // 
             // btn_sua
             // 
@@ -143,6 +145,7 @@
             btn_sua.TabIndex = 1;
             btn_sua.Text = "Sửa";
             btn_sua.UseVisualStyleBackColor = true;
+            btn_sua.Click += btn_sua_Click;
             // 
             // gr_thongtin
             // 

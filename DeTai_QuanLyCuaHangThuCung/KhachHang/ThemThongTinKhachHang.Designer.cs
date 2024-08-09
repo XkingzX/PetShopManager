@@ -406,9 +406,8 @@
             label6.ForeColor = SystemColors.ControlDark;
             label6.Location = new Point(143, 11);
             label6.Name = "label6";
-            label6.Size = new Size(216, 20);
+            label6.Size = new Size(0, 20);
             label6.TabIndex = 13;
-            label6.Text = "| Chi nhánh tạo: PETS CORNER2";
             // 
             // label7
             // 
