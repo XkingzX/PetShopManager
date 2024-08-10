@@ -1,4 +1,5 @@
 ﻿using DeTai_QuanLyCuaHangThuCung.HangHoa;
+using DeTai_QuanLyCuaHangThuCung.QuanLyKH;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {
@@ -44,11 +45,22 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         private void Trangchu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn thoát không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
-                Application.Exit();
+                DialogResult result = MessageBox.Show("Bạn có muốn thoát không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
+        }
+
+        private void mn_thongtinkhachhang_Click(object sender, EventArgs e)
+        {
+            frmKhachHang frm = new frmKhachHang();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
         }
     }
 

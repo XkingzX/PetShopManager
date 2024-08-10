@@ -135,6 +135,7 @@
             mn_thongtinkhachhang.Name = "mn_thongtinkhachhang";
             mn_thongtinkhachhang.Size = new Size(242, 26);
             mn_thongtinkhachhang.Text = "Thông Tin Khách Hàng";
+            mn_thongtinkhachhang.Click += mn_thongtinkhachhang_Click;
             // 
             // mn_baocao
             // 

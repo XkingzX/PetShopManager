@@ -95,6 +95,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                     else
                     {
                         MessageBox.Show("Ngày nhập không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                     cmd.Parameters.AddWithValue("@MAPK", maPK);
                     cmd.Parameters.AddWithValue("@MASP", maSP);

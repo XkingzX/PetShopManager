@@ -294,5 +294,10 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtTimKiem_Click(object sender, EventArgs e)
+        {
+            txtTimKiem.Clear();
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             InitializeComponent();
             this.mahd1 = mahd1;
         }
-        protected string sqlhoadon = @"Data Source=HOAGGMINH\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True";
+        protected string sqlhoadon = @"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
         protected SqlConnection cn;
         protected SqlCommand cm;
         public DataTable dt;

@@ -13,7 +13,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 {
     public partial class MuaHang : Form
     {
-        protected string cnstr = "Data Source=HOAGGMINH\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True";
+        protected string cnstr = @"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
         protected SqlConnection cn;
         protected SqlCommand cm;
         public DataTable dt;

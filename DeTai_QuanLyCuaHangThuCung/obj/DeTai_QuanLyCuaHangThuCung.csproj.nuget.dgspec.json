@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\ngoti\\.nuget\\packages\\",
         "outputPath": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\obj\\",
         "projectStyle": "PackageReference",
+        "crossTargeting": true,
         "configFilePaths": [
           "C:\\Users\\ngoti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -48,7 +49,7 @@
           "dependencies": {
             "Microsoft.ReportingServices.ReportViewerControl.Winforms": {
               "target": "Package",
-              "version": "[150.900.148, )"
+              "version": "[150.1652.0, )"
             },
             "Microsoft.SqlServer.Server": {
               "target": "Package",

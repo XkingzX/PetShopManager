@@ -16,5 +16,11 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             InitializeComponent();
         }
+
+        private void insanpham_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

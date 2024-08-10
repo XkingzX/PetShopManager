@@ -79,10 +79,6 @@ D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\Microsoft.ReportViewer.Common.resources.dll
-D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\Microsoft.ReportViewer.DataVisualization.resources.dll
-D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\Microsoft.ReportViewer.Design.resources.dll
-D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\Microsoft.SqlServer.Server.dll
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\de\Microsoft.SqlServer.Types.resources.dll
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\es\Microsoft.SqlServer.Types.resources.dll
@@ -96,5 +92,5 @@ D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\runtimes\win-x64\native\SqlServerSpatial160.dll
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\net8.0-windows\runtimes\win-x86\native\SqlServerSpatial160.dll
-D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\net8.0-windows\DeTai_QuanLyCuaHangThuCung.insanpham.resources
 D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\net8.0-windows\DeTai_QuanLyCuaHangThuCung.frm_NhapKho.resources
+D:\Bai Tap\Lap Trinh .Net\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\net8.0-windows\DeTai_QuanLyCuaHangThuCung.insanpham.resources

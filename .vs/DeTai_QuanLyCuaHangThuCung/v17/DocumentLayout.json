@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E476F77E-9514-4F50-BE15-108100D9CAFD}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|d:\\bai tap\\lap trinh .net\\detai_quanlycuahangthucung\\detai_quanlycuahangthucung\\nhapkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E476F77E-9514-4F50-BE15-108100D9CAFD}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|solutionrelative:detai_quanlycuahangthucung\\nhapkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E476F77E-9514-4F50-BE15-108100D9CAFD}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|d:\\bai tap\\lap trinh .net\\detai_quanlycuahangthucung\\detai_quanlycuahangthucung\\khachhang\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E476F77E-9514-4F50-BE15-108100D9CAFD}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|solutionrelative:detai_quanlycuahangthucung\\khachhang\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E476F77E-9514-4F50-BE15-108100D9CAFD}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|d:\\bai tap\\lap trinh .net\\detai_quanlycuahangthucung\\detai_quanlycuahangthucung\\hanghoa\\kiemkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E476F77E-9514-4F50-BE15-108100D9CAFD}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|solutionrelative:detai_quanlycuahangthucung\\hanghoa\\kiemkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E476F77E-9514-4F50-BE15-108100D9CAFD}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|d:\\bai tap\\lap trinh .net\\detai_quanlycuahangthucung\\detai_quanlycuahangthucung\\nhapkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E476F77E-9514-4F50-BE15-108100D9CAFD}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|solutionrelative:detai_quanlycuahangthucung\\nhapkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E476F77E-9514-4F50-BE15-108100D9CAFD}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|d:\\bai tap\\lap trinh .net\\detai_quanlycuahangthucung\\detai_quanlycuahangthucung\\khachhang\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E476F77E-9514-4F50-BE15-108100D9CAFD}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|solutionrelative:detai_quanlycuahangthucung\\khachhang\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +18,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "NhapKho.cs",
-              "DocumentMoniker": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\NhapKho.cs",
-              "RelativeDocumentMoniker": "DeTai_QuanLyCuaHangThuCung\\NhapKho.cs",
-              "ToolTip": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\NhapKho.cs",
-              "RelativeToolTip": "DeTai_QuanLyCuaHangThuCung\\NhapKho.cs",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAwwGcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T18:48:28.848Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "KiemKho.cs",
-              "DocumentMoniker": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\HangHoa\\KiemKho.cs",
-              "RelativeDocumentMoniker": "DeTai_QuanLyCuaHangThuCung\\HangHoa\\KiemKho.cs",
-              "ToolTip": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\HangHoa\\KiemKho.cs",
-              "RelativeToolTip": "DeTai_QuanLyCuaHangThuCung\\HangHoa\\KiemKho.cs",
-              "ViewState": "AQIAALMAAAAAAAAAAAAwwL8AAAAuAAAA",
+              "Title": "KhachHang.cs",
+              "DocumentMoniker": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\KhachHang\\KhachHang.cs",
+              "RelativeDocumentMoniker": "DeTai_QuanLyCuaHangThuCung\\KhachHang\\KhachHang.cs",
+              "ToolTip": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\KhachHang\\KhachHang.cs",
+              "RelativeToolTip": "DeTai_QuanLyCuaHangThuCung\\KhachHang\\KhachHang.cs",
+              "ViewState": "AQIAACgBAAAAAAAAAAAQwCwBAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T17:18:05.949Z",
+              "WhenOpened": "2024-08-10T13:25:35.184Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NhapKho.cs [Design]",
-              "DocumentMoniker": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\NhapKho.cs",
-              "RelativeDocumentMoniker": "DeTai_QuanLyCuaHangThuCung\\NhapKho.cs",
-              "ToolTip": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\NhapKho.cs [Design]",
-              "RelativeToolTip": "DeTai_QuanLyCuaHangThuCung\\NhapKho.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "KhachHang.cs [Design]",
+              "DocumentMoniker": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\KhachHang\\KhachHang.cs",
+              "RelativeDocumentMoniker": "DeTai_QuanLyCuaHangThuCung\\KhachHang\\KhachHang.cs",
+              "ToolTip": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\KhachHang\\KhachHang.cs [Design]",
+              "RelativeToolTip": "DeTai_QuanLyCuaHangThuCung\\KhachHang\\KhachHang.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T17:00:16.134Z",
+              "WhenOpened": "2024-08-10T13:11:35.649Z",
               "EditorCaption": " [Design]"
             }
           ]
