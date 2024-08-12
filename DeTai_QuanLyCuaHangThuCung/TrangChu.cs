@@ -135,14 +135,6 @@ namespace DeTai_QuanLyCuaHangThuCung
             frm.Show();
         }
 
-        private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MuaHang frm = new MuaHang();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
         private void mn_chitiethoadon_Click(object sender, EventArgs e)
         {
             ChiTietHoaDon frm = new ChiTietHoaDon();
@@ -162,6 +154,14 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void mn_dscthd_Click(object sender, EventArgs e)
         {
             FormDSCTHD frm = new FormDSCTHD();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void mn_muahang_Click(object sender, EventArgs e)
+        {
+            MuaHang frm = new MuaHang();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();
