@@ -1,5 +1,4 @@
-﻿using DeTai_QuanLyCuaHangThuCung.QuanLyKH;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,30 +8,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Input;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {
     public partial class ThemThongTinKhachHang : Form
     {
+        private string maKhachHang;
 
         public ThemThongTinKhachHang(string maKhachHang)
         {
             InitializeComponent();
             LoadTinh();
             TaoMaKhachHang();
+            this.maKhachHang = maKhachHang;
             LoadKhachHang(maKhachHang);
-            if (!string.IsNullOrEmpty(maKhachHang))
-            {
-                LoadKhachHang(maKhachHang);
-            }
-            dtpNgayDK.Value = DateTime.Now;
-            dtpNgayDK.Enabled = true; // Không cho phép chỉnh sửa ngày tạo
         }
 
         // Chuỗi kết nối cơ sở dữ liệu
         private string cstr = @"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
-                
+
+        // Phương thức kiểm tra kết nối cơ sở dữ liệu
+        private void TestConnection()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(cstr))
+                {
+                    connection.Open();
+                    MessageBox.Show("Kết nối thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kết nối thất bại: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         // Dữ liệu về tỉnh, huyện và xã
         private Dictionary<string, Dictionary<string, List<string>>> data = new Dictionary<string, Dictionary<string, List<string>>>()
         {
@@ -65,34 +76,31 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void LoadTinh()
         {
             cbxTinh.Items.Clear();
-            foreach (var Tinh in data.Keys)
+            foreach (var province in data.Keys)
             {
-                cbxTinh.Items.Add(Tinh);
+                cbxTinh.Items.Add(province);
             }
         }
 
         // Sự kiện khi thay đổi tỉnh
         private void cbxTinh_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedTinh = cbxTinh.SelectedItem.ToString();
-            if (selectedTinh != null)
-            {
-                LoadHuyenQuan(selectedTinh);
-            }
+            var selectedProvince = cbxTinh.SelectedItem.ToString();
+            LoadPhuongHuyen(selectedProvince);
         }
 
         // Phương thức tải dữ liệu huyện/phường
-        private void LoadHuyenQuan(string Tinh)
+        private void LoadPhuongHuyen(string province)
         {
             cbxHuyenQuan.Items.Clear();
             cbxPhuongXa.Items.Clear();
             cbxPhuongXa.Enabled = false;
 
-            if (data.TryGetValue(Tinh, out var HuyenQuanS))
+            if (data.ContainsKey(province))
             {
-                foreach (var HuyenQuan in HuyenQuanS.Keys)
+                foreach (var district in data[province].Keys)
                 {
-                    cbxHuyenQuan.Items.Add(HuyenQuan);
+                    cbxHuyenQuan.Items.Add(district);
                 }
                 cbxHuyenQuan.Enabled = true;
             }
@@ -101,24 +109,21 @@ namespace DeTai_QuanLyCuaHangThuCung
         // Sự kiện khi thay đổi huyện/quận
         private void cbxHuyenQuan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedTinh = cbxTinh.SelectedItem.ToString();
-            var selectedHuyenQuan = cbxHuyenQuan.SelectedItem.ToString();
-            if (selectedTinh != null)
-            {
-                LoadPhuongXa(selectedTinh, selectedHuyenQuan);
-            }
+            var selectedProvince = cbxTinh.SelectedItem.ToString();
+            var selectedDistrict = cbxHuyenQuan.SelectedItem.ToString();
+            LoadPhuongXa(selectedProvince, selectedDistrict);
         }
 
         // Phương thức tải dữ liệu phường/xã
-        private void LoadPhuongXa(string Tinh, string HuyenQuan)
+        private void LoadPhuongXa(string province, string district)
         {
             cbxPhuongXa.Items.Clear();
 
-            if (data.TryGetValue(Tinh, out var HuyenQuanS) && HuyenQuanS.TryGetValue(HuyenQuan, out var PhuongXaS))
+            if (data.ContainsKey(province) && data[province].ContainsKey(district))
             {
-                foreach (var PhuongXa in PhuongXaS)
+                foreach (var ward in data[province][district])
                 {
-                    cbxPhuongXa.Items.Add(PhuongXa);
+                    cbxPhuongXa.Items.Add(ward);
                 }
                 cbxPhuongXa.Enabled = true;
             }
@@ -138,60 +143,50 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void TaoMaKhachHang()
         {
             // Tạo mã khách hàng theo định dạng KH******
-            txtMaKH.Text = "KH" + ChuoiSoNgauNhienMaKH(2);
+            string maKhachHang = "KH" + GenerateRandomNumberString(2);
+            txtMaKH.Text = maKhachHang;
         }
 
         // Phương thức tạo chuỗi số ngẫu nhiên
-        private string ChuoiSoNgauNhienMaKH(int length)
+        private string GenerateRandomNumberString(int length)
         {
             Random random = new Random();
             char[] stringChars = new char[length];
+
             for (int i = 0; i < length; i++)
             {
                 stringChars[i] = (char)('0' + random.Next(10));
             }
+
             return new string(stringChars);
         }
-
-        public event EventHandler DaHuy;
 
         // Sự kiện khi nhấn nút bỏ qua
         private void btnBoQua_Click(object sender, EventArgs e)
         {
-            DaHuy?.Invoke(this, EventArgs.Empty);
             this.Close();
         }
 
+        // Sự kiện khi form load
         private void ThemThongTinKhachHang_Load(object sender, EventArgs e)
         {
-            
+            TestConnection();
         }
 
         // Sự kiện khi nhấn nút lưu
         private void btnLua_Click(object sender, EventArgs e)
         {
-            if (KiemTraForm())
-            {
-                LuuThongTinKhachHang();
-            }
-
-
-        }
-
-        // Phương thức kiểm tra tính hợp lệ của form
-        private bool KiemTraForm()
-        {
             if (string.IsNullOrWhiteSpace(txtMaKH.Text) ||
-            string.IsNullOrWhiteSpace(txtTenKH.Text) ||
-            string.IsNullOrWhiteSpace(txtDienThoai.Text) ||
-            cbxTinh.SelectedItem == null ||
-            cbxHuyenQuan.SelectedItem == null ||
-            cbxPhuongXa.SelectedItem == null)
+                string.IsNullOrWhiteSpace(txtTenKH.Text) ||
+                string.IsNullOrWhiteSpace(txtDienThoai.Text) ||
+                cbxTinh.SelectedItem == null ||
+                cbxHuyenQuan.SelectedItem == null ||
+                cbxPhuongXa.SelectedItem == null)
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
+                return;
             }
-            return true;
+            LuuThongTinKhachHang();
         }
 
         public delegate void KhachHangAddedEventHandler(object sender, EventArgs e);
@@ -221,10 +216,6 @@ namespace DeTai_QuanLyCuaHangThuCung
                                 {
                                     dtpNgaySinh.Value = (DateTime)reader["NGSINH"];
                                 }
-                                if (reader["NGDK"] != DBNull.Value)
-                                {
-                                    dtpNgayDK.Value = (DateTime)reader["NGDK"];
-                                }
                                 txtDiaChi.Text = reader["DIACHI"].ToString();
                                 cbxTinh.SelectedItem = reader["TINH"].ToString();
                                 cbxHuyenQuan.SelectedItem = reader["HUYEN"].ToString();
@@ -249,8 +240,6 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
         }
 
-        public event EventHandler KhachHangUpdated;
-
         // Phương thức lưu thông tin khách hàng
         private void LuuThongTinKhachHang()
         {
@@ -259,15 +248,22 @@ namespace DeTai_QuanLyCuaHangThuCung
                 using (SqlConnection connection = new SqlConnection(cstr))
                 {
                     connection.Open();
-                    string query = KiemTraTonTaiKH(txtMaKH.Text) ?
-                        @"UPDATE KHACHHANG 
-                      SET HOTEN = @TenKH, SODT = @SoDienThoai, NGSINH = @NgaySinh, DIACHI = @DiaChi, 
-                          TINH = @Tinh, HUYEN = @Huyen, XA = @Xa, LOAIKH = @LoaiKhachHang, EMAIL = @Email ,NGDK =@NgayDK
-                      WHERE MAKH = @MaKH" :
-                        @"INSERT INTO KHACHHANG 
-                      (MAKH, HOTEN, SODT, NGSINH,NGDK, DIACHI, TINH, HUYEN, XA, LOAIKH, EMAIL) 
-                      VALUES 
-                      (@MaKH, @TenKH, @SoDienThoai, @NgaySinh, @DiaChi, @Tinh, @Huyen, @Xa, @LoaiKhachHang, @Email,@NgayDK)";
+
+                    string query;
+                    if (KhachHangExists(txtMaKH.Text))
+                    {
+                        query = @"UPDATE KHACHHANG 
+                          SET HOTEN = @TenKH, SODT = @SoDienThoai, NGSINH = @NgaySinh, DIACHI = @DiaChi, 
+                              TINH = @Tinh, HUYEN = @Huyen, XA = @Xa, LOAIKH = @LoaiKhachHang, EMAIL = @Email 
+                          WHERE MAKH = @MaKH";
+                    }
+                    else
+                    {
+                        query = @"INSERT INTO KHACHHANG 
+                          (MAKH, HOTEN, SODT, NGSINH, DIACHI, TINH, HUYEN, XA, LOAIKH, EMAIL) 
+                          VALUES 
+                          (@MaKH, @TenKH, @SoDienThoai, @NgaySinh, @DiaChi, @Tinh, @Huyen, @Xa, @LoaiKhachHang, @Email)";
+                    }
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -275,7 +271,6 @@ namespace DeTai_QuanLyCuaHangThuCung
                         command.Parameters.AddWithValue("@TenKH", txtTenKH.Text);
                         command.Parameters.AddWithValue("@SoDienThoai", txtDienThoai.Text);
                         command.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value);
-                        command.Parameters.AddWithValue("@NgayDK", dtpNgayDK.Value);
                         command.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
                         command.Parameters.AddWithValue("@Tinh", cbxTinh.SelectedItem.ToString());
                         command.Parameters.AddWithValue("@Huyen", cbxHuyenQuan.SelectedItem.ToString());
@@ -288,20 +283,20 @@ namespace DeTai_QuanLyCuaHangThuCung
                 }
 
                 MessageBox.Show("Lưu thông tin khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                KhachHangUpdated?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         // Phương thức kiểm tra tồn tại khách hàng
-        private bool KiemTraTonTaiKH(string maKhachHang)
+        private bool KhachHangExists(string maKhachHang)
         {
             using (SqlConnection connection = new SqlConnection(cstr))
             {
                 connection.Open();
+
                 string query = "SELECT COUNT(*) FROM KHACHHANG WHERE MAKH = @MaKH";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -311,8 +306,8 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
         }
 
+        // Tạo biến toàn cục để lưu trữ đường dẫn ảnh đã chọn (nếu cần)
         private string selectedImagePath;
-        private string maKhachHang;
 
         // Sự kiện khi nhấn nút chọn ảnh
         private void btnChonAnh_Click(object sender, EventArgs e)
@@ -333,5 +328,29 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
         }
 
+        // Sự kiện khi nhấn nút lưu
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (ValidateForm())
+            {
+                LuuThongTinKhachHang();
+            }
+        }
+
+        // Phương thức kiểm tra tính hợp lệ của form
+        private bool ValidateForm()
+        {
+            if (string.IsNullOrWhiteSpace(txtMaKH.Text) ||
+        string.IsNullOrWhiteSpace(txtTenKH.Text) ||
+        string.IsNullOrWhiteSpace(txtDienThoai.Text) ||
+        cbxTinh.SelectedItem == null ||
+        cbxHuyenQuan.SelectedItem == null ||
+        cbxPhuongXa.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
     }
 }

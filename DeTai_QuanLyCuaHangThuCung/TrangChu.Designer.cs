@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
             mn_tongquan = new ToolStripMenuItem();
             mn_hanghoa = new ToolStripMenuItem();
             mn_danhmuc = new ToolStripMenuItem();
@@ -44,18 +43,13 @@
             mn_baocao = new ToolStripMenuItem();
             mn_banonline = new ToolStripMenuItem();
             mn_nhanvien = new ToolStripMenuItem();
+            mn_thongtinnv = new ToolStripMenuItem();
+            menuStrip1 = new MenuStrip();
+            mnTen = new ToolStripMenuItem();
+            mnTTCN = new ToolStripMenuItem();
+            mnDangXuat = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { mn_tongquan, mn_hanghoa, mn_giaodich, đơnHàngToolStripMenuItem, mn_khachhang, mn_baocao, mn_banonline, mn_nhanvien });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1018, 28);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
             // 
             // mn_tongquan
             // 
@@ -151,9 +145,54 @@
             // 
             // mn_nhanvien
             // 
+            mn_nhanvien.DropDownItems.AddRange(new ToolStripItem[] { mn_thongtinnv });
             mn_nhanvien.Name = "mn_nhanvien";
             mn_nhanvien.Size = new Size(91, 24);
             mn_nhanvien.Text = "Nhân Viên";
+            mn_nhanvien.Click += mn_nhanvien_Click;
+            // 
+            // mn_thongtinnv
+            // 
+            mn_thongtinnv.Name = "mn_thongtinnv";
+            mn_thongtinnv.Size = new Size(230, 26);
+            mn_thongtinnv.Text = "Thông Tin Nhân Viên";
+            mn_thongtinnv.Click += mn_thongtinnv_Click;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { mn_tongquan, mn_hanghoa, mn_giaodich, đơnHàngToolStripMenuItem, mn_khachhang, mn_banonline, mn_baocao, mn_nhanvien, mnTen });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new Padding(6, 3, 0, 3);
+            menuStrip1.Size = new Size(1018, 30);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
+            // 
+            // mnTen
+            // 
+            mnTen.Alignment = ToolStripItemAlignment.Right;
+            mnTen.DropDownItems.AddRange(new ToolStripItem[] { mnTTCN, mnDangXuat });
+            mnTen.Name = "mnTen";
+            mnTen.Size = new Size(67, 24);
+            mnTen.Text = "mnTen";
+            mnTen.TextAlign = ContentAlignment.MiddleRight;
+            mnTen.Click += toolStripMenuItem1_Click;
+            // 
+            // mnTTCN
+            // 
+            mnTTCN.Name = "mnTTCN";
+            mnTTCN.Size = new Size(224, 26);
+            mnTTCN.Text = "Thông Tin Cá Nhân";
+            mnTTCN.Click += mn_TTCNMenuItem_Click;
+            // 
+            // mnDangXuat
+            // 
+            mnDangXuat.Name = "mnDangXuat";
+            mnDangXuat.Size = new Size(224, 26);
+            mnDangXuat.Text = "Đăng Xuất";
+            mnDangXuat.Click += mnDangXuat_Click;
             // 
             // frm_trangchu
             // 
@@ -161,7 +200,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1018, 534);
+            ClientSize = new Size(1018, 533);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
@@ -169,6 +208,7 @@
             RightToLeft = RightToLeft.No;
             Text = "Cừa Hàng Thú Cưng - Pet Shop";
             FormClosing += Trangchu_FormClosing;
+            Load += frm_trangchu_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -177,21 +217,25 @@
 
         #endregion
 
-        private MenuStrip menuStrip1;
         private ToolStripMenuItem mn_tongquan;
         private ToolStripMenuItem mn_hanghoa;
-        private ToolStripMenuItem mn_giaodich;
-        private ToolStripMenuItem mn_khachhang;
-        private ToolStripMenuItem mn_banonline;
-        private ToolStripMenuItem mn_nhanvien;
         private ToolStripMenuItem mn_danhmuc;
         private ToolStripMenuItem mn_kiemkho;
+        private ToolStripMenuItem mn_giaodich;
         private ToolStripMenuItem mn_hoadon;
         private ToolStripMenuItem mn_nhaphang;
         private ToolStripMenuItem mn_trahang;
         private ToolStripMenuItem mn_chuyenhang;
+        private ToolStripMenuItem đơnHàngToolStripMenuItem;
+        private ToolStripMenuItem mn_khachhang;
         private ToolStripMenuItem mn_thongtinkhachhang;
         private ToolStripMenuItem mn_baocao;
-        private ToolStripMenuItem đơnHàngToolStripMenuItem;
+        private ToolStripMenuItem mn_banonline;
+        private ToolStripMenuItem mn_nhanvien;
+        private ToolStripMenuItem mn_thongtinnv;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem mnTen;
+        private ToolStripMenuItem mnDangXuat;
+        private ToolStripMenuItem mnTTCN;
     }
 }

@@ -24,7 +24,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void ketnoicsdl()
         {
             cn.Open();
-            string sql = "select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá', LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA from SANPHAM";
+            string sql = "select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá', SLHETHONG, LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA from SANPHAM";
             SqlCommand cmd = new SqlCommand(sql, cn);
             cmd.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -35,6 +35,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             dgv_danhmucsp.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_danhmucsp.Columns["Hình Sản Phẩm"].Visible = false;
             dgv_danhmucsp.Columns["MOTA"].Visible = false;
+            dgv_danhmucsp.Columns["SLHETHONG"].Visible = false;
         }
 
         private void frm_danhmuc_Load(object sender, EventArgs e)
@@ -52,16 +53,18 @@ namespace DeTai_QuanLyCuaHangThuCung
                 {
                     string maSP = frm.maSP;
                     string tenSP = frm.tenSP;
+                    int slhethong = frm.slhethong;
                     string giaSP = frm.giaSP;
                     string loaiSP = frm.loaiSP;
                     try
                     {
                         cn.Open();
-                        string query = "INSERT INTO SANPHAM (MASP, TENSP, GIA, LOAI) VALUES (@maSP, @tenSP, @giaSP, @loaiSP)";
+                        string query = "INSERT INTO SANPHAM (MASP, TENSP, SLHETHONG, GIA, LOAI) VALUES (@maSP, @tenSP, @SLHETHONG, @giaSP, @loaiSP)";
                         using (SqlCommand cmd = new SqlCommand(query, cn))
                         {
                             cmd.Parameters.AddWithValue("@maSP", maSP);
                             cmd.Parameters.AddWithValue("@tenSP", tenSP);
+                            cmd.Parameters.AddWithValue("@SLHETHONG", slhethong);
                             cmd.Parameters.AddWithValue("@giaSP", giaSP);
                             cmd.Parameters.AddWithValue("@loaiSP", loaiSP);
 
@@ -136,11 +139,17 @@ namespace DeTai_QuanLyCuaHangThuCung
             {
                 string maSP = dgv_danhmucsp.SelectedRows[0].Cells["Mã Sản Phẩm"].Value.ToString();
                 cn.Open();
-                string query = "DELETE SANPHAM WHERE MASP = @maSP";
+                string query = @"UPDATE KHO SET DaXoa = 1 WHERE MASP = @maSP";
                 using (SqlCommand cmd = new SqlCommand(query, cn))
                 {
                     cmd.Parameters.AddWithValue("@maSP", maSP);
                     cmd.ExecuteNonQuery();
+                }
+                string queryxoa = @"DELETE FROM SANPHAM WHERE MASP = @maSP";
+                using (SqlCommand deleteCmd = new SqlCommand(queryxoa, cn))
+                {
+                    deleteCmd.Parameters.AddWithValue("@maSP", maSP);
+                    deleteCmd.ExecuteNonQuery();
                 }
                 cn.Close();
 
@@ -167,15 +176,18 @@ namespace DeTai_QuanLyCuaHangThuCung
             //?? string.Empty sẽ thay thế giá trị null bằng chuỗi rỗng
             string maSP = row.Cells["Mã Sản Phẩm"].Value?.ToString() ?? string.Empty;
             string tenSP = row.Cells["Tên Sản Phẩm"].Value?.ToString() ?? string.Empty;
+            string slhethongString = row.Cells["SLHETHONG"].Value?.ToString() ?? "0";
+            int slhethong = int.TryParse(slhethongString, out int result) ? result : 0;
             string giaSP = row.Cells["Giá"].Value?.ToString() ?? string.Empty;
             string loaiSP = row.Cells["Loại"].Value?.ToString() ?? string.Empty;
 
-            using (frm_NhapLieu frm = new frm_NhapLieu("Sửa Sản Phẩm", "Lưu", "Edit", maSP, tenSP, giaSP, loaiSP))
+            using (frm_NhapLieu frm = new frm_NhapLieu("Sửa Sản Phẩm", "Lưu", "Edit", maSP, tenSP, slhethong, giaSP, loaiSP))
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     string newMaSP = frm.maSP;
                     string newTenSP = frm.tenSP;
+                    int newslhethong = frm.slhethong;
                     string newGiaSP = frm.giaSP;
                     string newLoaiSP = frm.loaiSP;
 
@@ -202,40 +214,16 @@ namespace DeTai_QuanLyCuaHangThuCung
                 }
             }
         }
-
-        //private void dgv_danhmucsp_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (dgv_danhmucsp.SelectedRows.Count > 0)
-        //        {
-        //            // Lấy hàng được chọn
-        //            DataGridViewRow selectedRow = dgv_danhmucsp.SelectedRows[0];
-        //            cmb_nhomsp.Text = dgv_danhmucsp.SelectedRows[0].Cells[3].Value.ToString();
-        //            Byte[] image = selectedRow.Cells[4].Value as byte[];
-        //            if (image == null || image.Length == 0)
-        //            {
-        //                ptr_hinhsanpham.Image = null;
-        //            }
-        //            else
-        //            {
-        //                using (var stream = new MemoryStream(image))
-        //                {
-        //                    ptr_hinhsanpham.Image = Image.FromStream(stream);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch { }
-        //}
         private void dgv_danhmucsp_Click(object sender, EventArgs e)
         {
             try
             {
                 if (dgv_danhmucsp.SelectedRows.Count > 0)
                 {
-                    cmb_nhomsp.Text = dgv_danhmucsp.SelectedRows[0].Cells[3].Value.ToString();
+                    cmb_nhomsp.Text = dgv_danhmucsp.SelectedRows[0].Cells[4].Value.ToString();
                     lbl_motasp.Text = "Mô tả: " + dgv_danhmucsp.SelectedRows[0].Cells[5].Value.ToString();
+                    lbl_soluong.Text = "Số lượng: " + dgv_danhmucsp.SelectedRows[0].Cells[3].Value.ToString();
+                    lbl_tongkho.Text = "Tồn kho: " + LayTongSoLuong();
                     DataGridViewRow selectedRow = dgv_danhmucsp.SelectedRows[0];
                     byte[] image = selectedRow.Cells[4].Value as byte[];
 
@@ -252,8 +240,50 @@ namespace DeTai_QuanLyCuaHangThuCung
                     }
                 }
             }
-            catch {}
+            catch { }
         }
 
+        private void btn_lammoi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                {
+                    cn.Open();
+                    string sql = "select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá',SLHETHONG, LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA from SANPHAM";
+                    SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgv_danhmucsp.DataSource = dt;
+                    dgv_danhmucsp.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgv_danhmucsp.Columns["Hình Sản Phẩm"].Visible = false;
+                    dgv_danhmucsp.Columns["MOTA"].Visible = false;
+                    cn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+            }
+        }
+        private int LayTongSoLuong()
+        {
+            int tongSoLuong = 0;
+            string sql = "SELECT SUM(SLHETHONG) FROM SANPHAM";
+
+            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql, cn))
+                {
+                    object result = cmd.ExecuteScalar(); //Trả về 1 giá trị duy nhất
+                    if (result != DBNull.Value) // Kiểm tra có null ko
+                    {
+                        tongSoLuong = Convert.ToInt32(result);
+                    }
+                }
+            }
+            return tongSoLuong;
+        }
     }
 }

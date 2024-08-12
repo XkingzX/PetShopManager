@@ -31,7 +31,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             btn_luu.Text = buttonText;
             this.mode = mode;
             rtxt_ghichu.Text = ghichu;
-            txt_nguoitao.Text = manv;
+            cmb_nguoitao.Text = manv;
 
             if (mode == "Edit")
             {
@@ -65,15 +65,27 @@ namespace DeTai_QuanLyCuaHangThuCung
                 return;
             }
             maPK = txt_maPK.Text;
-            maSP = txt_maPK.Text;
+            maSP = txt_masp.Text;
             ngayNhap = dtp_ngaynhap.Text;
             soluongtt = txt_soluongtt.Text;
             ghichu = rtxt_ghichu.Text;
-            manv = txt_nguoitao.Text;
+            manv = cmb_nguoitao.Text;
 
             using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
             {
                 cn.Open();
+                string ktraMaSP = "SELECT COUNT(*) FROM SANPHAM WHERE MASP = @MASP";
+                using (SqlCommand cmd = new SqlCommand(ktraMaSP, cn))
+                {
+                    cmd.Parameters.AddWithValue("@MASP", maSP);
+                    int dem = (int)cmd.ExecuteScalar();
+
+                    if (dem == 0)
+                    {
+                        MessageBox.Show("Mã sản phẩm không tồn tại trong bảng SANPHAM.", "Phát Hiện Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
                 string query;
                 if (mode == "Edit")
                 {
@@ -83,6 +95,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 {
                     query = "INSERT INTO KHO (MAPK, MASP, NGAYNHAP, SLTHUCTE, GHICHU, MANV) VALUES (@MAPK, @MASP, @NGAYNHAP, @SLTHUCTE, @GHICHU, @MANV)";
                 }
+
                 using (SqlCommand cmd = new SqlCommand(query, cn))
                 {
                     dtp_ngaynhap.Format = DateTimePickerFormat.Custom;
@@ -94,24 +107,32 @@ namespace DeTai_QuanLyCuaHangThuCung
                     }
                     else
                     {
-                        MessageBox.Show("Ngày nhập không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ngày nhập không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+
                     cmd.Parameters.AddWithValue("@MAPK", maPK);
                     cmd.Parameters.AddWithValue("@MASP", maSP);
                     cmd.Parameters.AddWithValue("@SLTHUCTE", soluongtt);
-                    cmd.Parameters.AddWithValue("@GHICHU", ghichu);
+                    cmd.Parameters.AddWithValue("@GHICHU", string.IsNullOrEmpty(ghichu) ? (object)DBNull.Value : ghichu);
                     cmd.Parameters.AddWithValue("@MANV", manv);
 
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Lưu dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ketnoicsdl();
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show($"Lỗi khi lưu dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-            }
-            MessageBox.Show("Lưu dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ketnoicsdl();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                }
         }
-        private void button1_Click(object sender, EventArgs e)
+            private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }

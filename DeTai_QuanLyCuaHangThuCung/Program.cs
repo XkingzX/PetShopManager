@@ -1,3 +1,4 @@
+﻿using DeTai_QuanLyCuaHangThuCung.DangNhap;
 using DeTai_QuanLyCuaHangThuCung.HangHoa;
 using DeTai_QuanLyCuaHangThuCung.QuanLyKH;
 
@@ -14,7 +15,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frm_trangchu());
+            Application.Run(new frm_trangchu("@HOTEN"));
         }
     }
 }

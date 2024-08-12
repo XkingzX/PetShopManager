@@ -43,6 +43,9 @@
             lbl_motasp = new Label();
             ptr_hinhsanpham = new PictureBox();
             btn_insp = new Button();
+            btn_lammoi = new Button();
+            lbl_soluong = new Label();
+            lbl_tongkho = new Label();
             ((System.ComponentModel.ISupportInitialize)dgv_danhmucsp).BeginInit();
             groupBox1.SuspendLayout();
             gr_timkiem.SuspendLayout();
@@ -156,7 +159,7 @@
             gr_hinhsp.Controls.Add(ptr_hinhsanpham);
             gr_hinhsp.Location = new Point(659, 12);
             gr_hinhsp.Name = "gr_hinhsp";
-            gr_hinhsp.Size = new Size(332, 344);
+            gr_hinhsp.Size = new Size(332, 336);
             gr_hinhsp.TabIndex = 9;
             gr_hinhsp.TabStop = false;
             gr_hinhsp.Text = "Hình ảnh sản phẩm";
@@ -192,12 +195,40 @@
             // 
             // btn_insp
             // 
-            btn_insp.Location = new Point(743, 377);
+            btn_insp.Location = new Point(836, 387);
             btn_insp.Name = "btn_insp";
             btn_insp.Size = new Size(155, 51);
             btn_insp.TabIndex = 2;
             btn_insp.Text = "In mã sản phẩm";
             btn_insp.UseVisualStyleBackColor = true;
+            // 
+            // btn_lammoi
+            // 
+            btn_lammoi.Location = new Point(659, 387);
+            btn_lammoi.Name = "btn_lammoi";
+            btn_lammoi.Size = new Size(155, 51);
+            btn_lammoi.TabIndex = 2;
+            btn_lammoi.Text = "Làm mới";
+            btn_lammoi.UseVisualStyleBackColor = true;
+            btn_lammoi.Click += btn_lammoi_Click;
+            // 
+            // lbl_soluong
+            // 
+            lbl_soluong.AutoSize = true;
+            lbl_soluong.Location = new Point(659, 358);
+            lbl_soluong.Name = "lbl_soluong";
+            lbl_soluong.Size = new Size(76, 20);
+            lbl_soluong.TabIndex = 7;
+            lbl_soluong.Text = "Số lượng: ";
+            // 
+            // lbl_tongkho
+            // 
+            lbl_tongkho.AutoSize = true;
+            lbl_tongkho.Location = new Point(836, 358);
+            lbl_tongkho.Name = "lbl_tongkho";
+            lbl_tongkho.Size = new Size(78, 20);
+            lbl_tongkho.TabIndex = 7;
+            lbl_tongkho.Text = "Tổng kho: ";
             // 
             // frm_danhmuc
             // 
@@ -205,6 +236,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1018, 450);
+            Controls.Add(lbl_tongkho);
+            Controls.Add(lbl_soluong);
+            Controls.Add(btn_lammoi);
             Controls.Add(btn_insp);
             Controls.Add(gr_hinhsp);
             Controls.Add(gr_timkiem);
@@ -222,6 +256,7 @@
             gr_hinhsp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ptr_hinhsanpham).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -241,5 +276,8 @@
         private PictureBox ptr_hinhsanpham;
         private Button btn_insp;
         private Label lbl_mota;
+        private Button btn_lammoi;
+        private Label lbl_soluong;
+        private Label lbl_tongkho;
     }
 }

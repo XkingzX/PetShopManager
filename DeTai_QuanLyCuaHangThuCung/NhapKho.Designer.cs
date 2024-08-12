@@ -43,8 +43,8 @@
             ckb_layngay = new CheckBox();
             label6 = new Label();
             txt_ngaynhaptudong = new TextBox();
-            txt_nguoitao = new TextBox();
             dtp_ngaynhap = new DateTimePicker();
+            cmb_nguoitao = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -176,13 +176,6 @@
             txt_ngaynhaptudong.Size = new Size(170, 27);
             txt_ngaynhaptudong.TabIndex = 1;
             // 
-            // txt_nguoitao
-            // 
-            txt_nguoitao.Location = new Point(438, 10);
-            txt_nguoitao.Name = "txt_nguoitao";
-            txt_nguoitao.Size = new Size(170, 27);
-            txt_nguoitao.TabIndex = 1;
-            // 
             // dtp_ngaynhap
             // 
             dtp_ngaynhap.Location = new Point(137, 102);
@@ -191,11 +184,20 @@
             dtp_ngaynhap.Size = new Size(173, 27);
             dtp_ngaynhap.TabIndex = 8;
             // 
+            // cmb_nguoitao
+            // 
+            cmb_nguoitao.FormattingEnabled = true;
+            cmb_nguoitao.Location = new Point(438, 10);
+            cmb_nguoitao.Name = "cmb_nguoitao";
+            cmb_nguoitao.Size = new Size(170, 28);
+            cmb_nguoitao.TabIndex = 9;
+            // 
             // frm_NhapKho
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(620, 396);
+            Controls.Add(cmb_nguoitao);
             Controls.Add(dtp_ngaynhap);
             Controls.Add(ckb_layngay);
             Controls.Add(rtxt_ghichu);
@@ -206,7 +208,6 @@
             Controls.Add(label4);
             Controls.Add(txt_masp);
             Controls.Add(label3);
-            Controls.Add(txt_nguoitao);
             Controls.Add(txt_ngaynhaptudong);
             Controls.Add(label6);
             Controls.Add(label2);
@@ -237,7 +238,7 @@
         private CheckBox ckb_layngay;
         private Label label6;
         private TextBox txt_ngaynhaptudong;
-        private TextBox txt_nguoitao;
         private DateTimePicker dtp_ngaynhap;
+        private ComboBox cmb_nguoitao;
     }
 }

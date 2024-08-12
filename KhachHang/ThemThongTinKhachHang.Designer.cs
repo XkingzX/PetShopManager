@@ -56,14 +56,15 @@
             label4 = new Label();
             txtEmail = new TextBox();
             label5 = new Label();
-            txtGhiChu = new TextBox();
+            textBox4 = new TextBox();
             btnLua = new Button();
             btnBoQua = new Button();
+            label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            dateTimePicker1 = new DateTimePicker();
             lblNhanVien = new Label();
             textBox1 = new TextBox();
-            dtpNgayDK = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -144,7 +145,7 @@
             txtMaKH.Margin = new Padding(3, 4, 3, 4);
             txtMaKH.Name = "txtMaKH";
             txtMaKH.ReadOnly = true;
-            txtMaKH.Size = new Size(266, 23);
+            txtMaKH.Size = new Size(266, 27);
             txtMaKH.TabIndex = 5;
             txtMaKH.Text = "Mã mặc định";
             // 
@@ -153,7 +154,7 @@
             txtTenKH.Location = new Point(288, 153);
             txtTenKH.Margin = new Padding(3, 4, 3, 4);
             txtTenKH.Name = "txtTenKH";
-            txtTenKH.Size = new Size(266, 23);
+            txtTenKH.Size = new Size(266, 27);
             txtTenKH.TabIndex = 5;
             // 
             // txtDienThoai
@@ -161,7 +162,7 @@
             txtDienThoai.Location = new Point(288, 197);
             txtDienThoai.Margin = new Padding(3, 4, 3, 4);
             txtDienThoai.Name = "txtDienThoai";
-            txtDienThoai.Size = new Size(266, 23);
+            txtDienThoai.Size = new Size(266, 27);
             txtDienThoai.TabIndex = 5;
             // 
             // lblNgaySinh
@@ -180,7 +181,7 @@
             dtpNgaySinh.Format = DateTimePickerFormat.Short;
             dtpNgaySinh.Location = new Point(290, 242);
             dtpNgaySinh.Name = "dtpNgaySinh";
-            dtpNgaySinh.Size = new Size(121, 23);
+            dtpNgaySinh.Size = new Size(121, 27);
             dtpNgaySinh.TabIndex = 6;
             // 
             // lblDiaChi
@@ -233,7 +234,7 @@
             rbtnNam.Location = new Point(431, 241);
             rbtnNam.Name = "rbtnNam";
             rbtnNam.RightToLeft = RightToLeft.No;
-            rbtnNam.Size = new Size(50, 27);
+            rbtnNam.Size = new Size(51, 30);
             rbtnNam.TabIndex = 9;
             rbtnNam.TabStop = true;
             rbtnNam.Text = "Nam";
@@ -247,7 +248,7 @@
             rbtnNu.Location = new Point(497, 242);
             rbtnNu.Name = "rbtnNu";
             rbtnNu.RightToLeft = RightToLeft.No;
-            rbtnNu.Size = new Size(35, 27);
+            rbtnNu.Size = new Size(39, 30);
             rbtnNu.TabIndex = 10;
             rbtnNu.Text = "Nữ";
             rbtnNu.UseVisualStyleBackColor = true;
@@ -257,7 +258,7 @@
             cbxTinh.FormattingEnabled = true;
             cbxTinh.Location = new Point(288, 369);
             cbxTinh.Name = "cbxTinh";
-            cbxTinh.Size = new Size(266, 25);
+            cbxTinh.Size = new Size(266, 28);
             cbxTinh.TabIndex = 11;
             cbxTinh.SelectedIndexChanged += cbxTinh_SelectedIndexChanged;
             // 
@@ -277,7 +278,7 @@
             cbxHuyenQuan.FormattingEnabled = true;
             cbxHuyenQuan.Location = new Point(288, 418);
             cbxHuyenQuan.Name = "cbxHuyenQuan";
-            cbxHuyenQuan.Size = new Size(266, 25);
+            cbxHuyenQuan.Size = new Size(266, 28);
             cbxHuyenQuan.TabIndex = 11;
             cbxHuyenQuan.SelectedIndexChanged += cbxHuyenQuan_SelectedIndexChanged;
             // 
@@ -286,7 +287,7 @@
             cbxPhuongXa.FormattingEnabled = true;
             cbxPhuongXa.Location = new Point(288, 467);
             cbxPhuongXa.Name = "cbxPhuongXa";
-            cbxPhuongXa.Size = new Size(266, 25);
+            cbxPhuongXa.Size = new Size(266, 28);
             cbxPhuongXa.TabIndex = 11;
             // 
             // label3
@@ -318,7 +319,7 @@
             rbtnCaNhan.Location = new Point(779, 61);
             rbtnCaNhan.Name = "rbtnCaNhan";
             rbtnCaNhan.RightToLeft = RightToLeft.No;
-            rbtnCaNhan.Size = new Size(75, 27);
+            rbtnCaNhan.Size = new Size(72, 30);
             rbtnCaNhan.TabIndex = 9;
             rbtnCaNhan.Text = "Cá nhân";
             rbtnCaNhan.UseVisualStyleBackColor = true;
@@ -329,7 +330,7 @@
             rbtnCongTy.AutoSize = true;
             rbtnCongTy.Location = new Point(874, 61);
             rbtnCongTy.Name = "rbtnCongTy";
-            rbtnCongTy.Size = new Size(70, 27);
+            rbtnCongTy.Size = new Size(70, 30);
             rbtnCongTy.TabIndex = 10;
             rbtnCongTy.Text = "Công ty";
             rbtnCongTy.UseVisualStyleBackColor = true;
@@ -350,7 +351,7 @@
             txtEmail.Location = new Point(779, 113);
             txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(242, 23);
+            txtEmail.Size = new Size(242, 27);
             txtEmail.TabIndex = 5;
             // 
             // label5
@@ -364,14 +365,14 @@
             label5.TabIndex = 3;
             label5.Text = "Ghi chú";
             // 
-            // txtGhiChu
+            // textBox4
             // 
-            txtGhiChu.Location = new Point(779, 191);
-            txtGhiChu.Margin = new Padding(3, 4, 3, 4);
-            txtGhiChu.Multiline = true;
-            txtGhiChu.Name = "txtGhiChu";
-            txtGhiChu.Size = new Size(242, 120);
-            txtGhiChu.TabIndex = 5;
+            textBox4.Location = new Point(779, 191);
+            textBox4.Margin = new Padding(3, 4, 3, 4);
+            textBox4.Multiline = true;
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(242, 120);
+            textBox4.TabIndex = 5;
             // 
             // btnLua
             // 
@@ -399,6 +400,15 @@
             btnBoQua.UseVisualStyleBackColor = false;
             btnBoQua.Click += btnBoQua_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = SystemColors.ControlDark;
+            label6.Location = new Point(143, 11);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 20);
+            label6.TabIndex = 13;
+            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -420,6 +430,14 @@
             label8.Size = new Size(0, 19);
             label8.TabIndex = 3;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
+            dateTimePicker1.Location = new Point(785, 151);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(236, 27);
+            dateTimePicker1.TabIndex = 6;
+            // 
             // lblNhanVien
             // 
             lblNhanVien.AutoSize = true;
@@ -439,22 +457,16 @@
             textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(266, 23);
+            textBox1.Size = new Size(266, 27);
             textBox1.TabIndex = 5;
             textBox1.Text = "Mã mặc định";
             // 
-            // dtpNgayDK
-            // 
-            dtpNgayDK.Location = new Point(781, 151);
-            dtpNgayDK.Name = "dtpNgayDK";
-            dtpNgayDK.Size = new Size(240, 23);
-            dtpNgayDK.TabIndex = 13;
-            // 
             // ThemThongTinKhachHang
             // 
-            AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1428, 656);
-            Controls.Add(dtpNgayDK);
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1033, 652);
+            Controls.Add(label6);
             Controls.Add(btnBoQua);
             Controls.Add(btnLua);
             Controls.Add(cbxPhuongXa);
@@ -465,10 +477,11 @@
             Controls.Add(rbtnCaNhan);
             Controls.Add(rbtnNam);
             Controls.Add(ckbNam);
+            Controls.Add(dateTimePicker1);
             Controls.Add(dtpNgaySinh);
             Controls.Add(txtDiaChi);
             Controls.Add(txtDienThoai);
-            Controls.Add(txtGhiChu);
+            Controls.Add(textBox4);
             Controls.Add(txtEmail);
             Controls.Add(txtTenKH);
             Controls.Add(textBox1);
@@ -490,11 +503,8 @@
             Controls.Add(btnChonAnh);
             Controls.Add(pictureBox1);
             Controls.Add(lblThemKH);
-            Font = new Font("Century Gothic", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "ThemThongTinKhachHang";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "ThongTinKhachHang";
             Load += ThemThongTinKhachHang_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -532,13 +542,14 @@
         private Label label4;
         private TextBox txtEmail;
         private Label label5;
-        private TextBox txtGhiChu;
+        private TextBox textBox4;
         private Button btnLua;
         private Button btnBoQua;
+        private Label label6;
         private Label label7;
         private Label label8;
+        private DateTimePicker dateTimePicker1;
         private Label lblNhanVien;
         private TextBox textBox1;
-        private DateTimePicker dtpNgayDK;
     }
 }

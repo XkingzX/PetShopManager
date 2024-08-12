@@ -17,30 +17,47 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
         {
             InitializeComponent();
             dgv_kiemkho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.txt_nhapmapk.KeyDown += new KeyEventHandler(this.txt_nhapmasp_KeyDown);
+            this.txt_nhapmapk.KeyDown += new KeyEventHandler(this.txt_nhapmapk_KeyDown);
+
         }
         SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
         private void ketnoicsdl()
         {
             cn.Open();
-            string sql = @"select MAPK as N'Mã phiếu kho', MASP as N'Mã sản phẩm', NGAYNHAP as N'Ngày nhập', 
-                        SLHETHONG as N'Số lượng hệ thống', SLTHUCTE as N'Số lượng thực tế', 
-                        (SLTHUCTE - SLHETHONG) as N'Số lượng chênh lệch', GHICHU as N'Ghi chú',
-                        TRANGTHAI as N'Trạng thái', MANV as N'Người tạo'
-                        from KHO";
+            string sql = @"SELECT K.MAPK AS N'Mã phiếu kho', 
+                   K.MASP AS N'Mã sản phẩm', 
+                   K.NGAYNHAP AS N'Ngày nhập', 
+                   ISNULL(S.SLHETHONG, 0) AS N'Số lượng hệ thống', 
+                   K.SLTHUCTE AS N'Số lượng thực tế', 
+                   CASE 
+                       WHEN ISNULL(S.SLHETHONG, 0) = 0 THEN 0
+                       ELSE (K.SLTHUCTE - ISNULL(S.SLHETHONG, 0))
+                   END AS N'Số lượng chênh lệch', 
+                   CASE 
+                       WHEN ISNULL(S.SLHETHONG, 0) = 0 THEN N'Chưa có dữ liệu'
+                       WHEN (K.SLTHUCTE - ISNULL(S.SLHETHONG, 0)) > 0 THEN N'Dư sản phẩm'
+                       WHEN (K.SLTHUCTE - ISNULL(S.SLHETHONG, 0)) = 0 THEN N'Đủ'
+                       ELSE N'Thiếu'
+                   END AS N'Tình trạng', 
+                   K.GHICHU AS N'Ghi chú', 
+                   K.MANV AS N'Người tạo', 
+                   K.DAXOA AS N'Đã xóa'
+                    FROM KHO K
+                    LEFT JOIN SANPHAM S ON K.MASP = S.MASP";
             SqlCommand cmd = new SqlCommand(sql, cn);
             cmd.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            cn.Close();
             dgv_kiemkho.DataSource = dt;
             dgv_kiemkho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             txt_trangthai.Enabled = false;
             txt_nguoitao.Enabled = false;
             txt_ngaynhap.Enabled = false;
-            dgv_kiemkho.Columns["Trạng thái"].Visible = false;
             dgv_kiemkho.Columns["Người tạo"].Visible = false;
+            dgv_kiemkho.Columns["Tình trạng"].Visible = false;
+            //dgv_kiemkho.Columns["Đã xóa"].Visible = false;
+            cn.Close();
         }
 
         private void frm_KiemKho_Load(object sender, EventArgs e)
@@ -50,7 +67,7 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
 
             ketnoicsdl();
         }
-        private void txt_nhapmasp_KeyDown(object sender, KeyEventArgs e)
+        private void txt_nhapmapk_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -74,10 +91,22 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
                 cn.Open();
                 string tukhoa = txt_nhapmapk.Text;
                 // Dấu $ để định dạng chuỗi là chuỗi định dạng SELECT * FROM SANPHAM WHERE MASP = 'tukhoa'
-                string query = @$"SELECT MAPK as N'Mã Phiếu Kho', MASP as N'Mã Sản Phẩm', NGAYNHAP as N'Ngày Nhập',
-                                SLHETHONG as N'Số lượng hệ thống', SLTHUCTE as N'Số lượng thực tế',
-                                (SLTHUCTE - SLHETHONG) as N'Số lượng chênh lệch', GHICHU as N'Ghi chú',
-                                TRANGTHAI as N'Trạng thái', MANV as N'Người tạo' FROM KHO WHERE MAPK = '{tukhoa}'";
+                string query = @$"SELECT K.MAPK AS N'Mã phiếu kho', 
+                      K.MASP AS N'Mã sản phẩm', 
+                      K.NGAYNHAP AS N'Ngày nhập', 
+                      S.SLHETHONG AS N'Số lượng hệ thống', 
+                      K.SLTHUCTE AS N'Số lượng thực tế', 
+                      (K.SLTHUCTE - S.SLHETHONG) AS N'Số lượng chênh lệch', 
+                      CASE 
+                          WHEN (K.SLTHUCTE - S.SLHETHONG) > 0 THEN N'Dư sản phẩm'
+                          WHEN (K.SLTHUCTE - S.SLHETHONG) = 0 THEN N'Đủ'
+                          ELSE N'Thiếu'
+                      END AS N'Tình trạng', 
+                      K.GHICHU AS N'Ghi chú', 
+                      K.MANV AS N'Người tạo', 
+                      K.DAXOA AS N'Đã xóa'
+            FROM KHO K
+            INNER JOIN SANPHAM S ON K.MASP = S.MASP AND MAPK = '{tukhoa}'";
                 SqlCommand cm = new SqlCommand(query, cn);
                 cm.Parameters.AddWithValue("@MAPK", maPK);
                 SqlDataAdapter da = new SqlDataAdapter(cm);
@@ -87,7 +116,7 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
                 if (dt.Rows.Count > 0)
                 {
                     dgv_kiemkho.DataSource = dt;
-                    txt_trangthai.Text = dgv_kiemkho.SelectedRows[0].Cells[7].Value.ToString();
+                    txt_trangthai.Text = dgv_kiemkho.SelectedRows[0].Cells[6].Value.ToString();
                     txt_nguoitao.Text = dgv_kiemkho.SelectedRows[0].Cells[8].Value.ToString();
                     txt_ngaynhap.Text = dgv_kiemkho.SelectedRows[0].Cells[2].Value.ToString();
                 }
@@ -108,7 +137,7 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
             {
                 if (dgv_kiemkho.SelectedRows.Count > 0)
                 {
-                    txt_trangthai.Text = dgv_kiemkho.SelectedRows[0].Cells[7].Value.ToString();
+                    txt_trangthai.Text = dgv_kiemkho.SelectedRows[0].Cells[6].Value.ToString();
                     txt_nguoitao.Text = dgv_kiemkho.SelectedRows[0].Cells[8].Value.ToString();
                     txt_ngaynhap.Text = dgv_kiemkho.SelectedRows[0].Cells[2].Value.ToString();
                 }
@@ -225,6 +254,70 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
                     }
                     catch (Exception) { }
                 }
+            }
+        }
+        private void dgv_kiemkho_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            int cotdaxoa = dgv_kiemkho.Columns["Đã xóa"].Index;
+            if (e.ColumnIndex == cotdaxoa)
+            {
+                // chuyển kiểu cột daxoa thành (boolean) true hoặc false so sánh giá trị với DBNull
+                bool daXoa = e.Value != DBNull.Value && Convert.ToBoolean(e.Value);
+                //dgv_kiemkho.Rows[e.RowIndex].Cells["Mã sản phẩm"].Style.BackColor = daXoa ? Color.Red : Color.White; Thêm màu ô
+                dgv_kiemkho.Rows[e.RowIndex].Cells["Mã sản phẩm"].Style.ForeColor = daXoa ? Color.Red : Color.Black; //Thêm màu font chữ
+                if (daXoa)
+                {
+                    dgv_kiemkho.Rows[e.RowIndex].Cells["Mã sản phẩm"].Value = "Mã đã bị xóa";
+                }
+            }
+        }
+
+
+        private void btn_lammoi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                {
+                    cn.Open();
+                    string sql = @"SELECT K.MAPK AS N'Mã phiếu kho', 
+                   K.MASP AS N'Mã sản phẩm', 
+                   K.NGAYNHAP AS N'Ngày nhập', 
+                   ISNULL(S.SLHETHONG, 0) AS N'Số lượng hệ thống', 
+                   K.SLTHUCTE AS N'Số lượng thực tế', 
+                   CASE 
+                       WHEN ISNULL(S.SLHETHONG, 0) = 0 THEN 0
+                       ELSE (K.SLTHUCTE - ISNULL(S.SLHETHONG, 0))
+                   END AS N'Số lượng chênh lệch', 
+                   CASE 
+                       WHEN ISNULL(S.SLHETHONG, 0) = 0 THEN N'Chưa có dữ liệu'
+                       WHEN (K.SLTHUCTE - ISNULL(S.SLHETHONG, 0)) > 0 THEN N'Dư sản phẩm'
+                       WHEN (K.SLTHUCTE - ISNULL(S.SLHETHONG, 0)) = 0 THEN N'Đủ'
+                       ELSE N'Thiếu'
+                   END AS N'Tình trạng', 
+                   K.GHICHU AS N'Ghi chú', 
+                   K.MANV AS N'Người tạo', 
+                   K.DAXOA AS N'Đã xóa'
+                    FROM KHO K
+                    LEFT JOIN SANPHAM S ON K.MASP = S.MASP";
+                    SqlCommand cmd = new SqlCommand(sql, cn);
+                    cmd.CommandType = CommandType.Text;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgv_kiemkho.DataSource = dt;
+                    dgv_kiemkho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    txt_trangthai.Enabled = false;
+                    txt_nguoitao.Enabled = false;
+                    txt_ngaynhap.Enabled = false;
+                    dgv_kiemkho.Columns["Người tạo"].Visible = false;
+                    //dgv_kiemkho.Columns["Đã xóa"].Visible = false;
+                    cn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
             }
         }
     }

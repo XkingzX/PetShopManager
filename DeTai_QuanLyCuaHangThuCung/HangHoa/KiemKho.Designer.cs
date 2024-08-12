@@ -35,6 +35,7 @@
             txt_ngaynhap = new TextBox();
             txt_nhapmapk = new TextBox();
             gr_congcu = new GroupBox();
+            btn_lammoi = new Button();
             btn_them = new Button();
             btn_xoa = new Button();
             btn_sua = new Button();
@@ -58,6 +59,7 @@
             dgv_kiemkho.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_kiemkho.Size = new Size(978, 286);
             dgv_kiemkho.TabIndex = 9;
+            dgv_kiemkho.CellFormatting += dgv_kiemkho_CellFormatting;
             dgv_kiemkho.Click += dgv_kiemkho_Click;
             // 
             // gr_timkiem
@@ -107,6 +109,7 @@
             // 
             // gr_congcu
             // 
+            gr_congcu.Controls.Add(btn_lammoi);
             gr_congcu.Controls.Add(btn_them);
             gr_congcu.Controls.Add(btn_xoa);
             gr_congcu.Controls.Add(btn_sua);
@@ -117,9 +120,19 @@
             gr_congcu.TabStop = false;
             gr_congcu.Text = "Công cụ";
             // 
+            // btn_lammoi
+            // 
+            btn_lammoi.Location = new Point(116, 86);
+            btn_lammoi.Name = "btn_lammoi";
+            btn_lammoi.Size = new Size(94, 33);
+            btn_lammoi.TabIndex = 13;
+            btn_lammoi.Text = "Làm mới";
+            btn_lammoi.UseVisualStyleBackColor = true;
+            btn_lammoi.Click += btn_lammoi_Click;
+            // 
             // btn_them
             // 
-            btn_them.Location = new Point(16, 42);
+            btn_them.Location = new Point(16, 29);
             btn_them.Name = "btn_them";
             btn_them.Size = new Size(94, 51);
             btn_them.TabIndex = 1;
@@ -129,7 +142,7 @@
             // 
             // btn_xoa
             // 
-            btn_xoa.Location = new Point(116, 42);
+            btn_xoa.Location = new Point(116, 29);
             btn_xoa.Name = "btn_xoa";
             btn_xoa.Size = new Size(94, 51);
             btn_xoa.TabIndex = 1;
@@ -139,7 +152,7 @@
             // 
             // btn_sua
             // 
-            btn_sua.Location = new Point(216, 42);
+            btn_sua.Location = new Point(216, 29);
             btn_sua.Name = "btn_sua";
             btn_sua.Size = new Size(94, 51);
             btn_sua.TabIndex = 1;
@@ -180,17 +193,22 @@
             // 
             // txt_nguoitao
             // 
-            txt_nguoitao.Location = new Point(109, 66);
+            txt_nguoitao.Location = new Point(107, 70);
             txt_nguoitao.Name = "txt_nguoitao";
             txt_nguoitao.Size = new Size(169, 27);
             txt_nguoitao.TabIndex = 5;
+            txt_nguoitao.TextAlign = HorizontalAlignment.Center;
             // 
             // txt_trangthai
             // 
-            txt_trangthai.Location = new Point(109, 22);
+            txt_trangthai.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            txt_trangthai.ForeColor = Color.Red;
+            txt_trangthai.Location = new Point(109, 26);
             txt_trangthai.Name = "txt_trangthai";
-            txt_trangthai.Size = new Size(169, 27);
+            txt_trangthai.RightToLeft = RightToLeft.No;
+            txt_trangthai.Size = new Size(169, 28);
             txt_trangthai.TabIndex = 5;
+            txt_trangthai.TextAlign = HorizontalAlignment.Center;
             // 
             // frm_KiemKho
             // 
@@ -229,5 +247,6 @@
         private TextBox txt_nguoitao;
         private TextBox txt_trangthai;
         private TextBox txt_ngaynhap;
+        private Button btn_lammoi;
     }
 }

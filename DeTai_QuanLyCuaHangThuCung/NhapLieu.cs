@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {
@@ -17,13 +18,14 @@ namespace DeTai_QuanLyCuaHangThuCung
         public string maSP { get; set; }
         public string tenSP { get; set; }
         public string giaSP { get; set; }
+        public int slhethong {  get; set; }
         public string loaiSP { get; set; }
         public string mota { get; set; }
         public string mode;
 
 
         //Truyền vào 1 số tham số
-        public frm_NhapLieu(string title, string buttonText, string mode = "Add", string maSP = "", string tenSP = "", string giaSP = "", string loaiSP = "", string mota = "")
+        public frm_NhapLieu(string title, string buttonText, string mode = "Add", string maSP = "", string tenSP = "", int slhethong = 0 ,string giaSP = "", string loaiSP = "", string mota = "")
         {
             InitializeComponent();
             this.Text = title;
@@ -38,6 +40,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 txt_giasp.Text = giaSP;
                 txt_loaisp.Text = loaiSP;
                 rtxt_mota.Text = mota;
+                txt_soluong.Text = slhethong.ToString();
             }
         }
         private string imagePath = null;
@@ -82,6 +85,13 @@ namespace DeTai_QuanLyCuaHangThuCung
             giaSP = txt_giasp.Text;
             loaiSP = txt_loaisp.Text;
             mota = rtxt_mota.Text;
+            int chuyendoisoluong;
+            if (!int.TryParse(txt_soluong.Text, out chuyendoisoluong))
+            {
+                MessageBox.Show("Số lượng không hợp lệ.");
+                return;
+            }
+            slhethong = chuyendoisoluong;
             try
             {
                 byte[] imageData;
@@ -96,17 +106,18 @@ namespace DeTai_QuanLyCuaHangThuCung
                     string query;
                     if (mode == "Edit")
                     {
-                        query = "UPDATE SANPHAM SET TENSP = @TENSP, GIA = @GIA, LOAI = @LOAI, Hinh = @Image, MOTA = @MOTA WHERE MASP = @MASP";
+                        query = "UPDATE SANPHAM SET TENSP = @TENSP, SLHETHONG = @SLHETHONG, GIA = @GIA, LOAI = @LOAI, Hinh = @Image, MOTA = @MOTA WHERE MASP = @MASP";
                     }
                     else
                     {
-                        query = "INSERT INTO SANPHAM (MASP, TENSP, GIA, LOAI, Hinh, MOTA) VALUES (@MASP, @TENSP, @GIA, @LOAI, @Image, @MOTA)";
+                        query = "INSERT INTO SANPHAM (MASP, TENSP, SLHETHONG, GIA, LOAI, Hinh, MOTA) VALUES (@MASP, @TENSP, @SLHETHONG, @GIA, @LOAI, @Image, @MOTA)";
                     }
                     using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
                         cmd.Parameters.AddWithValue("@MASP", maSP);
                         cmd.Parameters.AddWithValue("@TENSP", tenSP);
-                        cmd.Parameters.AddWithValue("@GIA", giaSP);
+                        cmd.Parameters.AddWithValue("@SLHETHONG", slhethong);
+                        cmd.Parameters.AddWithValue("@GIA", decimal.Parse(giaSP));
                         cmd.Parameters.AddWithValue("@LOAI", loaiSP);
                         cmd.Parameters.AddWithValue("@Image", imageData);
                         cmd.Parameters.AddWithValue("@MOTA", mota);
