@@ -91,7 +91,7 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
                 cn.Open();
                 string tukhoa = txt_nhapmapk.Text;
                 // Dấu $ để định dạng chuỗi là chuỗi định dạng SELECT * FROM SANPHAM WHERE MASP = 'tukhoa'
-                string query = @$"SELECT K.MAPK AS N'Mã phiếu kho', 
+                string query = @"SELECT K.MAPK AS N'Mã phiếu kho', 
                       K.MASP AS N'Mã sản phẩm', 
                       K.NGAYNHAP AS N'Ngày nhập', 
                       S.SLHETHONG AS N'Số lượng hệ thống', 

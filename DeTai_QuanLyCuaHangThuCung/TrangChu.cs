@@ -1,9 +1,12 @@
 ﻿using DeTai_QuanLyCuaHangThuCung.DangNhap;
+using DeTai_QuanLyCuaHangThuCung.GiaoDich;
 using DeTai_QuanLyCuaHangThuCung.HangHoa;
 using DeTai_QuanLyCuaHangThuCung.QuanLyKH;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using WindowsFormsApp1;
 using static DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap;
 
 namespace DeTai_QuanLyCuaHangThuCung
@@ -53,14 +56,6 @@ namespace DeTai_QuanLyCuaHangThuCung
             frm.Show();
         }
 
-        private void mn_hoadon_Click(object sender, EventArgs e)
-        {
-            //MuaHang frm = new MuaHang();
-            //frm.MdiParent = this;
-            //frm.Dock = DockStyle.Fill;
-            //frm.Show();
-        }
-
         private void Trangchu_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -100,11 +95,6 @@ namespace DeTai_QuanLyCuaHangThuCung
             frm.Show();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void mn_nhanvien_Click(object sender, EventArgs e)
         {
 
@@ -124,16 +114,54 @@ namespace DeTai_QuanLyCuaHangThuCung
         }
 
 
+        private void mn_TTCNMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTTCN frm = new frmTTCN();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void mnTTCN_Click(object sender, EventArgs e)
         {
 
         }
 
-
-        private void mn_TTCNMenuItem_Click(object sender, EventArgs e)
+        private void mn_xemhoadon_Click(object sender, EventArgs e)
         {
-            frmTTCN frm = new frmTTCN();
+            frm_hoadon frm = new frm_hoadon();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MuaHang frm = new MuaHang();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void mn_chitiethoadon_Click(object sender, EventArgs e)
+        {
+            ChiTietHoaDon frm = new ChiTietHoaDon();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void mn_dshoadon_Click(object sender, EventArgs e)
+        {
+            FormDSHoaDon frm = new FormDSHoaDon();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void mn_dscthd_Click(object sender, EventArgs e)
+        {
+            FormDSCTHD frm = new FormDSCTHD();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();

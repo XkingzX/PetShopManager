@@ -7,15 +7,15 @@ CREATE TABLE KHACHHANG(
 	MAKH	char(6) not null,	
 	HOTEN	nvarchar(40),
 	DCHI	nvarchar(50),
-	SODT	varchar(10),
+	SODT	varchar(20),
 	NGSINH	smalldatetime,
 	NGDK	smalldatetime,
+	DIACHI	nvarchar (200),
 	TINH	nvarchar (100),
 	HUYEN	nvarchar (100),
 	XA		nvarchar(100),
-	LOAIKH	nvarchar(40),
+	LOAIKH	varchar(40),
 	EMAIL	varchar(100),
-	DIEMTHUONG int DEFAULT 0,
 	constraint pk_kh primary key(MAKH)
 )
 go

@@ -122,21 +122,27 @@ FROM SANPHAM;
 SELECT SUM(SLHETHONG) FROM SANPHAM;select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá', SLHETHONG, LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA from SANPHAM
 
 SELECT K.MAPK AS N'Mã phiếu kho', 
-                      K.MASP AS N'Mã sản phẩm', 
-                      K.NGAYNHAP AS N'Ngày nhập', 
-                      S.SLHETHONG AS N'Số lượng hệ thống', 
-                      K.SLTHUCTE AS N'Số lượng thực tế', 
-                      (K.SLTHUCTE - S.SLHETHONG) AS N'Số lượng chênh lệch', 
-                      CASE 
-                          WHEN (K.SLTHUCTE - S.SLHETHONG) > 0 THEN N'Dư sản phẩm'
-                          WHEN (K.SLTHUCTE - S.SLHETHONG) = 0 THEN N'Đủ'
-                          ELSE N'Thiếu'
-                      END AS N'Tình trạng', 
-                      K.GHICHU AS N'Ghi chú', 
-                      K.MANV AS N'Người tạo', 
-                      K.DAXOA AS N'Đã xóa'
-            FROM KHO K
-            INNER JOIN SANPHAM S ON K.MASP = S.MASP
+       K.MASP AS N'Mã sản phẩm', 
+       K.NGAYNHAP AS N'Ngày nhập', 
+       ISNULL(S.SLHETHONG, 0) AS N'Số lượng hệ thống', 
+       K.SLTHUCTE AS N'Số lượng thực tế', 
+       CASE 
+           WHEN ISNULL(S.SLHETHONG, 0) = 0 THEN 0
+           ELSE (K.SLTHUCTE - ISNULL(S.SLHETHONG, 0))
+       END AS N'Số lượng chênh lệch', 
+       CASE 
+           WHEN ISNULL(S.SLHETHONG, 0) = 0 THEN N'Chưa có dữ liệu'
+           WHEN (K.SLTHUCTE - ISNULL(S.SLHETHONG, 0)) > 0 THEN N'Dư sản phẩm'
+           WHEN (K.SLTHUCTE - ISNULL(S.SLHETHONG, 0)) = 0 THEN N'Đủ'
+           ELSE N'Thiếu'
+       END AS N'Tình trạng', 
+       K.GHICHU AS N'Ghi chú', 
+       K.MANV AS N'Người tạo', 
+       K.DAXOA AS N'Đã xóa'
+FROM KHO K
+LEFT JOIN SANPHAM S ON K.MASP = S.MASP;
+
+
 
 			select *
 			from KHO

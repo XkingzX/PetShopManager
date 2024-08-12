@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,7 +47,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         private string imagePath = null;
         private void ketnoicsdl()
         {
-            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True"))
             {
                 string query = "SELECT * FROM SANPHAM";
                 SqlDataAdapter da = new SqlDataAdapter(query, cn);
@@ -100,7 +101,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 {
                     imageData = reader.ReadBytes((int)stream.Length);
                 }
-                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True"))
                 {
                     cn.Open();
                     string query;

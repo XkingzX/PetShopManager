@@ -1,0 +1,160 @@
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.csproj.AssemblyReference.cache
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frmSuaTTNV.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frmThemNV.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frmTTCN.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frm_thongtinnv.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frm_danhmuc.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.HangHoa.frm_KiemKho.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.QuanLyKH.frmKhachHang.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.ThemThongTinKhachHang.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frm_NhapKho.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frm_NhapLieu.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.Properties.Resources.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frm_trangchu.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.csproj.GenerateResource.cache
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.csproj.CoreCompileInputs.cache
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\DeTai_QuanLyCuaHangThuCung.exe.config
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\DeTai_QuanLyCuaHangThuCung.exe
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\DeTai_QuanLyCuaHangThuCung.pdb
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.exe
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.pdb
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.ChiTietHoaDon.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\WindowsFormsApp1.FormDSCTHD.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\WindowsFormsApp1.FormDSHoaDon.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.GiaoDich.frm_hoadon.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.InHoaDon.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.MuaHang.resources
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.ReportViewer.Design.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\EnvDTE.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\stdole.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_Qu.5E379021.Up2Date
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\DeTai_QuanLyCuaHangThuCung.exe.config
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\DeTai_QuanLyCuaHangThuCung.exe
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\DeTai_QuanLyCuaHangThuCung.pdb
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.ReportViewer.Design.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\EnvDTE.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\stdole.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.csproj.AssemblyReference.cache
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frmSuaTTNV.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frmThemNV.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frmTTCN.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frm_thongtinnv.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frm_danhmuc.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.HangHoa.frm_KiemKho.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.ChiTietHoaDon.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\WindowsFormsApp1.FormDSCTHD.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\WindowsFormsApp1.FormDSHoaDon.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.GiaoDich.frm_hoadon.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.InHoaDon.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.MuaHang.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frm_NhapKho.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frm_NhapLieu.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.Properties.Resources.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.QuanLyKH.frmKhachHang.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.ThemThongTinKhachHang.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.frm_trangchu.resources
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.csproj.GenerateResource.cache
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.csproj.CoreCompileInputs.cache
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_Qu.5E379021.Up2Date
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.exe
+D:\Bai Tap\Lap Trinh .Net\PetShopManager\DeTai_QuanLyCuaHangThuCung\DeTai_QuanLyCuaHangThuCung\obj\Debug\DeTai_QuanLyCuaHangThuCung.pdb

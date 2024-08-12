@@ -1,4 +1,7 @@
-﻿namespace DeTai_QuanLyCuaHangThuCung.DangNhap
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace DeTai_QuanLyCuaHangThuCung.DangNhap
 {
     partial class frm_DangNhap
     {

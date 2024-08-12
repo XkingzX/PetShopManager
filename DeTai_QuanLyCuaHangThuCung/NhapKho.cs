@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading.Tasks.Sources;
 using System.Windows.Forms;
 
 namespace DeTai_QuanLyCuaHangThuCung
@@ -130,9 +129,9 @@ namespace DeTai_QuanLyCuaHangThuCung
                         MessageBox.Show($"Lỗi khi lưu dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                }
+            }
         }
-            private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -156,6 +155,22 @@ namespace DeTai_QuanLyCuaHangThuCung
             {
                 dtp_ngaynhap.Enabled = true;
             }
+        }
+
+        private void cmb_nguoitao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ketnoicsdl();
+            SqlConnection cn = new SqlConnection(@"Data Source=HOAGGMINH\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
+            SqlCommand cm = new SqlCommand();
+            cm.Connection = cn;
+            cm.CommandType = CommandType.Text;
+            cm.CommandText = "SELECT * FROM NHANVIEN";
+            DataTable dt = new DataTable();
+            SqlDataReader reader = cm.ExecuteReader();
+            dt.Load(reader);
+            cmb_nguoitao.DataSource = dt;
+            cmb_nguoitao.DisplayMember = "MANV";
+            cmb_nguoitao.ValueMember = "MANV";
         }
     }
 }

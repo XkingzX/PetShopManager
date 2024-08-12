@@ -1,4 +1,7 @@
-﻿namespace DeTai_QuanLyCuaHangThuCung
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace DeTai_QuanLyCuaHangThuCung
 {
     partial class frm_danhmuc
     {

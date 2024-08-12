@@ -1,4 +1,7 @@
-﻿namespace DeTai_QuanLyCuaHangThuCung.HangHoa
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace DeTai_QuanLyCuaHangThuCung.HangHoa
 {
     partial class frm_KiemKho
     {
