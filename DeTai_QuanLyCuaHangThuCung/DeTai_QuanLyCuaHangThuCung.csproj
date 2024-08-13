@@ -65,37 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DangNhap\DangNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DangNhap\DangNhap.Designer.cs">
-      <DependentUpon>DangNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DangNhap\SuaTTNhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DangNhap\SuaTTNhanVien.Designer.cs">
-      <DependentUpon>SuaTTNhanVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DangNhap\ThemNhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DangNhap\ThemNhanVien.Designer.cs">
-      <DependentUpon>ThemNhanVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DangNhap\ThongTinCaNhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DangNhap\ThongTinCaNhan.Designer.cs">
-      <DependentUpon>ThongTinCaNhan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DangNhap\ThongTinNhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DangNhap\ThongTinNhanVien.Designer.cs">
-      <DependentUpon>ThongTinNhanVien.cs</DependentUpon>
-    </Compile>
     <Compile Include="DataProvider.cs" />
+    <Compile Include="DB_CuaHangThuCungDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_CuaHangThuCungDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="HangHoa\DanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,21 +152,6 @@
     <Compile Include="TrangChu.Designer.cs">
       <DependentUpon>TrangChu.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DangNhap\DangNhap.resx">
-      <DependentUpon>DangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DangNhap\SuaTTNhanVien.resx">
-      <DependentUpon>SuaTTNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DangNhap\ThemNhanVien.resx">
-      <DependentUpon>ThemNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DangNhap\ThongTinCaNhan.resx">
-      <DependentUpon>ThongTinCaNhan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DangNhap\ThongTinNhanVien.resx">
-      <DependentUpon>ThongTinNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Hoa Don Report\DSCTHD.rdlc" />
     <EmbeddedResource Include="Hoa Don Report\FormDSHD.rdlc" />
     <EmbeddedResource Include="HangHoa\DanhMuc.resx">
@@ -244,6 +204,17 @@
     <EmbeddedResource Include="TrangChu.resx">
       <DependentUpon>TrangChu.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DB_CuaHangThuCungDataSet.xsc">
+      <DependentUpon>DB_CuaHangThuCungDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_CuaHangThuCungDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_CuaHangThuCungDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_CuaHangThuCungDataSet.xss">
+      <DependentUpon>DB_CuaHangThuCungDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -274,6 +245,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DangNhap\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

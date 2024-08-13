@@ -64,7 +64,6 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
         {
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
-
             ketnoicsdl();
         }
         private void txt_nhapmapk_KeyDown(object sender, KeyEventArgs e)
@@ -73,10 +72,10 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
-                timkiemmasp();
+                timkiemmapk()                                                                                                                                        ;
             }
         }
-        private void timkiemmasp()
+        private void timkiemmapk()
         {
             string maPK = txt_nhapmapk.Text.Trim();
             if (string.IsNullOrEmpty(maPK))

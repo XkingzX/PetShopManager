@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap;
+//using static DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {

@@ -30,7 +30,6 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.maKhachHang = maKhachHang;
             dtpNgayDK.Value = DateTime.Now;
             MaKhachHang = maKhachHang;
- 
 
             cbxTinh.SelectedIndexChanged += CbxTinh_SelectedIndexChanged;
             cbxHuyenQuan.SelectedIndexChanged += CbxHuyenQuan_SelectedIndexChanged;
@@ -38,7 +37,11 @@ namespace DeTai_QuanLyCuaHangThuCung
             cbxTinh.DropDown += CbxTinh_DropDown;
             cbxHuyenQuan.DropDown += CbxHuyenQuan_DropDown;
             cbxPhuongXa.DropDown += CbxPhuongXa_DropDown;
+
+
+
         }
+
 
         private void CbxPhuongXa_DropDown(object sender, EventArgs e)
         {
@@ -47,7 +50,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 int maTinh = Convert.ToInt32(cbxTinh.SelectedValue);
                 if (maTinh != 0)
                 {
-                    LoadHuyen(maTinh);
+                    LoadHuyen();
                 }
             }
         }
@@ -59,7 +62,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 int maHuyen = Convert.ToInt32(cbxHuyenQuan.SelectedValue);
                 if (maHuyen != 0)
                 {
-                    LoadXa(maHuyen);
+                    LoadXa();
                 }
             }
         }
@@ -76,36 +79,18 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             if (cbxTinh.SelectedValue != null)
             {
-                if (cbxTinh.SelectedValue is DataRowView rowView)
-                {
-                    int maTinh = Convert.ToInt32(rowView["MATINH"]);
-                    LoadHuyen(maTinh); 
-                }
-                else if (cbxTinh.SelectedValue is int maTinh)
-                {
-                    LoadHuyen(maTinh); 
-                }
+                LoadHuyen();
+                cbxPhuongXa.DataSource = null; 
             }
         }
         private void CbxHuyenQuan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxHuyenQuan.SelectedValue != null)
-            {
-                if (cbxHuyenQuan.SelectedValue is DataRowView rowView)
-                {
-                    int maHuyen = Convert.ToInt32(rowView["MAHUYEN"]); 
-                    LoadXa(maHuyen); 
-                }
-                else if (cbxHuyenQuan.SelectedValue is int maHuyen)
-                {
-                    LoadXa(maHuyen); 
-                }
-            }
+            
         }
 
 
         // Chuỗi kết nối cơ sở dữ liệu
-        private string cstr = @"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True";
+        private string cstr = @"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
 
         private void LoadTinh()
         {
@@ -127,47 +112,45 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
         }
 
-        private void LoadHuyen(int tinhId)
+        private void LoadHuyen()
         {
-            using (SqlConnection conn = new SqlConnection(cstr))
+            
+
+            int maTinh = Convert.ToInt32(cbxTinh.SelectedValue);
+            using (SqlConnection connection = new SqlConnection(cstr))
             {
-                string query = "SELECT MAHUYEN, TENHUYEN FROM HUYEN WHERE MATINH = @maTinh";
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                da.SelectCommand.Parameters.AddWithValue("@maTinh", tinhId);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                DataRow defaultRow = dt.NewRow();
-                defaultRow["MAHUYEN"] = 0;
-                defaultRow["TENHUYEN"] = "Chọn Huyện";
-                dt.Rows.InsertAt(defaultRow, 0);
-
-                cbxHuyenQuan.DataSource = dt;
+                connection.Open();
+                string query = "SELECT MAHUYEN, TENHUYEN FROM HUYEN WHERE MATINH = @MaTinh";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@MaTinh", maTinh);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dtHuyen = new DataTable();
+                adapter.Fill(dtHuyen);
                 cbxHuyenQuan.DisplayMember = "TENHUYEN";
                 cbxHuyenQuan.ValueMember = "MAHUYEN";
+                cbxHuyenQuan.DataSource = dtHuyen;
             }
         }
 
 
-        private void LoadXa(int maHuyen)
+        private void LoadXa()
         {
-            using (SqlConnection conn = new SqlConnection(cstr))
+
+            int maHuyen = Convert.ToInt32(cbxHuyenQuan.SelectedValue);
+            using (SqlConnection connection = new SqlConnection(cstr))
             {
-                string query = "SELECT MAXA, TENXA FROM XA WHERE MAHUYEN = @maHuyen";
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                da.SelectCommand.Parameters.AddWithValue("@maHuyen", maHuyen);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                DataRow defaultRow = dt.NewRow();
-                defaultRow["MAXA"] = 0;
-                defaultRow["TENXA"] = "Chọn Xã";
-                dt.Rows.InsertAt(defaultRow, 0);
-
-                cbxPhuongXa.DataSource = dt;
+                connection.Open();
+                string query = "SELECT MAXA, TENXA FROM XA WHERE MAHUYEN = @MaHuyen";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@MaHuyen", maHuyen);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dtXa = new DataTable();
+                adapter.Fill(dtXa);
                 cbxPhuongXa.DisplayMember = "TENXA";
                 cbxPhuongXa.ValueMember = "MAXA";
+                cbxPhuongXa.DataSource = dtXa;
             }
+
         }
 
         private void TaoMaKhachHang()
@@ -188,13 +171,6 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         public event EventHandler DaHuy;
 
-        // Sự kiện khi nhấn nút bỏ qua
-        private void btnBoQua_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
 
         private bool KiemTraForm()
         {
@@ -202,8 +178,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             string.IsNullOrWhiteSpace(txtTenKH.Text) ||
             string.IsNullOrWhiteSpace(txtDienThoai.Text) ||
             cbxTinh.SelectedItem == null ||
-            cbxHuyenQuan.SelectedItem == null /*||*/
-            /*cbxPhuongXa.SelectedItem == null*/)
+            cbxHuyenQuan.SelectedItem == null)
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -214,59 +189,40 @@ namespace DeTai_QuanLyCuaHangThuCung
 
 
 
+        private string originalMaKhachHang;
+
         private void LoadKhachHang(string maKhachHang)
         {
-            try
+            using (SqlConnection connection = new SqlConnection(cstr))
             {
-                using (SqlConnection connection = new SqlConnection(cstr))
+                connection.Open();
+                string query = "SELECT * FROM KHACHHANG WHERE MAKH = @MaKH";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@MaKH", maKhachHang);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
                 {
-                    connection.Open();
+                    originalMaKhachHang = maKhachHang; 
+                    txtMaKH.Text = reader["MAKH"].ToString();
+                    txtTenKH.Text = reader["HOTEN"].ToString();
+                    txtDienThoai.Text = reader["SODT"].ToString();
+                    txtEmail.Text = reader["EMAIL"].ToString();
+                    txtDiaChi.Text = reader["DCHI"].ToString();
+                    //dtpNgaySinh.Value = Convert.ToDateTime(reader["NGSINH"]);
+                    dtpNgayDK.Value = Convert.ToDateTime(reader["NGDK"]);
 
-                    string query = "SELECT * FROM KHACHHANG WHERE MAKH = @MaKH";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@MaKH", maKhachHang);
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                txtMaKH.Text = reader["MAKH"].ToString();
-                                txtTenKH.Text = reader["HOTEN"].ToString();
-                                txtDienThoai.Text = reader["SODT"].ToString();
-                                if (reader["NGSINH"] != DBNull.Value)
-                                {
-                                    dtpNgaySinh.Value = (DateTime)reader["NGSINH"];
-                                }
-                                if (reader["NGDK"] != DBNull.Value)
-                                {
-                                    dtpNgayDK.Value = (DateTime)reader["NGDK"];
-                                }
-                                txtDiaChi.Text = reader["DIACHI"].ToString();
+                    LoadTinh();
+                    cbxTinh.SelectedValue = reader["MATINH"];
 
-                                string gioiTinh = reader["GioiTinh"].ToString();
-                                if (gioiTinh == "Nam")
-                                {
-                                    rbtnNam.Checked = true;
-                                }
-                                else if (gioiTinh == "Nữ")
-                                {
-                                    rbtnNu.Checked = true;
-                                }
+                    LoadHuyen();
+                    cbxHuyenQuan.SelectedValue = reader["MAHUYEN"];
 
-                                txtEmail.Text = reader["EMAIL"].ToString();
-                            }
-                        }
-                    }
+                    LoadXa();
+                    cbxPhuongXa.SelectedValue = reader["MAXA"];
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
-
-
 
 
         public event EventHandler KhachHangUpdated;
@@ -286,93 +242,73 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
         }
 
-        private void LuuThongTinKhachHang(string maKhachHang, string hoTen, string diaChi, string sdt, DateTime ngaySinh, DateTime ngayDK, string email, int tinhId, int huyenId, int xaId, string gioiTinh)
+        private void LuuDuLieu()
         {
-            try
+            using (SqlConnection connection = new SqlConnection(cstr))
             {
-                using (SqlConnection connection = new SqlConnection(cstr))
+                connection.Open();
+
+                string maKhachHang = txtMaKH.Text;
+                string newMaKhachHang = txtMaKH.Text;
+                string checkQuery = "SELECT COUNT(*) FROM KHACHHANG WHERE MAKH = @MaKH";
+                SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
+                checkCommand.Parameters.AddWithValue("@MaKH", maKhachHang);
+                int count = (int)checkCommand.ExecuteScalar();
+
+                if (count > 0)
                 {
-                    connection.Open();
+                    // Cập nhật khách hàng
+                    string updateQuery = @"
+                UPDATE KHACHHANG 
+                SET HOTEN = @Hoten, 
+                    SODT = @Sodt, 
+                    DCHI = @DCHI, 
+                    EMAIL = @Email, 
+                    NGDK = @NgDK, 
+                    MATINH = @Matinh, 
+                    MAHUYEN = @Mahuyen, 
+                    MAXA = @Maxa 
+                WHERE MAKH = @MaKH";
 
-                    // Kiểm tra xem khách hàng có tồn tại không
-                    string query = KiemTraTonTaiKH(maKhachHang) ?
-                        @"UPDATE KHACHHANG 
-                SET HOTEN = @HOTEN, DIACHI = @DIACHI, SODT = @SODT, NGSINH = @NGSINH, NGDK = @NGDK, 
-                    EMAIL = @EMAIL, MATINH = @TINHID, MAHUYEN = @HUYENID, MAXA = @XAID, GIOITINH = @GIOITINH
-                WHERE MAKH = @MAKH" :
-                        @"INSERT INTO KHACHHANG 
-                (MAKH, HOTEN, DIACHI, SODT, NGSINH, NGDK, EMAIL, MATINH, MAHUYEN, MAXA, GIOITINH) 
-                VALUES 
-                (@MAKH, @HOTEN, @DIACHI, @SODT, @NGSINH, @NGDK, @EMAIL, @TINHID, @HUYENID, @XAID, @GIOITINH)";
+                    SqlCommand updateCommand = new SqlCommand(updateQuery, connection);
+                    updateCommand.Parameters.AddWithValue("@MaKH", maKhachHang);
+                    updateCommand.Parameters.AddWithValue("@Hoten", txtTenKH.Text);
+                    updateCommand.Parameters.AddWithValue("@Sodt", txtDienThoai.Text);
+                    updateCommand.Parameters.AddWithValue("@DCHI", txtDiaChi.Text);
+                    updateCommand.Parameters.AddWithValue("@Email", txtEmail.Text);
+                    updateCommand.Parameters.AddWithValue("@NgDK", dtpNgayDK.Value);
+                    updateCommand.Parameters.AddWithValue("@Matinh", cbxTinh.SelectedValue);
+                    updateCommand.Parameters.AddWithValue("@Mahuyen", cbxHuyenQuan.SelectedValue);
+                    updateCommand.Parameters.AddWithValue("@Maxa", cbxPhuongXa.SelectedValue);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@MAKH", maKhachHang);
-                        command.Parameters.AddWithValue("@HOTEN", hoTen);
-                        command.Parameters.AddWithValue("@DIACHI", diaChi);
-                        command.Parameters.AddWithValue("@SODT", sdt);
-                        command.Parameters.AddWithValue("@NGSINH", ngaySinh == DateTime.MinValue ? (object)DBNull.Value : ngaySinh);
-                        command.Parameters.AddWithValue("@NGDK", ngayDK == DateTime.MinValue ? (object)DBNull.Value : ngayDK);
-                        command.Parameters.AddWithValue("@EMAIL", email);
-                        command.Parameters.AddWithValue("@MAXA", xaId);
-                        command.Parameters.AddWithValue("@MAHUYEN", huyenId);
-                        command.Parameters.AddWithValue("@MATINH", tinhId);
-                        command.Parameters.AddWithValue("@GIOITINH", gioiTinh);
-
-                        int result = command.ExecuteNonQuery();
-                        if (result > 0)
-                        {
-                            MessageBox.Show("Lưu thông tin khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            KhachHangAdded?.Invoke(this, EventArgs.Empty);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Không có bản ghi nào được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
+                    updateCommand.ExecuteNonQuery();
+                    MessageBox.Show("Cập nhật thông tin khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Lỗi SQL: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-
-
-
-
-
-
-
-        private string selectedImagePath;
-
-        private void btnChonAnh_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
-                openFileDialog.FilterIndex = 2;
-                openFileDialog.RestoreDirectory = true;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                else
                 {
-                    string filePath = openFileDialog.FileName;
-                    pbHinhAnh.Image = Image.FromFile(filePath);
-                    selectedImagePath = filePath;  
+                    // Thêm mới khách hàng
+                    string insertQuery = @"
+            INSERT INTO KHACHHANG (MAKH, HOTEN, SODT, DCHI, EMAIL,NGDK, MATINH, MAHUYEN, MAXA)
+            VALUES (@MaKH, @Hoten, @Sodt, @DCHI, @Email, @NgDK, @Matinh, @Mahuyen, @Maxa)";
+
+                    SqlCommand insertCommand = new SqlCommand(insertQuery, connection);
+                    insertCommand.Parameters.AddWithValue("@MaKH", newMaKhachHang);
+                    insertCommand.Parameters.AddWithValue("@Hoten", txtTenKH.Text);
+                    insertCommand.Parameters.AddWithValue("@Sodt", txtDienThoai.Text);
+                    insertCommand.Parameters.AddWithValue("@DCHI", txtDiaChi.Text);
+                    insertCommand.Parameters.AddWithValue("@Email", txtEmail.Text);
+                    insertCommand.Parameters.AddWithValue("@NgDK", dtpNgayDK.Value);
+                    insertCommand.Parameters.AddWithValue("@Matinh", cbxTinh.SelectedValue);
+                    insertCommand.Parameters.AddWithValue("@Mahuyen", cbxHuyenQuan.SelectedValue);
+                    insertCommand.Parameters.AddWithValue("@Maxa", cbxPhuongXa.SelectedValue);
+
+                    insertCommand.ExecuteNonQuery();
+                    MessageBox.Show("Thêm mới khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
-
-        private void LoadComboBoxData()
+        private void LoadDuLieuComBoBox()
         {
-            // Nạp dữ liệu vào cbxTinh
             using (SqlConnection conn = new SqlConnection(cstr))
             {
                 string query = "SELECT MATINH, TENTINH FROM TINH";
@@ -386,38 +322,53 @@ namespace DeTai_QuanLyCuaHangThuCung
         }
 
 
-        private void btnBoQua_Click_1(object sender, EventArgs e)
+
+        private void LoadCombobox()
+        {
+            using (SqlConnection connection = new SqlConnection(cstr))
+            {
+                connection.Open();
+
+                string queryTinh = "SELECT MATINH, TENTINH FROM TINH";
+                SqlDataAdapter adapterTinh = new SqlDataAdapter(queryTinh, connection);
+                DataTable dtTinh = new DataTable();
+                adapterTinh.Fill(dtTinh);
+                cbxTinh.DisplayMember = "TENTINH";
+                cbxTinh.ValueMember = "MATINH";
+                cbxTinh.DataSource = dtTinh;
+
+                string queryHuyen = "SELECT MAHUYEN, TENHUYEN FROM HUYEN";
+                SqlDataAdapter adapterHuyen = new SqlDataAdapter(queryHuyen, connection);
+                DataTable dtHuyen = new DataTable();
+                adapterHuyen.Fill(dtHuyen);
+                cbxHuyenQuan.DisplayMember = "TENHUYEN";
+                cbxHuyenQuan.ValueMember = "MAHUYEN";
+                cbxHuyenQuan.DataSource = dtHuyen;
+
+                string queryXa = "SELECT MAXA, TENXA FROM XA";
+                SqlDataAdapter adapterXa = new SqlDataAdapter(queryXa, connection);
+                DataTable dtXa = new DataTable();
+                adapterXa.Fill(dtXa);
+                cbxPhuongXa.DisplayMember = "TENXA";
+                cbxPhuongXa.ValueMember = "MAXA";
+                cbxPhuongXa.DataSource = dtXa;
+            }
+        }
+
+        private void btnLua_Click(object sender, EventArgs e)
+        {
+            if (KiemTraForm())
+            {
+                LuuDuLieu();
+                KhachHangAdded?.Invoke(this, EventArgs.Empty);
+                this.Close();
+            }
+        }
+
+        private void btnBoQua_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
-        }
-
-        private void btnLua_Click_1(object sender, EventArgs e)
-        {
-
-            if (KiemTraForm())
-            {
-                string maKhachHang = txtMaKH.Text.Trim();
-                string hoTen = txtTenKH.Text.Trim();
-                string diaChi = txtDiaChi.Text.Trim();
-                string sdt = txtDienThoai.Text.Trim();
-                DateTime ngaySinh = dtpNgaySinh.Value.Date;
-                DateTime ngayDK = dtpNgayDK.Value.Date;
-                string email = txtEmail.Text.Trim();
-                int xaId = Convert.ToInt32(cbxPhuongXa.SelectedValue);
-                int tinhId = Convert.ToInt32(cbxTinh.SelectedValue);
-                int huyenId = Convert.ToInt32(cbxHuyenQuan.SelectedValue);
-                string gioiTinh = rbtnNam.Checked ? "Nam" : "Nữ";
-
-                try
-                {
-                    LuuThongTinKhachHang(maKhachHang, hoTen, diaChi, sdt, ngaySinh, ngayDK, email, tinhId, huyenId, xaId, gioiTinh);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Đã xảy ra lỗi khi lưu thông tin: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
     }
 }

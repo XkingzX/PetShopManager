@@ -18,72 +18,67 @@ namespace DeTai_QuanLyCuaHangThuCung.DangNhap
         public frm_DangNhap()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#F6C860");
         }
+
+        private void frm_DangNhap_Load(object sender, EventArgs e)
+        {
+            this.BeginInvoke((Action)(() =>
+            {
+                // Đặt focus vào tên đăng nhập khi form được tải
+                txtTendn.Focus();
+            }));
+        }
+
         public static class UserSession
         {
             public static string MaNV { get; set; }
-            public static string HoTen { get; set; }
         }
+
 
 
         private void btn_DangNhap_Click(object sender, EventArgs e)
         {
-            string chuoiketnoi = @"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
+            string chuoiketnoi = @"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
             SqlConnection ketnoi = new SqlConnection(chuoiketnoi);
+
             string tk = txtTendn.Text;
             string mk = txtMatkhau.Text;
-            string quyen = cmbQuyen.SelectedItem?.ToString();
-            string hoTen = "Tài khoản chưa đặt tên";
 
-            if (string.IsNullOrEmpty(quyen))
-            {
-                MessageBox.Show("Vui lòng chọn quyền trước khi đăng nhập!");
-                return;
-            }
-            string sql = @"SELECT MANV, QUYEN, HOTEN FROM NHANVIEN WHERE MANV = @tk AND MatKhau = @mk";
+            string sql = @"SELECT MANV, MATKHAU, QUYEN FROM NHANVIEN WHERE MANV = @tk AND MatKhau = @mk";
 
             try
             {
+
                 ketnoi.Open();
                 SqlCommand cm = new SqlCommand(sql, ketnoi);
                 cm.Parameters.AddWithValue("@tk", tk);
                 cm.Parameters.AddWithValue("@mk", mk);
-                cm.Parameters.AddWithValue("@HOTEN", hoTen);
-
                 SqlDataReader read = cm.ExecuteReader();
+
 
                 if (read.Read() == true)
                 {
                     string SQLquyen = read["QUYEN"].ToString();
-                    //string hoTenx = read["HOTEN"].ToString();
-                    //MessageBox.Show("Quyền từ CSDL: " + SQLquyen + "\nQuyền từ combobox: " + quyen); cái này dùng để check nó xuất dữ liệu như nào 
-                    if (SQLquyen == quyen)
-                    {
-                        MessageBox.Show("Đăng nhập thành công");
-                        frm_trangchu frm = new frm_trangchu("@HOTEN");
+                    MessageBox.Show("Đăng nhập thành công");
+                    frm_trangchu frm = new frm_trangchu();
 
-                        if (SQLquyen == "Quản lý")
-                        {
-                            frm.XetQuyenQL();
-                        }
-                        else if (SQLquyen == "Nhân viên")
-                        {
-                            frm.XetQuyenNV();
-                        }
-                        frm.Show();
-                        this.Hide();
-                        UserSession.MaNV = tk;
-                    }
-                    else
+                    if (SQLquyen == "Quản lý")
                     {
-                        MessageBox.Show("Quyền không hợp lệ. Vui lòng chọn đúng quyền của bạn!");
+                        frm.XetQuyenQL();
                     }
+                    else if (SQLquyen == "Nhân viên")
+                    {
+                        frm.XetQuyenNV();
+                    }
+                    this.Hide();
+                    frm.Show();
+                    UserSession.MaNV = tk;
                 }
                 else
                 {
                     MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
                     txtMatkhau.Text = "";
-                    //hoTen = "";
                     txtTendn.Focus();
                 }
 
@@ -99,9 +94,118 @@ namespace DeTai_QuanLyCuaHangThuCung.DangNhap
             }
         }
 
+        private void txtTendn_TextChanged(object sender, EventArgs e)
+        {
+            txtTendn.Text = txtTendn.Text.ToUpper();
+            txtTendn.SelectionStart = txtTendn.Text.Length;
+        }
+
+        private void txtTendn_Enter(object sender, EventArgs e)
+        {
+
+            if (txtTendn.Text == "MÃ NHÂN VIÊN")
+            {
+                txtTendn.Text = "";
+                txtTendn.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void txtTendn_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTendn.Text))
+            {
+                txtTendn.Text = "MÃ NHÂN VIÊN";
+                txtTendn.ForeColor = Color.Silver;
+            }
+        }
+
+        private void txtMatkhau_Enter(object sender, EventArgs e)
+        {
+            if (txtMatkhau.Text == "MẬT KHẨU")
+            {
+                txtMatkhau.Text = "";
+                txtMatkhau.ForeColor = Color.Black;
+            }
+            txtMatkhau.UseSystemPasswordChar = true;
+        }
+
+        private void txtMatkhau_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMatkhau.Text))
+            {
+                txtMatkhau.Text = "MẬT KHẨU";
+                txtMatkhau.ForeColor = Color.Silver;
+                txtMatkhau.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtMatkhau.UseSystemPasswordChar = true;
+            }
+
+        }
+
+        private void frm_DangNhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult result = MessageBox.Show("Bạn có muốn thoát không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+                else if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+
+        }
+
         private void cmbQuyen_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void txtTendn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMatkhau_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMatkhau_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_DangNhap_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void btn_DangNhap_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_DangNhap_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_DangNhap_BackColorChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

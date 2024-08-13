@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +32,10 @@ namespace DeTai_QuanLyCuaHangThuCung
             InitializeComponent();
             oldManv = maNV; // Lưu mã nhân viên cũ để kiểm tra
             LoadLaiThongTin(maNV, hoten, matkhau, sodt, ngvl, diachi, email, ngsinh, gioitinh, ghichu, hinh, quyen);
+        }
+        public frmSuaTTNV()
+        {
+            InitializeComponent();
         }
         private void LoadLaiThongTin(string maNV, string hoten, string matkhau, string sodt, DateTime ngvl, string diachi, string email, DateTime ngsinh, string gioitinh, string ghichu, byte[] hinh, string quyen)
         {
@@ -64,10 +67,6 @@ namespace DeTai_QuanLyCuaHangThuCung
                 pbHinhanh.Image = null;
             }
         }
-        public frmSuaTTNV()
-        {
-            InitializeComponent();
-        }
 
         private void frmsuattnv_Load(object sender, EventArgs e)
         {
@@ -83,28 +82,33 @@ namespace DeTai_QuanLyCuaHangThuCung
             cmbQuyen.SelectedItem = Quyen;
 
             if (Gioitinh == "Nam")
+            {
                 rdbNam.Checked = true;
+            }
             else if (Gioitinh == "Nữ")
+            {
                 rdbNu.Checked = true;
+            }
 
             if (Hinh != null)
             {
                 using (MemoryStream ms = new MemoryStream(Hinh))
                 {
                     pbHinhanh.Image = Image.FromStream(ms);
-                    pbHinhanh.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pbHinhanh.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
+
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtManv.Text) ||
-            string.IsNullOrEmpty(txtHoten.Text) ||
-            string.IsNullOrEmpty(txtMatkhau.Text) ||
-            string.IsNullOrEmpty(txtSoDienThoai.Text) ||
-            cmbQuyen.SelectedItem == null ||
-            (rdbNam.Checked == false && rdbNu.Checked == false))
+                string.IsNullOrEmpty(txtHoten.Text) ||
+                string.IsNullOrEmpty(txtMatkhau.Text) ||
+                string.IsNullOrEmpty(txtSoDienThoai.Text) ||
+                cmbQuyen.SelectedItem == null ||
+                (rdbNam.Checked == false && rdbNu.Checked == false))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
                 return;
@@ -116,6 +120,23 @@ namespace DeTai_QuanLyCuaHangThuCung
             if ((quyen == "Quản lý" && !manv.StartsWith("QL")) || (quyen == "Nhân viên" && !manv.StartsWith("NV")))
             {
                 MessageBox.Show($"Mã nhân viên phải bắt đầu bằng \"{(quyen == "Quản lý" ? "QL" : "NV")}\".");
+                return;
+            }
+            if (dtpNgayvaolam.Value.Date <= dtpNgaysinh.Value.Date)
+            {
+                MessageBox.Show("Ngày vào làm không được trước ngày sinh.");
+                return;
+            }
+
+            int tuoi = dtpNgayvaolam.Value.Year - dtpNgaysinh.Value.Year;
+            if (dtpNgayvaolam.Value < dtpNgaysinh.Value.AddYears(tuoi)) //Xét nếu chưa qua ngày sinh trong năm hiện tại thì tuổi sẽ trừ đi 1 tuổi
+            {
+                tuoi--;
+            }
+
+            if (tuoi < 16)
+            {
+                MessageBox.Show("Nhân viên chưa đủ 16 tuổi! Kiểm tra lại");
                 return;
             }
 
@@ -136,7 +157,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 
             try
             {
-                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
                     cn.Open();
                     string KiemtraQuery = "SELECT COUNT(*) FROM NHANVIEN WHERE MANV = @MANV AND MANV != @OldMANV";
@@ -154,31 +175,31 @@ namespace DeTai_QuanLyCuaHangThuCung
                     string sql = @"UPDATE NHANVIEN
                                 SET MANV = @MANV, HOTEN = @HOTEN, SODT = @SODT, NGVL = @NGVL, MATKHAU = @MATKHAU, QUYEN = @QUYEN, DIACHI = @DIACHI, EMAIL = @EMAIL, NGSINH = @NGSINH, GIOITINH = @GIOITINH, GHICHU = @GHICHU, HINH = @HINH
                                 WHERE MANV = @OldMANV";
-                    using (SqlCommand cmd = new SqlCommand(sql, cn))
+                    using (SqlCommand cm = new SqlCommand(sql, cn))
                     {
-                        cmd.Parameters.AddWithValue("@MANV", manv);
-                        cmd.Parameters.AddWithValue("@OldMANV", oldManv);
-                        cmd.Parameters.AddWithValue("@HOTEN", txtHoten.Text);
-                        cmd.Parameters.AddWithValue("@SODT", txtSoDienThoai.Text);
-                        cmd.Parameters.AddWithValue("@NGVL", dtpNgayvaolam.Value);
-                        cmd.Parameters.AddWithValue("@MATKHAU", txtMatkhau.Text);
-                        cmd.Parameters.AddWithValue("@QUYEN", quyen);
-                        cmd.Parameters.AddWithValue("@DIACHI", txtDiachi.Text);
-                        cmd.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
-                        cmd.Parameters.AddWithValue("@NGSINH", dtpNgaysinh.Value);
-                        cmd.Parameters.AddWithValue("@GIOITINH", rdbNam.Checked ? "Nam" : "Nữ");
-                        cmd.Parameters.AddWithValue("@GHICHU", txtGhichu.Text);
+                        cm.Parameters.AddWithValue("@MANV", manv);
+                        cm.Parameters.AddWithValue("@OldMANV", oldManv);
+                        cm.Parameters.AddWithValue("@HOTEN", txtHoten.Text);
+                        cm.Parameters.AddWithValue("@SODT", txtSoDienThoai.Text);
+                        cm.Parameters.AddWithValue("@NGVL", dtpNgayvaolam.Value);
+                        cm.Parameters.AddWithValue("@MATKHAU", txtMatkhau.Text);
+                        cm.Parameters.AddWithValue("@QUYEN", quyen);
+                        cm.Parameters.AddWithValue("@DIACHI", txtDiachi.Text);
+                        cm.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
+                        cm.Parameters.AddWithValue("@NGSINH", dtpNgaysinh.Value);
+                        cm.Parameters.AddWithValue("@GIOITINH", rdbNam.Checked ? "Nam" : "Nữ");
+                        cm.Parameters.AddWithValue("@GHICHU", txtGhichu.Text);
 
                         if (Hinhanh != null)
                         {
-                            cmd.Parameters.AddWithValue("@HINH", Hinhanh);
+                            cm.Parameters.AddWithValue("@HINH", Hinhanh);
                         }
                         else
                         {
-                            cmd.Parameters.AddWithValue("@HINH", DBNull.Value);
+                            cm.Parameters.AddWithValue("@HINH", DBNull.Value);
                         }
 
-                        cmd.ExecuteNonQuery();
+                        cm.ExecuteNonQuery();
                     }
                     cn.Close();
 
@@ -192,17 +213,6 @@ namespace DeTai_QuanLyCuaHangThuCung
                 MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
             }
         }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnToday_Click(object sender, EventArgs e)
-        {
-            dtpNgayvaolam.Value = DateTime.Now;
-        }
-
         private void btnChonhinh_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog Layhinh = new OpenFileDialog())
@@ -212,6 +222,12 @@ namespace DeTai_QuanLyCuaHangThuCung
 
                 if (Layhinh.ShowDialog() == DialogResult.OK)
                 {
+                    //Nếu có ảnh cũ thì nó sẽ được giải phòng
+                    if (pbHinhanh.Image != null)
+                    {
+                        pbHinhanh.Image.Dispose();
+                    }
+                    //Lấy hình
                     pbHinhanh.Image = Image.FromFile(Layhinh.FileName);
                     pbHinhanh.SizeMode = PictureBoxSizeMode.Zoom;
                 }
@@ -220,7 +236,28 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         private void frmSuaTTNV_Load_1(object sender, EventArgs e)
         {
+            this.BeginInvoke((Action)(() =>
+            {
+                txtManv.Focus();
+            }));
+        }
 
+        private void txtManv_TextChanged(object sender, EventArgs e)
+        {
+            txtManv.Text = txtManv.Text.ToUpper();
+            txtManv.SelectionStart = txtManv.Text.Length;
+            if (txtManv.Text.Length > 6)
+            {
+                MessageBox.Show("Mã nhân viên không được quá 6 kí tự!", "Thông báo", MessageBoxButtons.OK);
+                txtManv.Text = txtManv.Text.Substring(0, 6);
+                txtManv.SelectionStart = txtManv.Text.Length;
+            }
+
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

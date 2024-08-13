@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using DeTai_QuanLyCuaHangThuCung.DangNhap;
-using System.IO;
+using static DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {
@@ -23,7 +23,8 @@ namespace DeTai_QuanLyCuaHangThuCung
             dgvTTNV.CellClick += DgvTTNV_CellClick;
         }
 
-        private void DgvTTNV_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void DgvTTNV_CellClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -34,7 +35,17 @@ namespace DeTai_QuanLyCuaHangThuCung
                 txtSodienthoai.Text = row.Cells["SODT"].Value.ToString();
                 txtEmail.Text = row.Cells["EMAIL"].Value.ToString();
                 txtGhichu.Text = row.Cells["GHICHU"].Value.ToString();
+                txtDiachi.Text = row.Cells["DIACHI"].Value.ToString();
+                txtMatkhau.Text = row.Cells["MATKHAU"].Value.ToString();
+                if (row.Cells["NGSINH"].Value != DBNull.Value)
+                {
+                    dtpNgaysinh.Value = Convert.ToDateTime(row.Cells["NGSINH"].Value);
+                }
 
+                if (row.Cells["NGVL"].Value != DBNull.Value)
+                {
+                    dtpNgayvaolam.Value = Convert.ToDateTime(row.Cells["NGVL"].Value);
+                }
                 string gioiTinh = row.Cells["GIOITINH"].Value.ToString();
                 if (gioiTinh == "Nam")
                 {
@@ -65,7 +76,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
         }
 
-        SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
+        SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
         private void ketnoicsdl()
         {
             cn.Open();
@@ -107,14 +118,6 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.Height = 740;
 
         }
-
-        private void btnNow_Click(object sender, EventArgs e)
-        {
-            dtpNgayvaolam.Value = DateTime.Now;
-        }
-
-
-
 
         private void btnTimkienmanv_Click(object sender, EventArgs e)
         {
@@ -163,30 +166,52 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnXoa_Click(object sender, EventArgs e)
         {
             if (dgvTTNV.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn sản phẩm cần xóa.");
+                MessageBox.Show("Vui lòng chọn nhân viên cần xóa.");
+                return;
+            }
+            string maNV = dgvTTNV.SelectedRows[0].Cells["MANV"].Value.ToString();
+
+            string sqlQuyen = "SELECT QUYEN FROM NHANVIEN WHERE MANV = @MANV";
+            string quyen;
+            using (SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(sqlQuyen, cn))
+                {
+                    cmd.Parameters.AddWithValue("@MANV", maNV);
+                    quyen = (string)cmd.ExecuteScalar();
+                }
+                cn.Close();
+            }
+
+            if (quyen == "Quản lý")
+            {
+                MessageBox.Show("Nhân viên có quyền quản lý thì không được xóa!", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này?", "Xác nhận", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này?", "Xác nhận", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                string maNV = dgvTTNV.SelectedRows[0].Cells["MANV"].Value.ToString();
-                cn.Open();
-                string query = "DELETE NHANVIEN WHERE MANV = @maNV";
-                using (SqlCommand cm = new SqlCommand(query, cn))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
-                    cm.Parameters.AddWithValue("@MANV", maNV);
-                    cm.ExecuteNonQuery();
+                    cn.Open();
+                    string query = "DELETE FROM NHANVIEN WHERE MANV = @MANV";
+                    using (SqlCommand cm = new SqlCommand(query, cn))
+                    {
+                        cm.Parameters.AddWithValue("@MANV", maNV);
+                        cm.ExecuteNonQuery();
+                    }
+                    cn.Close();
                 }
-                cn.Close();
 
                 ketnoicsdl();
 
-                MessageBox.Show("Sản phẩm đã được xóa.");
+                MessageBox.Show("Thông tin nhân viên đã được xóa.");
             }
         }
 
@@ -194,7 +219,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
                     cn.Open();
                     string sql = "SELECT * FROM NHANVIEN";
@@ -213,6 +238,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+
             if (dgvTTNV.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn thông tin nhân viên cần sửa.");
@@ -242,25 +268,40 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
         }
 
-        private void txtGhichu_Click(object sender, EventArgs e)
-        {
 
+        private void txtTimkiem_TextChanged(object sender, EventArgs e)
+        {
+            txtTimkiem.Text = txtTimkiem.Text.ToUpper();
+            txtTimkiem.SelectionStart = txtTimkiem.Text.Length;
         }
 
-        private void dgvTTNV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void txtTimkiem_Click(object sender, EventArgs e)
         {
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void txtTimkiem_Enter(object sender, EventArgs e)
+        {
+            if (txtTimkiem.Text == "NHẬP MÃ NHÂN VIÊN")
+            {
+                txtTimkiem.Text = "";
+                txtTimkiem.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtTimkiem_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTimkiem.Text))
+            {
+                txtTimkiem.Text = "NHẬP MÃ NHÂN VIÊN";
+                txtTimkiem.ForeColor = Color.Silver;
+            }
+        }
+
+        private void btnHienthi_Click(object sender, EventArgs e)
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
                     cn.Open();
                     string sql = "SELECT * FROM NHANVIEN";
@@ -278,6 +319,21 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
         }
 
+        private void txtGhichu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvTTNV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         private void pbHinhanh_Click(object sender, EventArgs e)
         {
 
@@ -290,8 +346,8 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-          
-            
+
+
         }
     }
 }

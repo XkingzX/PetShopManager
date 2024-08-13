@@ -31,17 +31,15 @@ namespace DeTai_QuanLyCuaHangThuCung
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_trangchu));
             this.mn_tongquan = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_hanghoa = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_danhmuc = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_kiemkho = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_giaodich = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_xemhoadon = new System.Windows.Forms.ToolStripMenuItem();
-            this.đơnHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_muahang = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_chitiethoadon = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_dshoadon = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_dscthd = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_giohang = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_khachhang = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_thongtinkhachhang = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_baocao = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,44 +97,20 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.mn_xemhoadon.Text = "Xem Lịch Sử Hóa Đơn";
             this.mn_xemhoadon.Click += new System.EventHandler(this.mn_xemhoadon_Click);
             // 
-            // đơnHàngToolStripMenuItem
-            // 
-            this.đơnHàngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mn_muahang,
-            this.mn_chitiethoadon,
-            this.mn_dshoadon,
-            this.mn_dscthd});
-            this.đơnHàngToolStripMenuItem.Name = "đơnHàngToolStripMenuItem";
-            this.đơnHàngToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
-            this.đơnHàngToolStripMenuItem.Text = "Đơn Hàng";
-            // 
             // mn_muahang
             // 
+            this.mn_muahang.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_giohang});
             this.mn_muahang.Name = "mn_muahang";
-            this.mn_muahang.Size = new System.Drawing.Size(226, 26);
-            this.mn_muahang.Text = "Hóa Đơn";
-            this.mn_muahang.Click += new System.EventHandler(this.mn_muahang_Click);
+            this.mn_muahang.Size = new System.Drawing.Size(92, 24);
+            this.mn_muahang.Text = "Mua Hàng";
             // 
-            // mn_chitiethoadon
+            // mn_giohang
             // 
-            this.mn_chitiethoadon.Name = "mn_chitiethoadon";
-            this.mn_chitiethoadon.Size = new System.Drawing.Size(226, 26);
-            this.mn_chitiethoadon.Text = "Chi Tiết Hóa Đơn ";
-            this.mn_chitiethoadon.Click += new System.EventHandler(this.mn_chitiethoadon_Click);
-            // 
-            // mn_dshoadon
-            // 
-            this.mn_dshoadon.Name = "mn_dshoadon";
-            this.mn_dshoadon.Size = new System.Drawing.Size(226, 26);
-            this.mn_dshoadon.Text = "Danh Sách Hóa Đơn";
-            this.mn_dshoadon.Click += new System.EventHandler(this.mn_dshoadon_Click);
-            // 
-            // mn_dscthd
-            // 
-            this.mn_dscthd.Name = "mn_dscthd";
-            this.mn_dscthd.Size = new System.Drawing.Size(226, 26);
-            this.mn_dscthd.Text = "Danh Sách CTHD";
-            this.mn_dscthd.Click += new System.EventHandler(this.mn_dscthd_Click);
+            this.mn_giohang.Name = "mn_giohang";
+            this.mn_giohang.Size = new System.Drawing.Size(224, 26);
+            this.mn_giohang.Text = "Giỏ Hàng";
+            this.mn_giohang.Click += new System.EventHandler(this.mn_muahang_Click);
             // 
             // mn_khachhang
             // 
@@ -181,14 +155,14 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.mn_tongquan,
             this.mn_hanghoa,
             this.mn_giaodich,
-            this.đơnHàngToolStripMenuItem,
+            this.mn_muahang,
             this.mn_khachhang,
             this.mn_baocao,
             this.mn_nhanvien,
             this.mnTen});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1018, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1164, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -223,14 +197,16 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1018, 426);
+            this.ClientSize = new System.Drawing.Size(1164, 505);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_trangchu";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "                ";
+            this.Text = "Cửa Hàng Thú Cưng - PetShop";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_trangchu_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -246,7 +222,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         private ToolStripMenuItem mn_kiemkho;
         private ToolStripMenuItem mn_giaodich;
         private ToolStripMenuItem mn_xemhoadon;
-        private ToolStripMenuItem đơnHàngToolStripMenuItem;
+        private ToolStripMenuItem mn_muahang;
         private ToolStripMenuItem mn_khachhang;
         private ToolStripMenuItem mn_thongtinkhachhang;
         private ToolStripMenuItem mn_baocao;
@@ -256,9 +232,6 @@ namespace DeTai_QuanLyCuaHangThuCung
         private ToolStripMenuItem mnTen;
         private ToolStripMenuItem mnDangXuat;
         private ToolStripMenuItem mnTTCN;
-        private ToolStripMenuItem mn_muahang;
-        private ToolStripMenuItem mn_chitiethoadon;
-        private ToolStripMenuItem mn_dshoadon;
-        private ToolStripMenuItem mn_dscthd;
+        private ToolStripMenuItem mn_giohang;
     }
 }

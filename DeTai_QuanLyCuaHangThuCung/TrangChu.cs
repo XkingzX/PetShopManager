@@ -1,4 +1,4 @@
-﻿using DeTai_QuanLyCuaHangThuCung.DangNhap;
+﻿//using DeTai_QuanLyCuaHangThuCung.DangNhap;
 using DeTai_QuanLyCuaHangThuCung.GiaoDich;
 using DeTai_QuanLyCuaHangThuCung.HangHoa;
 using DeTai_QuanLyCuaHangThuCung.QuanLyKH;
@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using WindowsFormsApp1;
-using static DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap;
+//using static DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {
@@ -19,7 +19,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             InitializeComponent();
             this.IsMdiContainer = true;
-            mnTen.Text = UserSession.HoTen;
+            //mnTen.Text = UserSession.HoTen;
         }
 
         public void XetQuyenQL()
@@ -56,18 +56,6 @@ namespace DeTai_QuanLyCuaHangThuCung
             frm.Show();
         }
 
-        private void Trangchu_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                DialogResult result = MessageBox.Show("Bạn có muốn thoát không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
-            }
-        }
-
         private void frm_trangchu_Load(object sender, EventArgs e)
         {
             /*if (!string.IsNullOrEmpty(UserSession.HoTen))
@@ -84,42 +72,29 @@ namespace DeTai_QuanLyCuaHangThuCung
             frmKhachHang frm = new frmKhachHang();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
+            this.Height = 500;
             frm.Show();
         }
 
         private void mn_thongtinnv_Click(object sender, EventArgs e)
         {
-            frm_thongtinnv frm = new frm_thongtinnv();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void mn_nhanvien_Click(object sender, EventArgs e)
-        {
-
+            //frm_thongtinnv frm = new frm_thongtinnv();
+            //frm.MdiParent = this;
+            //frm.Dock = DockStyle.Fill;
+            //frm.Show();
         }
 
         private void mnDangXuat_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
-                frm_DangNhap frm = new frm_DangNhap();
-                frm.Show();
+            //DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //if (result == DialogResult.Yes)
+            //{
+            //    this.Hide();
+            //    frm_DangNhap frm = new frm_DangNhap();
+            //    frm.Show();
 
-            }
+            //}
 
-        }
-
-
-        private void mn_TTCNMenuItem_Click(object sender, EventArgs e)
-        {
-            frmTTCN frm = new frmTTCN();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
         }
 
         private void mnTTCN_Click(object sender, EventArgs e)
@@ -135,36 +110,26 @@ namespace DeTai_QuanLyCuaHangThuCung
             frm.Show();
         }
 
-        private void mn_chitiethoadon_Click(object sender, EventArgs e)
-        {
-            ChiTietHoaDon frm = new ChiTietHoaDon();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void mn_dshoadon_Click(object sender, EventArgs e)
-        {
-            FormDSHoaDon frm = new FormDSHoaDon();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void mn_dscthd_Click(object sender, EventArgs e)
-        {
-            FormDSCTHD frm = new FormDSCTHD();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
         private void mn_muahang_Click(object sender, EventArgs e)
         {
             MuaHang frm = new MuaHang();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
+            this.Width = 955;
+            this.Height = 640;
             frm.Show();
+        }
+
+        private void frm_trangchu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult result = MessageBox.Show("Bạn có muốn thoát không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 

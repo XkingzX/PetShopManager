@@ -22,5 +22,16 @@ namespace DeTai_QuanLyCuaHangThuCung.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;Tr" +
+            "ustServerCertificate=True")]
+        public string DB_CuaHangThuCungConnectionString {
+            get {
+                return ((string)(this["DB_CuaHangThuCungConnectionString"]));
+            }
+        }
     }
 }

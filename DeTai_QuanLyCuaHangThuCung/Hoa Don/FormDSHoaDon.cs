@@ -22,16 +22,13 @@ namespace WindowsFormsApp1
 
         private void FormDSHoaDon_Load(object sender, EventArgs e)
         {
-            string chuoiketnoi = @"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True";
-            SqlConnection ketnoi = new SqlConnection(chuoiketnoi);
-            reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApp1.FormDSHD.rdlc";
+            reportViewer2.LocalReport.ReportEmbeddedResource = "DeTai_QuanLyCuaHangThuCung.ReportDSHD.rdlc";
             ReportDataSource reportDataSource = new ReportDataSource();
             reportDataSource.Name = "DataSet1";
-            ketnoi.Open();
             string querry = "select * from HOADON";
             reportDataSource.Value = DataProvider.LoadCSDL(querry);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
-            this.reportViewer1.RefreshReport();
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource);
+            this.reportViewer2.RefreshReport();
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace DeTai_QuanLyCuaHangThuCung
+﻿namespace DeTai_QuanLyCuaHangThuCung
 {
     partial class frmSuaTTNV
     {
@@ -31,6 +28,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuaTTNV));
             label = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -41,7 +39,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             txtSoDienThoai = new TextBox();
             txtMatkhau = new TextBox();
             btnLuu = new Button();
-            btnThoat = new Button();
+            btnHuy = new Button();
             label5 = new Label();
             label6 = new Label();
             groupBox2 = new GroupBox();
@@ -59,7 +57,6 @@ namespace DeTai_QuanLyCuaHangThuCung
             label10 = new Label();
             dtpNgayvaolam = new DateTimePicker();
             cmbQuyen = new ComboBox();
-            btnToday = new Button();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbHinhanh).BeginInit();
             SuspendLayout();
@@ -67,7 +64,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // label
             // 
             label.AutoSize = true;
-            label.Location = new Point(21, 9);
+            label.Location = new Point(18, 9);
             label.Name = "label";
             label.Size = new Size(82, 15);
             label.TabIndex = 0;
@@ -76,7 +73,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(21, 45);
+            label2.Location = new Point(18, 43);
             label2.Name = "label2";
             label2.Size = new Size(44, 15);
             label2.TabIndex = 0;
@@ -85,7 +82,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(21, 76);
+            label1.Location = new Point(18, 81);
             label1.Name = "label1";
             label1.Size = new Size(79, 15);
             label1.TabIndex = 0;
@@ -94,7 +91,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(23, 348);
+            label3.Location = new Point(18, 347);
             label3.Name = "label3";
             label3.Size = new Size(42, 15);
             label3.TabIndex = 0;
@@ -103,7 +100,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(21, 314);
+            label4.Location = new Point(18, 314);
             label4.Name = "label4";
             label4.Size = new Size(57, 15);
             label4.TabIndex = 0;
@@ -111,28 +108,29 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             // txtManv
             // 
-            txtManv.Location = new Point(118, 6);
+            txtManv.Location = new Point(115, 6);
             txtManv.Name = "txtManv";
             txtManv.Size = new Size(197, 23);
             txtManv.TabIndex = 1;
+            txtManv.TextChanged += txtManv_TextChanged;
             // 
             // txtHoten
             // 
-            txtHoten.Location = new Point(118, 35);
+            txtHoten.Location = new Point(115, 35);
             txtHoten.Name = "txtHoten";
             txtHoten.Size = new Size(197, 23);
             txtHoten.TabIndex = 1;
             // 
             // txtSoDienThoai
             // 
-            txtSoDienThoai.Location = new Point(115, 68);
+            txtSoDienThoai.Location = new Point(115, 73);
             txtSoDienThoai.Name = "txtSoDienThoai";
             txtSoDienThoai.Size = new Size(197, 23);
             txtSoDienThoai.TabIndex = 1;
             // 
             // txtMatkhau
             // 
-            txtMatkhau.Location = new Point(109, 311);
+            txtMatkhau.Location = new Point(115, 311);
             txtMatkhau.Name = "txtMatkhau";
             txtMatkhau.Size = new Size(197, 23);
             txtMatkhau.TabIndex = 1;
@@ -148,21 +146,21 @@ namespace DeTai_QuanLyCuaHangThuCung
             btnLuu.UseVisualStyleBackColor = true;
             btnLuu.Click += btnLuu_Click;
             // 
-            // btnThoat
+            // btnHuy
             // 
-            btnThoat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnThoat.Location = new Point(272, 452);
-            btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(75, 32);
-            btnThoat.TabIndex = 2;
-            btnThoat.Text = "Thoát";
-            btnThoat.UseVisualStyleBackColor = true;
-            btnThoat.Click += btnThoat_Click;
+            btnHuy.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnHuy.Location = new Point(272, 452);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(75, 32);
+            btnHuy.TabIndex = 2;
+            btnHuy.Text = "Hủy";
+            btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(21, 107);
+            label5.Location = new Point(18, 105);
             label5.Name = "label5";
             label5.Size = new Size(43, 15);
             label5.TabIndex = 0;
@@ -171,7 +169,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(21, 164);
+            label6.Location = new Point(18, 167);
             label6.Name = "label6";
             label6.Size = new Size(52, 15);
             label6.TabIndex = 0;
@@ -181,7 +179,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             groupBox2.Controls.Add(rdbNam);
             groupBox2.Controls.Add(rdbNu);
-            groupBox2.Location = new Point(112, 162);
+            groupBox2.Location = new Point(115, 153);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(163, 29);
             groupBox2.TabIndex = 4;
@@ -211,7 +209,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             // txtDiachi
             // 
-            txtDiachi.Location = new Point(115, 104);
+            txtDiachi.Location = new Point(115, 102);
             txtDiachi.Multiline = true;
             txtDiachi.Name = "txtDiachi";
             txtDiachi.Size = new Size(197, 45);
@@ -220,7 +218,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(21, 197);
+            label7.Location = new Point(18, 207);
             label7.Name = "label7";
             label7.Size = new Size(61, 15);
             label7.TabIndex = 0;
@@ -229,7 +227,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(21, 279);
+            label8.Location = new Point(18, 279);
             label8.Name = "label8";
             label8.Size = new Size(36, 15);
             label8.TabIndex = 0;
@@ -237,22 +235,22 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(109, 279);
+            txtEmail.Location = new Point(115, 276);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(197, 23);
             txtEmail.TabIndex = 1;
             // 
             // dtpNgaysinh
             // 
-            dtpNgaysinh.Location = new Point(112, 197);
+            dtpNgaysinh.Location = new Point(115, 199);
             dtpNgaysinh.Name = "dtpNgaysinh";
-            dtpNgaysinh.Size = new Size(200, 23);
+            dtpNgaysinh.Size = new Size(197, 23);
             dtpNgaysinh.TabIndex = 5;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(21, 379);
+            label9.Location = new Point(18, 379);
             label9.Name = "label9";
             label9.Size = new Size(50, 15);
             label9.TabIndex = 0;
@@ -260,7 +258,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             // txtGhichu
             // 
-            txtGhichu.Location = new Point(109, 376);
+            txtGhichu.Location = new Point(115, 376);
             txtGhichu.Multiline = true;
             txtGhichu.Name = "txtGhichu";
             txtGhichu.Size = new Size(197, 67);
@@ -268,6 +266,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             // pbHinhanh
             // 
+            pbHinhanh.BorderStyle = BorderStyle.FixedSingle;
             pbHinhanh.Location = new Point(377, 36);
             pbHinhanh.Name = "pbHinhanh";
             pbHinhanh.Size = new Size(149, 143);
@@ -287,7 +286,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(21, 251);
+            label10.Location = new Point(18, 249);
             label10.Name = "label10";
             label10.Size = new Size(80, 15);
             label10.TabIndex = 0;
@@ -295,29 +294,19 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             // dtpNgayvaolam
             // 
-            dtpNgayvaolam.Location = new Point(109, 243);
+            dtpNgayvaolam.Location = new Point(115, 243);
             dtpNgayvaolam.Name = "dtpNgayvaolam";
-            dtpNgayvaolam.Size = new Size(200, 23);
+            dtpNgayvaolam.Size = new Size(197, 23);
             dtpNgayvaolam.TabIndex = 5;
             // 
             // cmbQuyen
             // 
             cmbQuyen.FormattingEnabled = true;
             cmbQuyen.Items.AddRange(new object[] { "Quản lý", "Nhân viên" });
-            cmbQuyen.Location = new Point(109, 345);
+            cmbQuyen.Location = new Point(115, 347);
             cmbQuyen.Name = "cmbQuyen";
             cmbQuyen.Size = new Size(197, 23);
             cmbQuyen.TabIndex = 8;
-            // 
-            // btnToday
-            // 
-            btnToday.Location = new Point(315, 243);
-            btnToday.Name = "btnToday";
-            btnToday.Size = new Size(47, 23);
-            btnToday.TabIndex = 7;
-            btnToday.Text = "Today";
-            btnToday.UseVisualStyleBackColor = true;
-            btnToday.Click += btnToday_Click;
             // 
             // frmSuaTTNV
             // 
@@ -325,13 +314,12 @@ namespace DeTai_QuanLyCuaHangThuCung
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(548, 486);
             Controls.Add(cmbQuyen);
-            Controls.Add(btnToday);
             Controls.Add(btnChonhinh);
             Controls.Add(pbHinhanh);
             Controls.Add(dtpNgayvaolam);
             Controls.Add(dtpNgaysinh);
             Controls.Add(groupBox2);
-            Controls.Add(btnThoat);
+            Controls.Add(btnHuy);
             Controls.Add(btnLuu);
             Controls.Add(txtEmail);
             Controls.Add(txtMatkhau);
@@ -351,6 +339,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(label);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmSuaTTNV";
             Text = "Sửa Thông Tin Nhân Viên";
             Load += frmSuaTTNV_Load_1;
@@ -373,7 +362,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         private TextBox txtSoDienThoai;
         private TextBox txtMatkhau;
         private Button btnLuu;
-        private Button btnThoat;
+        private Button btnHuy;
         private Label label5;
         private Label label6;
         private GroupBox groupBox2;
@@ -391,6 +380,5 @@ namespace DeTai_QuanLyCuaHangThuCung
         private Label label10;
         private DateTimePicker dtpNgayvaolam;
         private ComboBox cmbQuyen;
-        private Button btnToday;
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +14,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
     public partial class frmKhachHang : Form
     {
         // Chuỗi kết nối cơ sở dữ liệu
-        private string cstr = @"Data Source=TIENTOI;Initial Catalog = DB_CuaHangThuCung; Integrated Security = True";
+        private string cstr = @"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
 
         public frmKhachHang()
         {
@@ -28,13 +27,14 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
             using (SqlConnection connection = new SqlConnection(cstr))
             {
                 connection.Open();
-                string query = "SELECT * FROM KHACHHANG";
+                string query = "SELECT MAKH, HOTEN, SODT,NGDK FROM KHACHHANG";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
                 dgvThongTinKhachHang.DataSource = dataTable;
             }
         }
+
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -54,11 +54,9 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
                     {
                         foreach (DataGridViewRow row in dgvThongTinKhachHang.SelectedRows)
                         {
-                            // Lấy mã khách hàng từ cột "MAKH"
                             string maKhachHang = row.Cells["MAKH"].Value.ToString();
                             XoaDuLieu(maKhachHang);
                         }
-                        // Tải lại dữ liệu sau khi xóa
                         LoadData();
                     }
                     catch (Exception ex)
@@ -106,26 +104,23 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
                 {
                     LoadData();
                 }
+
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (dgvThongTinKhachHang.SelectedRows.Count > 0)
-            {
+            if(dgvThongTinKhachHang.SelectedRows.Count > 0)
+    {
                 string maKhachHang = dgvThongTinKhachHang.SelectedRows[0].Cells["MAKH"].Value.ToString();
 
                 using (ThemThongTinKhachHang formThemThongTin = new ThemThongTinKhachHang(maKhachHang))
                 {
-                    DialogResult result = formThemThongTin.ShowDialog();
-
-                    if (result == DialogResult.OK)
-                    {
-                        LoadData();
-                    }
+                    formThemThongTin.ShowDialog();
+                    LoadData();
                 }
             }
-            else
+    else
             {
                 MessageBox.Show("Vui lòng chọn dòng dữ liệu để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -196,12 +191,11 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
                 using (SqlConnection connection = new SqlConnection(cstr))
                 {
                     connection.Open();
-                    // Điều chỉnh truy vấn để bao gồm toàn bộ ngày kết thúc
                     string query = "SELECT * FROM KHACHHANG WHERE NGDK >= @StartDate AND NGDK <= @EndDate";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@StartDate", TuNgay);
-                        command.Parameters.AddWithValue("@EndDate", DenNgay.AddDays(1).AddTicks(-1)); // Bao gồm toàn bộ ngày kết thúc
+                        command.Parameters.AddWithValue("@EndDate", DenNgay.AddDays(1).AddTicks(-1));
 
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
                         DataTable dt = new DataTable();
@@ -220,17 +214,5 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
                 MessageBox.Show($"Đã xảy ra lỗi khi lọc dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
-
-
-
-
-
-
-        
-
-
     }
 }

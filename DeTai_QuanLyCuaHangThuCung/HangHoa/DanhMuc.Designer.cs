@@ -31,235 +31,253 @@ namespace DeTai_QuanLyCuaHangThuCung
         /// </summary>
         private void InitializeComponent()
         {
-            dgv_danhmucsp = new DataGridView();
-            btn_xoa = new Button();
-            btn_them = new Button();
-            btn_sua = new Button();
-            groupBox1 = new GroupBox();
-            gr_timkiem = new GroupBox();
-            lbl_nhapma = new Label();
-            lbl_nhomsp = new Label();
-            cmb_nhomsp = new ComboBox();
-            txt_nhapmasp = new TextBox();
-            gr_hinhsp = new GroupBox();
-            lbl_mota = new Label();
-            lbl_motasp = new Label();
-            ptr_hinhsanpham = new PictureBox();
-            btn_insp = new Button();
-            btn_lammoi = new Button();
-            lbl_soluong = new Label();
-            lbl_tongkho = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgv_danhmucsp).BeginInit();
-            groupBox1.SuspendLayout();
-            gr_timkiem.SuspendLayout();
-            gr_hinhsp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ptr_hinhsanpham).BeginInit();
-            SuspendLayout();
+            this.dgv_danhmucsp = new System.Windows.Forms.DataGridView();
+            this.btn_xoa = new System.Windows.Forms.Button();
+            this.btn_them = new System.Windows.Forms.Button();
+            this.btn_sua = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gr_timkiem = new System.Windows.Forms.GroupBox();
+            this.lbl_nhapma = new System.Windows.Forms.Label();
+            this.lbl_nhomsp = new System.Windows.Forms.Label();
+            this.cmb_nhomsp = new System.Windows.Forms.ComboBox();
+            this.txt_nhapmasp = new System.Windows.Forms.TextBox();
+            this.gr_hinhsp = new System.Windows.Forms.GroupBox();
+            this.lbl_mota = new System.Windows.Forms.Label();
+            this.lbl_motasp = new System.Windows.Forms.Label();
+            this.ptr_hinhsanpham = new System.Windows.Forms.PictureBox();
+            this.btn_insp = new System.Windows.Forms.Button();
+            this.btn_lammoi = new System.Windows.Forms.Button();
+            this.lbl_soluong = new System.Windows.Forms.Label();
+            this.lbl_tongkho = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_danhmucsp)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.gr_timkiem.SuspendLayout();
+            this.gr_hinhsp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptr_hinhsanpham)).BeginInit();
+            this.SuspendLayout();
             // 
             // dgv_danhmucsp
             // 
-            dgv_danhmucsp.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_danhmucsp.Location = new Point(12, 152);
-            dgv_danhmucsp.Name = "dgv_danhmucsp";
-            dgv_danhmucsp.RowHeadersWidth = 51;
-            dgv_danhmucsp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_danhmucsp.Size = new Size(630, 286);
-            dgv_danhmucsp.TabIndex = 0;
-            dgv_danhmucsp.Click += dgv_danhmucsp_Click;
+            this.dgv_danhmucsp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_danhmucsp.Location = new System.Drawing.Point(12, 122);
+            this.dgv_danhmucsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_danhmucsp.Name = "dgv_danhmucsp";
+            this.dgv_danhmucsp.RowHeadersWidth = 51;
+            this.dgv_danhmucsp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_danhmucsp.Size = new System.Drawing.Size(630, 229);
+            this.dgv_danhmucsp.TabIndex = 0;
+            this.dgv_danhmucsp.Click += new System.EventHandler(this.dgv_danhmucsp_Click);
             // 
             // btn_xoa
             // 
-            btn_xoa.Location = new Point(116, 42);
-            btn_xoa.Name = "btn_xoa";
-            btn_xoa.Size = new Size(94, 51);
-            btn_xoa.TabIndex = 1;
-            btn_xoa.Text = "Xóa";
-            btn_xoa.UseVisualStyleBackColor = true;
-            btn_xoa.Click += btn_xoa_Click;
+            this.btn_xoa.Location = new System.Drawing.Point(116, 34);
+            this.btn_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.Size = new System.Drawing.Size(94, 41);
+            this.btn_xoa.TabIndex = 1;
+            this.btn_xoa.Text = "Xóa";
+            this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_them
             // 
-            btn_them.Location = new Point(16, 42);
-            btn_them.Name = "btn_them";
-            btn_them.Size = new Size(94, 51);
-            btn_them.TabIndex = 1;
-            btn_them.Text = "Thêm";
-            btn_them.UseVisualStyleBackColor = true;
-            btn_them.Click += btn_them_Click;
+            this.btn_them.Location = new System.Drawing.Point(16, 34);
+            this.btn_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_them.Name = "btn_them";
+            this.btn_them.Size = new System.Drawing.Size(94, 41);
+            this.btn_them.TabIndex = 1;
+            this.btn_them.Text = "Thêm";
+            this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // btn_sua
             // 
-            btn_sua.Location = new Point(216, 42);
-            btn_sua.Name = "btn_sua";
-            btn_sua.Size = new Size(94, 51);
-            btn_sua.TabIndex = 1;
-            btn_sua.Text = "Sửa";
-            btn_sua.UseVisualStyleBackColor = true;
-            btn_sua.Click += btn_sua_Click;
+            this.btn_sua.Location = new System.Drawing.Point(216, 34);
+            this.btn_sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_sua.Name = "btn_sua";
+            this.btn_sua.Size = new System.Drawing.Size(94, 41);
+            this.btn_sua.TabIndex = 1;
+            this.btn_sua.Text = "Sửa";
+            this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btn_them);
-            groupBox1.Controls.Add(btn_xoa);
-            groupBox1.Controls.Add(btn_sua);
-            groupBox1.Location = new Point(319, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(323, 125);
-            groupBox1.TabIndex = 7;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Công cụ";
+            this.groupBox1.Controls.Add(this.btn_them);
+            this.groupBox1.Controls.Add(this.btn_xoa);
+            this.groupBox1.Controls.Add(this.btn_sua);
+            this.groupBox1.Location = new System.Drawing.Point(319, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(323, 100);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Công cụ";
             // 
             // gr_timkiem
             // 
-            gr_timkiem.Controls.Add(lbl_nhapma);
-            gr_timkiem.Controls.Add(lbl_nhomsp);
-            gr_timkiem.Controls.Add(cmb_nhomsp);
-            gr_timkiem.Controls.Add(txt_nhapmasp);
-            gr_timkiem.Location = new Point(12, 12);
-            gr_timkiem.Name = "gr_timkiem";
-            gr_timkiem.Size = new Size(250, 125);
-            gr_timkiem.TabIndex = 8;
-            gr_timkiem.TabStop = false;
-            gr_timkiem.Text = "Tìm kiếm";
+            this.gr_timkiem.Controls.Add(this.lbl_nhapma);
+            this.gr_timkiem.Controls.Add(this.lbl_nhomsp);
+            this.gr_timkiem.Controls.Add(this.cmb_nhomsp);
+            this.gr_timkiem.Controls.Add(this.txt_nhapmasp);
+            this.gr_timkiem.Location = new System.Drawing.Point(12, 10);
+            this.gr_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gr_timkiem.Name = "gr_timkiem";
+            this.gr_timkiem.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gr_timkiem.Size = new System.Drawing.Size(250, 100);
+            this.gr_timkiem.TabIndex = 8;
+            this.gr_timkiem.TabStop = false;
+            this.gr_timkiem.Text = "Tìm kiếm";
             // 
             // lbl_nhapma
             // 
-            lbl_nhapma.AutoSize = true;
-            lbl_nhapma.Location = new Point(28, 20);
-            lbl_nhapma.Name = "lbl_nhapma";
-            lbl_nhapma.Size = new Size(169, 20);
-            lbl_nhapma.TabIndex = 7;
-            lbl_nhapma.Text = "Nhập mã/ tên sản phẩm";
+            this.lbl_nhapma.AutoSize = true;
+            this.lbl_nhapma.Location = new System.Drawing.Point(28, 16);
+            this.lbl_nhapma.Name = "lbl_nhapma";
+            this.lbl_nhapma.Size = new System.Drawing.Size(149, 16);
+            this.lbl_nhapma.TabIndex = 7;
+            this.lbl_nhapma.Text = "Nhập mã/ tên sản phẩm";
             // 
             // lbl_nhomsp
             // 
-            lbl_nhomsp.AutoSize = true;
-            lbl_nhomsp.Location = new Point(28, 73);
-            lbl_nhomsp.Name = "lbl_nhomsp";
-            lbl_nhomsp.Size = new Size(118, 20);
-            lbl_nhomsp.TabIndex = 8;
-            lbl_nhomsp.Text = "Nhóm sản phẩm";
+            this.lbl_nhomsp.AutoSize = true;
+            this.lbl_nhomsp.Location = new System.Drawing.Point(28, 58);
+            this.lbl_nhomsp.Name = "lbl_nhomsp";
+            this.lbl_nhomsp.Size = new System.Drawing.Size(105, 16);
+            this.lbl_nhomsp.TabIndex = 8;
+            this.lbl_nhomsp.Text = "Nhóm sản phẩm";
             // 
             // cmb_nhomsp
             // 
-            cmb_nhomsp.FormattingEnabled = true;
-            cmb_nhomsp.Location = new Point(28, 95);
-            cmb_nhomsp.Name = "cmb_nhomsp";
-            cmb_nhomsp.Size = new Size(169, 28);
-            cmb_nhomsp.TabIndex = 6;
+            this.cmb_nhomsp.FormattingEnabled = true;
+            this.cmb_nhomsp.Location = new System.Drawing.Point(28, 76);
+            this.cmb_nhomsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmb_nhomsp.Name = "cmb_nhomsp";
+            this.cmb_nhomsp.Size = new System.Drawing.Size(169, 24);
+            this.cmb_nhomsp.TabIndex = 6;
+            this.cmb_nhomsp.SelectedIndexChanged += new System.EventHandler(this.cmb_nhomsp_SelectedIndexChanged);
             // 
             // txt_nhapmasp
             // 
-            txt_nhapmasp.Location = new Point(28, 43);
-            txt_nhapmasp.Name = "txt_nhapmasp";
-            txt_nhapmasp.Size = new Size(169, 27);
-            txt_nhapmasp.TabIndex = 5;
+            this.txt_nhapmasp.Location = new System.Drawing.Point(28, 34);
+            this.txt_nhapmasp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_nhapmasp.Name = "txt_nhapmasp";
+            this.txt_nhapmasp.Size = new System.Drawing.Size(169, 22);
+            this.txt_nhapmasp.TabIndex = 5;
             // 
             // gr_hinhsp
             // 
-            gr_hinhsp.Controls.Add(lbl_mota);
-            gr_hinhsp.Controls.Add(lbl_motasp);
-            gr_hinhsp.Controls.Add(ptr_hinhsanpham);
-            gr_hinhsp.Location = new Point(659, 12);
-            gr_hinhsp.Name = "gr_hinhsp";
-            gr_hinhsp.Size = new Size(332, 336);
-            gr_hinhsp.TabIndex = 9;
-            gr_hinhsp.TabStop = false;
-            gr_hinhsp.Text = "Hình ảnh sản phẩm";
+            this.gr_hinhsp.Controls.Add(this.lbl_mota);
+            this.gr_hinhsp.Controls.Add(this.lbl_motasp);
+            this.gr_hinhsp.Controls.Add(this.ptr_hinhsanpham);
+            this.gr_hinhsp.Location = new System.Drawing.Point(659, 10);
+            this.gr_hinhsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gr_hinhsp.Name = "gr_hinhsp";
+            this.gr_hinhsp.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gr_hinhsp.Size = new System.Drawing.Size(332, 269);
+            this.gr_hinhsp.TabIndex = 9;
+            this.gr_hinhsp.TabStop = false;
+            this.gr_hinhsp.Text = "Hình ảnh sản phẩm";
             // 
             // lbl_mota
             // 
-            lbl_mota.AutoSize = true;
-            lbl_mota.Enabled = false;
-            lbl_mota.Location = new Point(69, 244);
-            lbl_mota.Name = "lbl_mota";
-            lbl_mota.Size = new Size(0, 20);
-            lbl_mota.TabIndex = 9;
+            this.lbl_mota.AutoSize = true;
+            this.lbl_mota.Enabled = false;
+            this.lbl_mota.Location = new System.Drawing.Point(69, 195);
+            this.lbl_mota.Name = "lbl_mota";
+            this.lbl_mota.Size = new System.Drawing.Size(0, 16);
+            this.lbl_mota.TabIndex = 9;
             // 
             // lbl_motasp
             // 
-            lbl_motasp.AutoSize = true;
-            lbl_motasp.Location = new Point(18, 244);
-            lbl_motasp.Name = "lbl_motasp";
-            lbl_motasp.Size = new Size(55, 20);
-            lbl_motasp.TabIndex = 8;
-            lbl_motasp.Text = "Mô tả: ";
+            this.lbl_motasp.AutoSize = true;
+            this.lbl_motasp.Location = new System.Drawing.Point(18, 195);
+            this.lbl_motasp.Name = "lbl_motasp";
+            this.lbl_motasp.Size = new System.Drawing.Size(46, 16);
+            this.lbl_motasp.TabIndex = 8;
+            this.lbl_motasp.Text = "Mô tả: ";
             // 
             // ptr_hinhsanpham
             // 
-            ptr_hinhsanpham.BackgroundImageLayout = ImageLayout.None;
-            ptr_hinhsanpham.BorderStyle = BorderStyle.FixedSingle;
-            ptr_hinhsanpham.Location = new Point(18, 36);
-            ptr_hinhsanpham.Name = "ptr_hinhsanpham";
-            ptr_hinhsanpham.Size = new Size(295, 195);
-            ptr_hinhsanpham.SizeMode = PictureBoxSizeMode.Zoom;
-            ptr_hinhsanpham.TabIndex = 7;
-            ptr_hinhsanpham.TabStop = false;
+            this.ptr_hinhsanpham.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ptr_hinhsanpham.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptr_hinhsanpham.Location = new System.Drawing.Point(18, 29);
+            this.ptr_hinhsanpham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ptr_hinhsanpham.Name = "ptr_hinhsanpham";
+            this.ptr_hinhsanpham.Size = new System.Drawing.Size(295, 156);
+            this.ptr_hinhsanpham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptr_hinhsanpham.TabIndex = 7;
+            this.ptr_hinhsanpham.TabStop = false;
             // 
             // btn_insp
             // 
-            btn_insp.Location = new Point(836, 387);
-            btn_insp.Name = "btn_insp";
-            btn_insp.Size = new Size(155, 51);
-            btn_insp.TabIndex = 2;
-            btn_insp.Text = "In mã sản phẩm";
-            btn_insp.UseVisualStyleBackColor = true;
+            this.btn_insp.Location = new System.Drawing.Point(836, 310);
+            this.btn_insp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_insp.Name = "btn_insp";
+            this.btn_insp.Size = new System.Drawing.Size(155, 41);
+            this.btn_insp.TabIndex = 2;
+            this.btn_insp.Text = "In mã sản phẩm";
+            this.btn_insp.UseVisualStyleBackColor = true;
             // 
             // btn_lammoi
             // 
-            btn_lammoi.Location = new Point(659, 387);
-            btn_lammoi.Name = "btn_lammoi";
-            btn_lammoi.Size = new Size(155, 51);
-            btn_lammoi.TabIndex = 2;
-            btn_lammoi.Text = "Làm mới";
-            btn_lammoi.UseVisualStyleBackColor = true;
-            btn_lammoi.Click += btn_lammoi_Click;
+            this.btn_lammoi.Location = new System.Drawing.Point(659, 310);
+            this.btn_lammoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_lammoi.Name = "btn_lammoi";
+            this.btn_lammoi.Size = new System.Drawing.Size(155, 41);
+            this.btn_lammoi.TabIndex = 2;
+            this.btn_lammoi.Text = "Làm mới";
+            this.btn_lammoi.UseVisualStyleBackColor = true;
+            this.btn_lammoi.Click += new System.EventHandler(this.btn_lammoi_Click);
             // 
             // lbl_soluong
             // 
-            lbl_soluong.AutoSize = true;
-            lbl_soluong.Location = new Point(659, 358);
-            lbl_soluong.Name = "lbl_soluong";
-            lbl_soluong.Size = new Size(76, 20);
-            lbl_soluong.TabIndex = 7;
-            lbl_soluong.Text = "Số lượng: ";
+            this.lbl_soluong.AutoSize = true;
+            this.lbl_soluong.Location = new System.Drawing.Point(659, 286);
+            this.lbl_soluong.Name = "lbl_soluong";
+            this.lbl_soluong.Size = new System.Drawing.Size(66, 16);
+            this.lbl_soluong.TabIndex = 7;
+            this.lbl_soluong.Text = "Số lượng: ";
             // 
             // lbl_tongkho
             // 
-            lbl_tongkho.AutoSize = true;
-            lbl_tongkho.Location = new Point(836, 358);
-            lbl_tongkho.Name = "lbl_tongkho";
-            lbl_tongkho.Size = new Size(78, 20);
-            lbl_tongkho.TabIndex = 7;
-            lbl_tongkho.Text = "Tổng kho: ";
+            this.lbl_tongkho.AutoSize = true;
+            this.lbl_tongkho.Location = new System.Drawing.Point(836, 286);
+            this.lbl_tongkho.Name = "lbl_tongkho";
+            this.lbl_tongkho.Size = new System.Drawing.Size(70, 16);
+            this.lbl_tongkho.TabIndex = 7;
+            this.lbl_tongkho.Text = "Tổng kho: ";
             // 
             // frm_danhmuc
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
-            ClientSize = new Size(1018, 450);
-            Controls.Add(lbl_tongkho);
-            Controls.Add(lbl_soluong);
-            Controls.Add(btn_lammoi);
-            Controls.Add(btn_insp);
-            Controls.Add(gr_hinhsp);
-            Controls.Add(gr_timkiem);
-            Controls.Add(groupBox1);
-            Controls.Add(dgv_danhmucsp);
-            Name = "frm_danhmuc";
-            Text = "Danh Mục Sản Phẩm";
-            WindowState = FormWindowState.Maximized;
-            Load += frm_danhmuc_Load;
-            ((System.ComponentModel.ISupportInitialize)dgv_danhmucsp).EndInit();
-            groupBox1.ResumeLayout(false);
-            gr_timkiem.ResumeLayout(false);
-            gr_timkiem.PerformLayout();
-            gr_hinhsp.ResumeLayout(false);
-            gr_hinhsp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)ptr_hinhsanpham).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1018, 360);
+            this.Controls.Add(this.lbl_tongkho);
+            this.Controls.Add(this.lbl_soluong);
+            this.Controls.Add(this.btn_lammoi);
+            this.Controls.Add(this.btn_insp);
+            this.Controls.Add(this.gr_hinhsp);
+            this.Controls.Add(this.gr_timkiem);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dgv_danhmucsp);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "frm_danhmuc";
+            this.Text = "Danh Mục Sản Phẩm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frm_danhmuc_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_danhmucsp)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.gr_timkiem.ResumeLayout(false);
+            this.gr_timkiem.PerformLayout();
+            this.gr_hinhsp.ResumeLayout(false);
+            this.gr_hinhsp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptr_hinhsanpham)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

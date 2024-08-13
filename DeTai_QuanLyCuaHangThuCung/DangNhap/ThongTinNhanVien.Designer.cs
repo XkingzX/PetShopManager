@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace DeTai_QuanLyCuaHangThuCung
+﻿namespace DeTai_QuanLyCuaHangThuCung
 {
     partial class frm_thongtinnv
     {
@@ -31,6 +28,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_thongtinnv));
             dgvTTNV = new DataGridView();
             pbHinhanh = new PictureBox();
             label8 = new Label();
@@ -114,6 +112,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             txtManv.Location = new Point(308, 21);
             txtManv.Name = "txtManv";
+            txtManv.ReadOnly = true;
             txtManv.Size = new Size(191, 23);
             txtManv.TabIndex = 4;
             // 
@@ -148,12 +147,13 @@ namespace DeTai_QuanLyCuaHangThuCung
             btnXoa.TabIndex = 5;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
-            btnXoa.Click += button1_Click;
+            btnXoa.Click += btnXoa_Click;
             // 
             // txtHoten
             // 
-            txtHoten.Location = new Point(308, 52);
+            txtHoten.Location = new Point(308, 51);
             txtHoten.Name = "txtHoten";
+            txtHoten.ReadOnly = true;
             txtHoten.Size = new Size(191, 23);
             txtHoten.TabIndex = 4;
             // 
@@ -221,6 +221,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             txtSodienthoai.Location = new Point(308, 87);
             txtSodienthoai.Name = "txtSodienthoai";
+            txtSodienthoai.ReadOnly = true;
             txtSodienthoai.Size = new Size(191, 23);
             txtSodienthoai.TabIndex = 4;
             // 
@@ -229,12 +230,14 @@ namespace DeTai_QuanLyCuaHangThuCung
             txtDiachi.Location = new Point(308, 119);
             txtDiachi.Multiline = true;
             txtDiachi.Name = "txtDiachi";
+            txtDiachi.ReadOnly = true;
             txtDiachi.Size = new Size(191, 62);
             txtDiachi.TabIndex = 4;
             // 
             // rdbNam
             // 
             rdbNam.AutoSize = true;
+            rdbNam.Enabled = false;
             rdbNam.Location = new Point(6, 4);
             rdbNam.Name = "rdbNam";
             rdbNam.Size = new Size(51, 19);
@@ -246,6 +249,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // rdbNu
             // 
             rdbNu.AutoSize = true;
+            rdbNu.Enabled = false;
             rdbNu.Location = new Point(63, 4);
             rdbNu.Name = "rdbNu";
             rdbNu.Size = new Size(41, 19);
@@ -256,6 +260,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             // dtpNgaysinh
             // 
+            dtpNgaysinh.Enabled = false;
             dtpNgaysinh.Location = new Point(308, 221);
             dtpNgaysinh.Name = "dtpNgaysinh";
             dtpNgaysinh.Size = new Size(191, 23);
@@ -263,6 +268,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             // dtpNgayvaolam
             // 
+            dtpNgayvaolam.Enabled = false;
             dtpNgayvaolam.Location = new Point(308, 256);
             dtpNgayvaolam.Name = "dtpNgayvaolam";
             dtpNgayvaolam.Size = new Size(191, 23);
@@ -294,6 +300,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             txtGhichu.Location = new Point(574, 227);
             txtGhichu.Multiline = true;
             txtGhichu.Name = "txtGhichu";
+            txtGhichu.ReadOnly = true;
             txtGhichu.Size = new Size(234, 151);
             txtGhichu.TabIndex = 4;
             // 
@@ -311,15 +318,22 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             txtEmail.Location = new Point(308, 293);
             txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
             txtEmail.Size = new Size(191, 23);
             txtEmail.TabIndex = 4;
             // 
             // txtTimkiem
             // 
+            txtTimkiem.ForeColor = SystemColors.InactiveCaption;
             txtTimkiem.Location = new Point(6, 22);
             txtTimkiem.Name = "txtTimkiem";
             txtTimkiem.Size = new Size(127, 23);
             txtTimkiem.TabIndex = 4;
+            txtTimkiem.Text = "NHẬP MÃ NHÂN VIÊN";
+            txtTimkiem.Click += txtTimkiem_Click;
+            txtTimkiem.TextChanged += txtTimkiem_TextChanged;
+            txtTimkiem.Enter += txtTimkiem_Enter;
+            txtTimkiem.Leave += txtTimkiem_Leave;
             // 
             // btnTimkienmanv
             // 
@@ -366,11 +380,13 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             txtMatkhau.Location = new Point(308, 321);
             txtMatkhau.Name = "txtMatkhau";
+            txtMatkhau.ReadOnly = true;
             txtMatkhau.Size = new Size(191, 23);
             txtMatkhau.TabIndex = 4;
             // 
             // cmbQuyen
             // 
+            cmbQuyen.Enabled = false;
             cmbQuyen.FormattingEnabled = true;
             cmbQuyen.Items.AddRange(new object[] { "Quản lý", "Nhân viên" });
             cmbQuyen.Location = new Point(72, 221);
@@ -386,7 +402,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             btnHienthi.TabIndex = 11;
             btnHienthi.Text = "Hiển thị tất cả";
             btnHienthi.UseVisualStyleBackColor = true;
-            btnHienthi.Click += button1_Click_1;
+            btnHienthi.Click += btnHienthi_Click;
             // 
             // groupBox2
             // 
@@ -437,7 +453,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             dataGridView1.Location = new Point(-1, -1);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(821, 47);
+            dataGridView1.Size = new Size(845, 47);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dgvTTNV_CellContentClick;
             // 
@@ -456,7 +472,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(820, 621);
+            ClientSize = new Size(835, 621);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -466,6 +482,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             Controls.Add(label);
             Controls.Add(dataGridView1);
             Controls.Add(dgvTTNV);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frm_thongtinnv";
             Text = "ThongTinNhanVien";
             Load += frm_thongtinnv_Load;
@@ -517,10 +534,10 @@ namespace DeTai_QuanLyCuaHangThuCung
         private Label label12;
         private TextBox txtMatkhau;
         private ComboBox cmbQuyen;
-        private Button btnHienthi;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
         private DataGridView dataGridView1;
         private GroupBox groupBox4;
+        private Button btnHienthi;
     }
 }

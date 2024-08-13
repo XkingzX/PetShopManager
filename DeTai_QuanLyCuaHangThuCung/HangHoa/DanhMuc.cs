@@ -43,6 +43,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
             ketnoicsdl();
+            timkiemloaisp();
         }
 
         private void btn_them_Click(object sender, EventArgs e)
@@ -101,7 +102,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 cn.Open();
                 string tukhoa = txt_nhapmasp.Text;
                 // Dấu $ để định dạng chuỗi là chuỗi định dạng SELECT * FROM SANPHAM WHERE MASP = 'tukhoa'
-                string query = $"SELECT * FROM SANPHAM WHERE MASP = '{tukhoa}'";
+                string query = $"select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá',SLHETHONG, LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA from SANPHAM FROM SANPHAM WHERE MASP = '{tukhoa}'";
                 SqlCommand cm = new SqlCommand(query, cn);
                 cm.Parameters.AddWithValue("@MASP", maSP);
 
@@ -167,10 +168,6 @@ namespace DeTai_QuanLyCuaHangThuCung
                 return;
             }
             DataGridViewRow row = dgv_danhmucsp.SelectedRows[0];
-            //string maSP = row.Cells["MASP"].Value.ToString();
-            //string tenSP = row.Cells["TENSP"].Value.ToString();
-            //string giaSP = row.Cells["GIA"].Value.ToString();
-            //string loaiSP = row.Cells["LOAI"].Value.ToString();
 
             //?.ToString() sẽ trả về null nếu row.Cells["MASP"].Value là null
             //?? string.Empty sẽ thay thế giá trị null bằng chuỗi rỗng
@@ -284,6 +281,26 @@ namespace DeTai_QuanLyCuaHangThuCung
                 }
             }
             return tongSoLuong;
+        }
+        private void timkiemloaisp()
+        {
+            string[] dsloai = { "Cat", "Đồ Chơi", "Thức Ăn" };
+            cmb_nhomsp.Items.AddRange(dsloai);
+        }
+
+        private void cmb_nhomsp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string LOAISP = cmb_nhomsp.Text.Trim();
+            cn.Open();
+            string query = $"SELECT MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá', SLHETHONG, LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA FROM SANPHAM WHERE LOAI = @LOAI";
+            SqlCommand cm = new SqlCommand(query, cn);
+            cm.Parameters.AddWithValue("@LOAI", LOAISP);
+
+            SqlDataAdapter da = new SqlDataAdapter(cm);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dgv_danhmucsp.DataSource = dt;
+            cn.Close();
         }
     }
 }

@@ -67,21 +67,21 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             // 
             this.groupBox1.Controls.Add(this.btn_xoa);
             this.groupBox1.Controls.Add(this.btn_xemchitiet);
-            this.groupBox1.Location = new System.Drawing.Point(16, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 13);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.groupBox1.Size = new System.Drawing.Size(317, 112);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(238, 91);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Công cụ";
             // 
             // btn_xoa
             // 
-            this.btn_xoa.Location = new System.Drawing.Point(168, 34);
-            this.btn_xoa.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btn_xoa.Location = new System.Drawing.Point(126, 28);
+            this.btn_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.Size = new System.Drawing.Size(132, 41);
+            this.btn_xoa.Size = new System.Drawing.Size(99, 33);
             this.btn_xoa.TabIndex = 1;
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = true;
@@ -89,10 +89,10 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             // 
             // btn_xemchitiet
             // 
-            this.btn_xemchitiet.Location = new System.Drawing.Point(16, 34);
-            this.btn_xemchitiet.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btn_xemchitiet.Location = new System.Drawing.Point(12, 28);
+            this.btn_xemchitiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_xemchitiet.Name = "btn_xemchitiet";
-            this.btn_xemchitiet.Size = new System.Drawing.Size(125, 41);
+            this.btn_xemchitiet.Size = new System.Drawing.Size(94, 33);
             this.btn_xemchitiet.TabIndex = 1;
             this.btn_xemchitiet.Text = "Xem chi tiết";
             this.btn_xemchitiet.UseVisualStyleBackColor = true;
@@ -110,40 +110,36 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             this.col_tongtien,
             this.col_trangthai,
             this.col_ptthanhtoan});
-            this.dgv_hoadon.Location = new System.Drawing.Point(341, 23);
-            this.dgv_hoadon.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dgv_hoadon.Location = new System.Drawing.Point(256, 19);
+            this.dgv_hoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_hoadon.Name = "dgv_hoadon";
             this.dgv_hoadon.RowHeadersWidth = 51;
             this.dgv_hoadon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_hoadon.Size = new System.Drawing.Size(787, 281);
+            this.dgv_hoadon.Size = new System.Drawing.Size(590, 228);
             this.dgv_hoadon.TabIndex = 9;
             // 
             // col_sohd
             // 
             this.col_sohd.DataPropertyName = "SOHD";
             this.col_sohd.HeaderText = "Số HD";
-            this.col_sohd.MinimumWidth = 6;
             this.col_sohd.Name = "col_sohd";
             // 
             // col_thoigian
             // 
             this.col_thoigian.DataPropertyName = "THOIGIAN";
             this.col_thoigian.HeaderText = "Thời gian";
-            this.col_thoigian.MinimumWidth = 6;
             this.col_thoigian.Name = "col_thoigian";
             // 
             // col_tenkh
             // 
             this.col_tenkh.DataPropertyName = "HOTEN";
             this.col_tenkh.HeaderText = "Tên khách hàng";
-            this.col_tenkh.MinimumWidth = 6;
             this.col_tenkh.Name = "col_tenkh";
             // 
             // col_nhanvien
             // 
             this.col_nhanvien.DataPropertyName = "HOTEN1";
             this.col_nhanvien.HeaderText = "Người bán";
-            this.col_nhanvien.MinimumWidth = 6;
             this.col_nhanvien.Name = "col_nhanvien";
             // 
             // col_tongtien
@@ -157,14 +153,12 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             // 
             this.col_trangthai.DataPropertyName = "TRANGTHAI";
             this.col_trangthai.HeaderText = "Trạng thái";
-            this.col_trangthai.MinimumWidth = 6;
             this.col_trangthai.Name = "col_trangthai";
             // 
             // col_ptthanhtoan
             // 
             this.col_ptthanhtoan.DataPropertyName = "PTTHANHTOAN";
             this.col_ptthanhtoan.HeaderText = "Phương thức thanh toán";
-            this.col_ptthanhtoan.MinimumWidth = 6;
             this.col_ptthanhtoan.Name = "col_ptthanhtoan";
             // 
             // grpb_thoigian
@@ -174,21 +168,18 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             this.grpb_thoigian.Controls.Add(this.label1);
             this.grpb_thoigian.Controls.Add(this.cmb_nam);
             this.grpb_thoigian.Controls.Add(this.cmb_thang);
-            this.grpb_thoigian.Location = new System.Drawing.Point(16, 138);
-            this.grpb_thoigian.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpb_thoigian.Location = new System.Drawing.Point(12, 112);
             this.grpb_thoigian.Name = "grpb_thoigian";
-            this.grpb_thoigian.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grpb_thoigian.Size = new System.Drawing.Size(311, 127);
+            this.grpb_thoigian.Size = new System.Drawing.Size(233, 103);
             this.grpb_thoigian.TabIndex = 12;
             this.grpb_thoigian.TabStop = false;
             this.grpb_thoigian.Text = "Thời gian";
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(200, 101);
-            this.btn_cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_cancel.Location = new System.Drawing.Point(150, 82);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(100, 28);
+            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 2;
             this.btn_cancel.Text = "Bỏ chọn";
             this.btn_cancel.UseVisualStyleBackColor = true;
@@ -197,40 +188,36 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 71);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(6, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 16);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Theo năm";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Theo tháng";
             // 
             // cmb_nam
             // 
             this.cmb_nam.FormattingEnabled = true;
-            this.cmb_nam.Location = new System.Drawing.Point(108, 68);
-            this.cmb_nam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmb_nam.Location = new System.Drawing.Point(81, 55);
             this.cmb_nam.Name = "cmb_nam";
-            this.cmb_nam.Size = new System.Drawing.Size(193, 24);
+            this.cmb_nam.Size = new System.Drawing.Size(146, 21);
             this.cmb_nam.TabIndex = 0;
             this.cmb_nam.SelectedIndexChanged += new System.EventHandler(this.cmb_nam_SelectedIndexChanged);
             // 
             // cmb_thang
             // 
             this.cmb_thang.FormattingEnabled = true;
-            this.cmb_thang.Location = new System.Drawing.Point(108, 23);
-            this.cmb_thang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmb_thang.Location = new System.Drawing.Point(81, 19);
             this.cmb_thang.Name = "cmb_thang";
-            this.cmb_thang.Size = new System.Drawing.Size(193, 24);
+            this.cmb_thang.Size = new System.Drawing.Size(146, 21);
             this.cmb_thang.TabIndex = 0;
             this.cmb_thang.SelectedIndexChanged += new System.EventHandler(this.cmb_thang_SelectedIndexChanged);
             // 
@@ -238,21 +225,20 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             // 
             this.groupBox3.Controls.Add(this.btn_xemdshd);
             this.groupBox3.Controls.Add(this.btn_xemdscthd);
-            this.groupBox3.Location = new System.Drawing.Point(417, 309);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox3.Location = new System.Drawing.Point(313, 251);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.groupBox3.Size = new System.Drawing.Size(632, 112);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(474, 91);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Xuất báo cáo";
             // 
             // btn_xemdshd
             // 
-            this.btn_xemdshd.Location = new System.Drawing.Point(68, 34);
-            this.btn_xemdshd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_xemdshd.Location = new System.Drawing.Point(51, 28);
             this.btn_xemdshd.Name = "btn_xemdshd";
-            this.btn_xemdshd.Size = new System.Drawing.Size(228, 41);
+            this.btn_xemdshd.Size = new System.Drawing.Size(171, 33);
             this.btn_xemdshd.TabIndex = 2;
             this.btn_xemdshd.Text = "Xem danh sách hoá đơn";
             this.btn_xemdshd.UseVisualStyleBackColor = true;
@@ -260,10 +246,10 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             // 
             // btn_xemdscthd
             // 
-            this.btn_xemdscthd.Location = new System.Drawing.Point(341, 34);
-            this.btn_xemdscthd.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btn_xemdscthd.Location = new System.Drawing.Point(256, 28);
+            this.btn_xemdscthd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_xemdscthd.Name = "btn_xemdscthd";
-            this.btn_xemdscthd.Size = new System.Drawing.Size(228, 41);
+            this.btn_xemdscthd.Size = new System.Drawing.Size(171, 33);
             this.btn_xemdscthd.TabIndex = 1;
             this.btn_xemdscthd.Text = "Xen danh sách chi tiết hoá đơn";
             this.btn_xemdscthd.UseVisualStyleBackColor = true;
@@ -274,11 +260,9 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             this.groupBox4.Controls.Add(this.rd_all);
             this.groupBox4.Controls.Add(this.rd_dahuy);
             this.groupBox4.Controls.Add(this.rd_dathanhtoan);
-            this.groupBox4.Location = new System.Drawing.Point(16, 272);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Location = new System.Drawing.Point(12, 221);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox4.Size = new System.Drawing.Size(252, 149);
+            this.groupBox4.Size = new System.Drawing.Size(189, 121);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Trạng thái";
@@ -287,10 +271,9 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             // 
             this.rd_all.AutoSize = true;
             this.rd_all.Checked = true;
-            this.rd_all.Location = new System.Drawing.Point(16, 25);
-            this.rd_all.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rd_all.Location = new System.Drawing.Point(12, 20);
             this.rd_all.Name = "rd_all";
-            this.rd_all.Size = new System.Drawing.Size(66, 20);
+            this.rd_all.Size = new System.Drawing.Size(56, 17);
             this.rd_all.TabIndex = 1;
             this.rd_all.TabStop = true;
             this.rd_all.Text = "Tất cả";
@@ -299,10 +282,9 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             // rd_dahuy
             // 
             this.rd_dahuy.AutoSize = true;
-            this.rd_dahuy.Location = new System.Drawing.Point(16, 121);
-            this.rd_dahuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rd_dahuy.Location = new System.Drawing.Point(12, 98);
             this.rd_dahuy.Name = "rd_dahuy";
-            this.rd_dahuy.Size = new System.Drawing.Size(69, 20);
+            this.rd_dahuy.Size = new System.Drawing.Size(59, 17);
             this.rd_dahuy.TabIndex = 0;
             this.rd_dahuy.Text = "Đã huỷ";
             this.rd_dahuy.UseVisualStyleBackColor = true;
@@ -311,10 +293,9 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             // rd_dathanhtoan
             // 
             this.rd_dathanhtoan.AutoSize = true;
-            this.rd_dathanhtoan.Location = new System.Drawing.Point(16, 71);
-            this.rd_dathanhtoan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rd_dathanhtoan.Location = new System.Drawing.Point(12, 58);
             this.rd_dathanhtoan.Name = "rd_dathanhtoan";
-            this.rd_dathanhtoan.Size = new System.Drawing.Size(109, 20);
+            this.rd_dathanhtoan.Size = new System.Drawing.Size(93, 17);
             this.rd_dathanhtoan.TabIndex = 0;
             this.rd_dathanhtoan.Text = "Đã thanh toán";
             this.rd_dathanhtoan.UseVisualStyleBackColor = true;
@@ -322,15 +303,15 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             // 
             // frm_hoadon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1121, 434);
+            this.ClientSize = new System.Drawing.Size(841, 353);
             this.Controls.Add(this.dgv_hoadon);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.grpb_thoigian);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
-            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_hoadon";
             this.Text = "Hóa Đơn";
             this.Load += new System.EventHandler(this.frm_hoadon_Load_1);

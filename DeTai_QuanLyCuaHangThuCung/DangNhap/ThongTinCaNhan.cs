@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -35,7 +34,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 
             string sql = @"SELECT * FROM NHANVIEN WHERE MANV = @MANV";
 
-            using (SqlConnection ketnoi = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+            using (SqlConnection ketnoi = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
             {
                 try
                 {
@@ -86,7 +85,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
+        private void txtDiachi_TextChanged(object sender, EventArgs e)
         {
 
         }
