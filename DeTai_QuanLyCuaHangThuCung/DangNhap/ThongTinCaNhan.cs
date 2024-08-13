@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -34,7 +35,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 
             string sql = @"SELECT * FROM NHANVIEN WHERE MANV = @MANV";
 
-            using (SqlConnection ketnoi = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+            using (SqlConnection ketnoi = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
             {
                 try
                 {

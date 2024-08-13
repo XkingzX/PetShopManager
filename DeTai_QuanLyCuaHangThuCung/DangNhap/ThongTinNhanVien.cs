@@ -11,6 +11,7 @@ using System.Data;
 using System.Data.SqlClient;
 using DeTai_QuanLyCuaHangThuCung.DangNhap;
 using static DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap;
+using System.IO;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {
@@ -24,7 +25,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         }
 
 
-        private void DgvTTNV_CellClick(object? sender, DataGridViewCellEventArgs e)
+        private void DgvTTNV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -76,7 +77,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
         }
 
-        SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
+        SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
         private void ketnoicsdl()
         {
             cn.Open();
@@ -131,7 +132,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 
             try
             {
-                using (SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
                     cn.Open();
                     string query = "SELECT * FROM NHANVIEN WHERE MANV = @MANV";
@@ -177,7 +178,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 
             string sqlQuyen = "SELECT QUYEN FROM NHANVIEN WHERE MANV = @MANV";
             string quyen;
-            using (SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
             {
                 cn.Open();
                 using (SqlCommand cmd = new SqlCommand(sqlQuyen, cn))
@@ -197,7 +198,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này?", "Xác nhận", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                using (SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
                     cn.Open();
                     string query = "DELETE FROM NHANVIEN WHERE MANV = @MANV";
@@ -219,7 +220,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
                     cn.Open();
                     string sql = "SELECT * FROM NHANVIEN";
@@ -301,7 +302,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection(@"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
                     cn.Open();
                     string sql = "SELECT * FROM NHANVIEN";

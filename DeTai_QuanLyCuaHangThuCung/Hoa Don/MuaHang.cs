@@ -18,7 +18,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 {
     public partial class MuaHang : Form
     {
-        protected string cnstr = @"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True";
+        protected string cnstr = @"Data Source=TIENTOi\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
         protected SqlConnection cn;
         protected SqlCommand cm;
         public DataTable dt;
@@ -258,10 +258,10 @@ namespace DeTai_QuanLyCuaHangThuCung
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
             cm.CommandText = @"INSERT INTO CTHD VALUES (@SOHD,@MASP,@SL,@GIAMGIA,@TONGTIEN,@THOIGIAN,@MAKH,@MANV,@CHINHANH,@TRANGTHAI,@PTTHANHTOAN,@KHACHTRA,@TIENTHOI)";
-            cm.Parameters.AddWithValue("@SOHD", lbl_mahd.Text);
+            cm.Parameters.AddWithValue("@SOHD", int.Parse(lbl_mahd.Text));
             cm.Parameters.AddWithValue("@MASP", cmb_masp.Text);
             cm.Parameters.AddWithValue("@SL", num_sl.Value);
-            cm.Parameters.AddWithValue("@GIAMGIA", lbl_giamgia.Text);
+            cm.Parameters.AddWithValue("@GIAMGIA", decimal.Parse(lbl_giamgia.Text));
             cm.Parameters.AddWithValue("@TONGTIEN", 0);
             cm.Parameters.AddWithValue("THOIGIAN", dtp_thoigian.Value);
             cm.Parameters.AddWithValue("MAKH", cmb_makh.Text);
@@ -284,9 +284,9 @@ namespace DeTai_QuanLyCuaHangThuCung
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
             cm.CommandText = @"INSERT INTO HOADON VALUES (@SOHD,@NGHD,@MAKH,@MASP,@SL,@TONGTIEN)";
-            cm.Parameters.AddWithValue("@SOHD", lbl_mahd.Text);
+            cm.Parameters.AddWithValue("@SOHD", int.Parse(lbl_mahd.Text));
             cm.Parameters.AddWithValue("@MASP", cmb_masp.Text);
-            cm.Parameters.AddWithValue("@SL", num_sl.Value);
+            cm.Parameters.AddWithValue("@SL", (int)num_sl.Value);
             cm.Parameters.AddWithValue("@TONGTIEN", tong);
             cm.Parameters.AddWithValue("NGHD", dtp_thoigian.Value);
             cm.Parameters.AddWithValue("MAKH", cmb_makh.Text);
@@ -498,7 +498,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 {
                     diemsudung = int.Parse(txt_diem.Text);
                 }
-                ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon(lbl_mahd.Text, lbl_tongthanhtoan.Text, int.Parse(txt_diem.Text), diemsudung);
+                ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon(lbl_mahd.Text, lbl_tongthanhtoan.Text, int.Parse(txt_diem.Text), diemsudung,lbl_giamgia.Text);
                 chiTietHoaDon.Show();
                 btn_taomoi.Enabled = true;
 
@@ -516,11 +516,32 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
             else
             {
-                cmb_masp.Text = dgv_giohang.CurrentRow.Cells["col_masp"].Value.ToString();
-                btn_sua.Text = "Sửa";
-                cmb_masp.Enabled = true;
-                btn_them.Enabled = true;
-                test();
+                if (dgv_giohang.DataSource != null)
+                {
+                    if (num_sl.Value == 0)
+                    {
+                        MessageBox.Show("Vui lòng nhập số lượng sản phẩm trước khi sửa");
+                    }
+                    else
+                    {
+                        cmb_masp.Text = dgv_giohang.CurrentRow.Cells["col_masp"].Value.ToString();
+                        btn_sua.Text = "Sửa";
+                        cmb_masp.Enabled = true;
+                        btn_them.Enabled = true;
+                        capnhatsoluongsaukhisua();
+                        tinhtongtienhang();
+                        tinhtongthanhtoan();
+                    }    
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Giỏ hàng hiện đang rỗng");
+                    btn_sua.Text = "Sửa";
+                    cmb_masp.Enabled = true;
+                    btn_them.Enabled = true;
+                }    
             }
         }
 
@@ -533,26 +554,53 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
             else
             {
-                test();
-                laydulieugiohang();
-                tinhtongtienhang();
-                tinhtongthanhtoan();
-                cmb_makh.Enabled = false;
-                cmb_manv.Enabled = false;
-                cmb_makh.Enabled = false;
-                cmb_loaikh.Enabled = false;
-                cmb_tenkh.Enabled = false;
+                if(kiemtratrung() == false)
+                {
+                    test();
+                    laydulieugiohang();
+                    tinhtongtienhang();
+                    tinhtongthanhtoan();
+                    cmb_makh.Enabled = false;
+                    cmb_manv.Enabled = false;
+                    cmb_makh.Enabled = false;
+                    cmb_loaikh.Enabled = false;
+                    cmb_tenkh.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Sản phẩm đã tồn tại trong giỏ hàng");
+                }
             }
         }
-
+        private bool kiemtratrung()
+        {
+            bool trung = false;
+            for (int i = 0; i < dgv_giohang.Rows.Count - 1; i++)
+            {
+                if (dgv_giohang.Rows[i].Cells["col_masp"].Value.ToString() == cmb_masp.Text)
+                {
+                    MessageBox.Show("Sản phẩm đã tồn tại trong giỏ hàng");
+                    trung = true;
+                    break;
+                }
+            }
+            return trung;
+        }
 
         private void btn_xoa_Click_1(object sender, EventArgs e)
         {
-            capnhatsoluongsaukhixoa();
-            xoa1dongcthd();
-            xoa1donghoadon();
-            tinhtongtienhang();
-            tinhtongthanhtoan();
+            if (dgv_giohang.DataSource != null)
+            {
+                capnhatsoluongsaukhixoa();
+                xoa1dongcthd();
+                xoa1donghoadon();
+                tinhtongtienhang();
+                tinhtongthanhtoan();
+            }
+            else
+            {
+                MessageBox.Show("Giỏ hàng hiện đang rỗng");
+            }
             if (dgv_giohang.Rows.Count == 0)
             {
                 cmb_makh.Enabled = true;
@@ -747,6 +795,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             SqlConnection cn = new SqlConnection(cnstr);
             cn.Open();
             int soluongban = int.Parse(num_sl.Value.ToString());
+            int soluongtrckhisua = int.Parse(dgv_giohang.CurrentRow.Cells["col_sl"].Value.ToString());
             string query = "SELECT * FROM SANPHAM WHERE MASP = @MASP";
             using (SqlCommand command = new SqlCommand(query, cn))
             {
@@ -761,7 +810,8 @@ namespace DeTai_QuanLyCuaHangThuCung
                         if (soLuongTon >= soluongban)
                         {
                             // Cập nhật số lượng
-                            int soLuongMoi = soLuongTon - soluongban;
+                            
+                            int soLuongMoi = soLuongTon + soluongtrckhisua - soluongban;
                             query = "UPDATE SanPham SET SLHETHONG = @soLuongMoi WHERE MASP = @MASP";
                             command.CommandText = query;
                             command.Parameters.AddWithValue("@soLuongMoi", soLuongMoi);
@@ -785,7 +835,8 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             SqlConnection cn = new SqlConnection(cnstr);
             cn.Open();
-            int soluongban = int.Parse(dgv_giohang.CurrentRow.Cells["col_sl"].Value.ToString());
+
+            int soluongban = int.Parse(num_sl.Value.ToString());
             string query = "SELECT * FROM SANPHAM WHERE MASP = @MASP";
             using (SqlCommand command = new SqlCommand(query, cn))
             {
@@ -803,7 +854,6 @@ namespace DeTai_QuanLyCuaHangThuCung
                         command.CommandText = query;
                         command.Parameters.AddWithValue("@soLuongMoi", soLuongMoi);
                         command.ExecuteNonQuery(); 
-
                     }
                 }
             }

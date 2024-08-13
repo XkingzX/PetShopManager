@@ -59,5 +59,15 @@ namespace DeTai_QuanLyCuaHangThuCung.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mavachsp {
+            get {
+                object obj = ResourceManager.GetObject("mavachsp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

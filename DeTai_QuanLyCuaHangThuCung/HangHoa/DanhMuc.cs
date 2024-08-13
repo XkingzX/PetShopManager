@@ -102,7 +102,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 cn.Open();
                 string tukhoa = txt_nhapmasp.Text;
                 // Dấu $ để định dạng chuỗi là chuỗi định dạng SELECT * FROM SANPHAM WHERE MASP = 'tukhoa'
-                string query = $"select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá',SLHETHONG, LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA from SANPHAM FROM SANPHAM WHERE MASP = '{tukhoa}'";
+                string query = $"select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá', SLHETHONG, LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA from SANPHAM WHERE MASP = '{tukhoa}'";
                 SqlCommand cm = new SqlCommand(query, cn);
                 cm.Parameters.AddWithValue("@MASP", maSP);
 
@@ -284,7 +284,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         }
         private void timkiemloaisp()
         {
-            string[] dsloai = { "Cat", "Đồ Chơi", "Thức Ăn" };
+            string[] dsloai = { "Cát", "Đồ Chơi", "Thức Ăn" };
             cmb_nhomsp.Items.AddRange(dsloai);
         }
 
@@ -299,8 +299,14 @@ namespace DeTai_QuanLyCuaHangThuCung
             SqlDataAdapter da = new SqlDataAdapter(cm);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            dgv_danhmucsp.DataSource = dt;
             cn.Close();
+            dgv_danhmucsp.DataSource = dt;
+        }
+
+        private void btn_insp_Click(object sender, EventArgs e)
+        {
+            inmasanpham frm = new inmasanpham(dgv_danhmucsp.CurrentRow.Cells[0].Value.ToString(), dgv_danhmucsp.CurrentRow.Cells[1].Value.ToString(), dgv_danhmucsp.CurrentRow.Cells[2].Value.ToString());
+            frm.Show();
         }
     }
 }

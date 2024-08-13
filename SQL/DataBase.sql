@@ -41,19 +41,19 @@ go
 ---------------------------------------------
 -- NHANVIEN
 CREATE TABLE NHANVIEN(
-	MANV	char(6) not null,	
-	HOTEN	nvarchar(40),
-	SODT	varchar(10),
-	NGVL	smalldatetime,
-	MATKHAU varchar(40),
-	QUYEN nvarchar(40),
-	DIACHI nvarchar(100),
-	EMAIL varchar(100),
-	NGSINH smalldatetime,
-	GIOITINH nvarchar(3),
-	GHICHU nvarchar(100),
-	HINH VARBINARY(MAX)
-	constraint pk_nv primary key(MANV)
+    MANV    char(6) not null,
+    HOTEN    nvarchar(40),
+    SODT    varchar(15),
+    NGVL    smalldatetime,
+    MATKHAU char(40),
+    QUYEN nvarchar(15),
+    DIACHI nvarchar(200),
+    EMAIL varchar(50),
+    NGSINH smalldatetime,
+    GIOITINH nvarchar(3),
+    GHICHU nvarchar(100),
+    HINH VARBINARY(MAX)
+    constraint pk_nv primary key(MANV)
 )
 go
 ---------------------------------------------
@@ -83,33 +83,33 @@ CREATE TABLE KHO(
 	constraint pk_pk primary key(MAPK),
 	constraint FK_KHO_SANPHAM foreign key (MASP) REFERENCES SANPHAM(MASP)
 )
-go
 CREATE TABLE HOADON(
-	SOHD	char(6) not null,
-	NGHD 	smalldatetime,
-	MAKH 	char(6) ,
-	MASP CHAR(6),
-	SL int,
-	TONGTIEN	money,
-	constraint pk_hd primary key(SOHD,MASP)
+    SOHD int not null,
+    NGHD smalldatetime,
+    MAKH char(6) ,
+    MASP CHAR(6),
+    SL int,
+    TONGTIEN money,
+    constraint pk_hd primary key(SOHD,MASP)
 )
 GO
 -- CTHD
 CREATE TABLE CTHD(
-	SOHD	char(6),
-	MASP	char(6),
-	SL	int,
-	GIAMGIA DECIMAL,
-	TONGTIEN MONEY,
-	THOIGIAN DATETIME,
-	MAKH CHAR(6) NOT NULL,
-	MANV CHAR(6),
-	CHINHANH NVARCHAR(40),
-	TRANGTHAI NVARCHAR(40),
-	PTTHANHTOAN NVARCHAR(20),
-	KHACHTRA MONEY,
-	TIENTHOI MONEY,
-	constraint pk_cthd primary key(SOHD,MASP)
+    SOHD int,
+    MASP char(6),
+    SL int,
+    GIAMGIA DECIMAL,
+    TONGTIEN MONEY,
+    THOIGIAN DATETIME,
+    MAKH CHAR(6) NOT NULL,
+    MANV CHAR(6) constraint fk_cthd_nhanvien foreign key (MANV) references NHANVIEN(MANV),
+    CHINHANH NVARCHAR(40),
+    TRANGTHAI NVARCHAR(40),
+    PTTHANHTOAN NVARCHAR(20),
+    KHACHTRA MONEY,
+    TIENTHOI MONEY,
+    CONSTRAINT pk_cthd PRIMARY KEY (SOHD, MASP),
+    CONSTRAINT fk_cthd_hoadon FOREIGN KEY (SOHD, MASP) REFERENCES HOADON(SOHD, MASP)
 )
 set dateformat dmy
 go
@@ -179,11 +179,11 @@ INSERT INTO XA (TENXA, MAHUYEN) VALUES
 go
 --SANPHAM
 insert into SANPHAM values
-('H01', N'Hạt Cát Trang', '90000', 10, N'Hạt', NULL, NULL),
+('H01', N'Hạt Cát Trang', '90000', 10, N'Thức Ăn', NULL, NULL),
 ('DC02', N'Can Cầu Mèo', '15000', 9, N'Đồ Chơi', NULL, NULL),
 ('DC03', N'Viên Bi', '90000', 8, N'Đồ Chơi', NULL, NULL),
 ('C04', N'Cát Đầu Nanh', '120000', 7, N'Cát', NULL, NULL);
-
+go
 -- NHANVIEN
 insert into NHANVIEN values('QL01',N'ADMIN','' ,'' , '000', N'Quản lý','','','','','',null)
 insert into NHANVIEN values('NV01',N'Nguyễn Hoàng Minh','' ,'16/04/2004', '123', N'Nhân viên','','','','','',null)
@@ -242,5 +242,3 @@ ALTER TABLE KHO
 ADD CONSTRAINT FK__KHO__MASP
 FOREIGN KEY (MASP) REFERENCES SANPHAM(MASP)
 ON DELETE SET NULL;
-
-

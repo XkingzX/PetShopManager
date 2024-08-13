@@ -35,13 +35,6 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_xemchitiet = new System.Windows.Forms.Button();
             this.dgv_hoadon = new System.Windows.Forms.DataGridView();
-            this.col_sohd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_thoigian = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_tenkh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_nhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_tongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_trangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_ptthanhtoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpb_thoigian = new System.Windows.Forms.GroupBox();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,6 +49,14 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             this.rd_all = new System.Windows.Forms.RadioButton();
             this.rd_dahuy = new System.Windows.Forms.RadioButton();
             this.rd_dathanhtoan = new System.Windows.Forms.RadioButton();
+            this.col_sohd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_thoigian = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_tenkh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_nhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_masp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_tongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_trangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_ptthanhtoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_hoadon)).BeginInit();
             this.grpb_thoigian.SuspendLayout();
@@ -107,6 +108,7 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             this.col_thoigian,
             this.col_tenkh,
             this.col_nhanvien,
+            this.col_masp,
             this.col_tongtien,
             this.col_trangthai,
             this.col_ptthanhtoan});
@@ -117,49 +119,6 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             this.dgv_hoadon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_hoadon.Size = new System.Drawing.Size(590, 228);
             this.dgv_hoadon.TabIndex = 9;
-            // 
-            // col_sohd
-            // 
-            this.col_sohd.DataPropertyName = "SOHD";
-            this.col_sohd.HeaderText = "Số HD";
-            this.col_sohd.Name = "col_sohd";
-            // 
-            // col_thoigian
-            // 
-            this.col_thoigian.DataPropertyName = "THOIGIAN";
-            this.col_thoigian.HeaderText = "Thời gian";
-            this.col_thoigian.Name = "col_thoigian";
-            // 
-            // col_tenkh
-            // 
-            this.col_tenkh.DataPropertyName = "HOTEN";
-            this.col_tenkh.HeaderText = "Tên khách hàng";
-            this.col_tenkh.Name = "col_tenkh";
-            // 
-            // col_nhanvien
-            // 
-            this.col_nhanvien.DataPropertyName = "HOTEN1";
-            this.col_nhanvien.HeaderText = "Người bán";
-            this.col_nhanvien.Name = "col_nhanvien";
-            // 
-            // col_tongtien
-            // 
-            this.col_tongtien.DataPropertyName = "TONGTIEN";
-            this.col_tongtien.HeaderText = "Tổng tiền";
-            this.col_tongtien.MinimumWidth = 6;
-            this.col_tongtien.Name = "col_tongtien";
-            // 
-            // col_trangthai
-            // 
-            this.col_trangthai.DataPropertyName = "TRANGTHAI";
-            this.col_trangthai.HeaderText = "Trạng thái";
-            this.col_trangthai.Name = "col_trangthai";
-            // 
-            // col_ptthanhtoan
-            // 
-            this.col_ptthanhtoan.DataPropertyName = "PTTHANHTOAN";
-            this.col_ptthanhtoan.HeaderText = "Phương thức thanh toán";
-            this.col_ptthanhtoan.Name = "col_ptthanhtoan";
             // 
             // grpb_thoigian
             // 
@@ -301,6 +260,55 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             this.rd_dathanhtoan.UseVisualStyleBackColor = true;
             this.rd_dathanhtoan.CheckedChanged += new System.EventHandler(this.rd_dathanhtoan_CheckedChanged);
             // 
+            // col_sohd
+            // 
+            this.col_sohd.DataPropertyName = "SOHD";
+            this.col_sohd.HeaderText = "Số HD";
+            this.col_sohd.Name = "col_sohd";
+            // 
+            // col_thoigian
+            // 
+            this.col_thoigian.DataPropertyName = "THOIGIAN";
+            this.col_thoigian.HeaderText = "Thời gian";
+            this.col_thoigian.Name = "col_thoigian";
+            // 
+            // col_tenkh
+            // 
+            this.col_tenkh.DataPropertyName = "MAKH";
+            this.col_tenkh.HeaderText = "Khách hàng";
+            this.col_tenkh.Name = "col_tenkh";
+            // 
+            // col_nhanvien
+            // 
+            this.col_nhanvien.DataPropertyName = "MANV";
+            this.col_nhanvien.HeaderText = "Người bán";
+            this.col_nhanvien.Name = "col_nhanvien";
+            // 
+            // col_masp
+            // 
+            this.col_masp.DataPropertyName = "MASP";
+            this.col_masp.HeaderText = "Mã sản phẩm";
+            this.col_masp.Name = "col_masp";
+            // 
+            // col_tongtien
+            // 
+            this.col_tongtien.DataPropertyName = "TONGTIEN";
+            this.col_tongtien.HeaderText = "Tổng tiền";
+            this.col_tongtien.MinimumWidth = 6;
+            this.col_tongtien.Name = "col_tongtien";
+            // 
+            // col_trangthai
+            // 
+            this.col_trangthai.DataPropertyName = "TRANGTHAI";
+            this.col_trangthai.HeaderText = "Trạng thái";
+            this.col_trangthai.Name = "col_trangthai";
+            // 
+            // col_ptthanhtoan
+            // 
+            this.col_ptthanhtoan.DataPropertyName = "PTTHANHTOAN";
+            this.col_ptthanhtoan.HeaderText = "Phương thức thanh toán";
+            this.col_ptthanhtoan.Name = "col_ptthanhtoan";
+            // 
             // frm_hoadon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,14 +351,15 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
         private RadioButton rd_dahuy;
         private RadioButton rd_dathanhtoan;
         private Button btn_xemdshd;
+        private RadioButton rd_all;
+        private Button btn_cancel;
         private DataGridViewTextBoxColumn col_sohd;
         private DataGridViewTextBoxColumn col_thoigian;
         private DataGridViewTextBoxColumn col_tenkh;
         private DataGridViewTextBoxColumn col_nhanvien;
+        private DataGridViewTextBoxColumn col_masp;
         private DataGridViewTextBoxColumn col_tongtien;
         private DataGridViewTextBoxColumn col_trangthai;
         private DataGridViewTextBoxColumn col_ptthanhtoan;
-        private RadioButton rd_all;
-        private Button btn_cancel;
     }
 }

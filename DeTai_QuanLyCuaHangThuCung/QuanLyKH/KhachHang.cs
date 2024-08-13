@@ -14,7 +14,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
     public partial class frmKhachHang : Form
     {
         // Chuỗi kết nối cơ sở dữ liệu
-        private string cstr = @"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
+        private string cstr = @"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
 
         public frmKhachHang()
         {

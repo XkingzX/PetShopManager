@@ -39,7 +39,7 @@ namespace DeTai_QuanLyCuaHangThuCung.DangNhap
 
         private void btn_DangNhap_Click(object sender, EventArgs e)
         {
-            string chuoiketnoi = @"Data Source=ADMIN-PC\MSSQLSERVER01;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
+            string chuoiketnoi = @"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
             SqlConnection ketnoi = new SqlConnection(chuoiketnoi);
 
             string tk = txtTendn.Text;

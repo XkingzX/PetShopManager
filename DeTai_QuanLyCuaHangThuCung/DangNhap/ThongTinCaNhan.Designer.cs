@@ -1,4 +1,7 @@
-﻿namespace DeTai_QuanLyCuaHangThuCung
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace DeTai_QuanLyCuaHangThuCung
 {
     partial class frmTTCN
     {
@@ -130,7 +133,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(350, 28);
+            label5.Location = new Point(337, 26);
             label5.Name = "label5";
             label5.Size = new Size(71, 17);
             label5.TabIndex = 0;

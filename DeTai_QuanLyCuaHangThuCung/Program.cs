@@ -1,4 +1,6 @@
-﻿using DeTai_QuanLyCuaHangThuCung.HangHoa;
+﻿using DeTai_QuanLyCuaHangThuCung.DangNhap;
+using DeTai_QuanLyCuaHangThuCung.GiaoDich;
+using DeTai_QuanLyCuaHangThuCung.HangHoa;
 using DeTai_QuanLyCuaHangThuCung.QuanLyKH;
 using System;
 using System.Collections.Generic;
@@ -18,7 +20,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_trangchu("@HOTEN"));//frm_trangchu("@HOTEN")
+            Application.Run(new frm_DangNhap());//frm_trangchu("@HOTEN")
         }
     }
 }

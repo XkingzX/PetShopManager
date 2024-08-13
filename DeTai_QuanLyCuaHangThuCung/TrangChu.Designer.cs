@@ -49,6 +49,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.mnTen = new System.Windows.Forms.ToolStripMenuItem();
             this.mnTTCN = new System.Windows.Forms.ToolStripMenuItem();
             this.mnDangXuat = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_doanhthu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,7 +109,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // mn_giohang
             // 
             this.mn_giohang.Name = "mn_giohang";
-            this.mn_giohang.Size = new System.Drawing.Size(224, 26);
+            this.mn_giohang.Size = new System.Drawing.Size(155, 26);
             this.mn_giohang.Text = "Giỏ Hàng";
             this.mn_giohang.Click += new System.EventHandler(this.mn_muahang_Click);
             // 
@@ -129,6 +130,8 @@ namespace DeTai_QuanLyCuaHangThuCung
             // 
             // mn_baocao
             // 
+            this.mn_baocao.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_doanhthu});
             this.mn_baocao.Name = "mn_baocao";
             this.mn_baocao.Size = new System.Drawing.Size(79, 24);
             this.mn_baocao.Text = "Báo Cáo";
@@ -191,6 +194,13 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.mnDangXuat.Text = "Đăng Xuất";
             this.mnDangXuat.Click += new System.EventHandler(this.mnDangXuat_Click);
             // 
+            // mn_doanhthu
+            // 
+            this.mn_doanhthu.Name = "mn_doanhthu";
+            this.mn_doanhthu.Size = new System.Drawing.Size(224, 26);
+            this.mn_doanhthu.Text = "Doanh Thu";
+            this.mn_doanhthu.Click += new System.EventHandler(this.mn_doanhthu_Click);
+            // 
             // frm_trangchu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -233,5 +243,6 @@ namespace DeTai_QuanLyCuaHangThuCung
         private ToolStripMenuItem mnDangXuat;
         private ToolStripMenuItem mnTTCN;
         private ToolStripMenuItem mn_giohang;
+        private ToolStripMenuItem mn_doanhthu;
     }
 }

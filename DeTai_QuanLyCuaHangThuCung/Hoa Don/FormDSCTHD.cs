@@ -22,9 +22,9 @@ namespace WindowsFormsApp1
 
         private void FormDSCTHD_Load(object sender, EventArgs e)
         {
-            reportViewer2.LocalReport.ReportEmbeddedResource = "DeTai_QuanLyCuaHangThuCung.DSCTHD.rdlc";
+            reportViewer2.LocalReport.ReportEmbeddedResource = "DeTai_QuanLyCuaHangThuCung.ReportDSCTHD.rdlc";
             ReportDataSource reportDataSource = new ReportDataSource();
-            reportDataSource.Name = "DataSet2";
+            reportDataSource.Name = "DataSet1";
             string querry = "select * from CTHD";
             reportDataSource.Value = DataProvider.LoadCSDL(querry);
             this.reportViewer2.LocalReport.DataSources.Add(reportDataSource);

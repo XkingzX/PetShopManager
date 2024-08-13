@@ -1,4 +1,7 @@
-﻿namespace DeTai_QuanLyCuaHangThuCung.DangNhap
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace DeTai_QuanLyCuaHangThuCung.DangNhap
 {
     partial class frm_DangNhap
     {
@@ -63,7 +66,6 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Resources.free_30_instagram_stories_icons53_1226001;
             pictureBox1.Location = new Point(130, 89);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(166, 102);
@@ -126,7 +128,6 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = Properties.Resources.userprovip;
             pictureBox2.Location = new Point(50, 224);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(36, 35);
@@ -137,7 +138,6 @@
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.Transparent;
-            pictureBox4.Image = Properties.Resources.passwordicon1;
             pictureBox4.Location = new Point(50, 280);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(36, 35);
@@ -148,7 +148,6 @@
             // pbiconDangnhap
             // 
             pbiconDangnhap.BackColor = Color.White;
-            pbiconDangnhap.Image = Properties.Resources.login_square_arrow_button_outline_icon_icons1;
             pbiconDangnhap.Location = new Point(138, 346);
             pbiconDangnhap.Name = "pbiconDangnhap";
             pbiconDangnhap.Size = new Size(25, 24);

@@ -327,6 +327,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             // ThemThongTinKhachHang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(975, 499);
             this.Controls.Add(this.dtpNgayDK);
             this.Controls.Add(this.btnBoQua);
@@ -356,6 +357,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.Controls.Add(this.lblMaKH);
             this.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ThemThongTinKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

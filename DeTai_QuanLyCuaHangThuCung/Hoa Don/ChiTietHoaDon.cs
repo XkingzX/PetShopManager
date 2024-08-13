@@ -25,9 +25,10 @@ namespace DeTai_QuanLyCuaHangThuCung
         string tongthanhtoan;
         int diemthuong;
         int diemsudung;
+        string giamgia;
 
 
-        public ChiTietHoaDon(string mahd1,/*, string hoten, string sdt, string dchi, string makh, string loai, string nhanvien, string manv, string giamgia,*/ string tongthanhtoan, int diemthuong, int diemsudung)
+        public ChiTietHoaDon(string mahd1,/*, string hoten, string sdt, string dchi, string makh, string loai, string nhanvien, string manv, string giamgia,*/ string tongthanhtoan, int diemthuong, int diemsudung, string giamgia)
         {
             InitializeComponent();
             this.mahd1 = mahd1;
@@ -42,8 +43,9 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.tongthanhtoan = tongthanhtoan;
             this.diemthuong = diemthuong;
             this.diemsudung = diemsudung;
+            this.giamgia = giamgia;
         }
-        protected string sqlhoadon = @"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True";
+        protected string sqlhoadon = @"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
         protected SqlConnection cn;
         protected SqlCommand cm;
         public DataTable dt;
@@ -76,7 +78,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             bd = new BindingSource();
             bd.DataSource = dt;
             txt_makh.DataBindings.Add("Text", bd, "MAKH");
-            if(string.IsNullOrEmpty(txt_loaikh.Text))
+            if(string.IsNullOrEmpty(txt_makh.Text))
             {
                 txt_loaikh.Text = "Khách lẻ";
             }
@@ -85,14 +87,6 @@ namespace DeTai_QuanLyCuaHangThuCung
                 txt_loaikh.DataBindings.Add("Text", bd, "LOAIKH");
             }    
             txt_sdt.DataBindings.Add("Text", bd, "SODT");
-            if(txt_loaikh.Text == "Khách lẻ")
-            {
-                txt_giamgia.Text = "0";
-            }
-            else
-            {
-                txt_giamgia.DataBindings.Add("Text", bd, "GIAMGIA");
-            }
             txt_khachtra.DataBindings.Add("Text", bd, "KHACHTRA");
             txt_tienthoi.DataBindings.Add("Text", bd, "TIENTHOI");
             cmb_nguoiban.DataSource = bd;
@@ -125,9 +119,10 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
-            cm.CommandText = "UPDATE CTHD SET TONGTIEN = @TONGTIEN, CHINHANH = @CHINHANH, TRANGTHAI = @TRANGTHAI,KHACHTRA = @KHACHTRA,TIENTHOI = @TIENTHOI, PTTHANHTOAN = @PTTHANHTOAN WHERE SOHD = @SOHD";
+            cm.CommandText = "UPDATE CTHD SET TONGTIEN = @TONGTIEN,@GIAMGIA = GIAMGIA, CHINHANH = @CHINHANH, TRANGTHAI = @TRANGTHAI,KHACHTRA = @KHACHTRA,TIENTHOI = @TIENTHOI, PTTHANHTOAN = @PTTHANHTOAN WHERE SOHD = @SOHD";
             cm.Parameters.AddWithValue("TONGTIEN", txt_thanhtien.Text);
             cm.Parameters.AddWithValue("CHINHANH", cmb_chinhanh.Text);
+            cm.Parameters.AddWithValue("GIAMGIA", decimal.Parse(txt_giamgia.Text));
             cm.Parameters.AddWithValue("TRANGTHAI", "Đã thanh toán");
             cm.Parameters.AddWithValue("SOHD", txt_mahd.Text);
             cm.Parameters.AddWithValue("KHACHTRA", txt_khachtra.Text);
@@ -186,7 +181,15 @@ namespace DeTai_QuanLyCuaHangThuCung
             //cmb_nguoiban.Text = nhanvien;
             //cmb_nguoitao.Text = manv;
             txt_thanhtien.Text = tongthanhtoan.ToString();
-            //txt_giamgia.Text = giamgia.ToString();
+            if (txt_loaikh.Text == "Khách lẻ")
+            {
+                txt_giamgia.Text = "0";
+            }
+            else
+            {
+                txt_giamgia.Text = giamgia;
+            }
+
             cmb_chinhanh.Items.AddRange(dschinhanh);
             rdb_tienmat.Checked = true;
             cmb_chinhanh.SelectedIndex = 0; 

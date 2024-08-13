@@ -1,4 +1,7 @@
-﻿namespace DeTai_QuanLyCuaHangThuCung
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace DeTai_QuanLyCuaHangThuCung
 {
     partial class frmThemNV
     {
@@ -120,6 +123,7 @@
             txtHoten.Name = "txtHoten";
             txtHoten.Size = new Size(197, 23);
             txtHoten.TabIndex = 1;
+            txtHoten.TextChanged += txtHoten_TextChanged;
             // 
             // txtSoDienThoai
             // 
@@ -127,6 +131,7 @@
             txtSoDienThoai.Name = "txtSoDienThoai";
             txtSoDienThoai.Size = new Size(200, 23);
             txtSoDienThoai.TabIndex = 1;
+            txtSoDienThoai.TextChanged += txtSoDienThoai_TextChanged;
             // 
             // txtMatkhau
             // 
@@ -134,6 +139,7 @@
             txtMatkhau.Name = "txtMatkhau";
             txtMatkhau.Size = new Size(206, 23);
             txtMatkhau.TabIndex = 1;
+            txtMatkhau.TextChanged += txtMatkhau_TextChanged;
             // 
             // btnLuu
             // 
@@ -214,6 +220,7 @@
             txtDiachi.Name = "txtDiachi";
             txtDiachi.Size = new Size(200, 45);
             txtDiachi.TabIndex = 1;
+            txtDiachi.TextChanged += txtDiachi_TextChanged;
             // 
             // label7
             // 
@@ -239,6 +246,7 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(206, 23);
             txtEmail.TabIndex = 1;
+            txtEmail.TextChanged += txtEmail_TextChanged;
             // 
             // dtpNgaysinh
             // 
@@ -263,6 +271,7 @@
             txtGhichu.Name = "txtGhichu";
             txtGhichu.Size = new Size(206, 67);
             txtGhichu.TabIndex = 1;
+            txtGhichu.TextChanged += txtGhichu_TextChanged;
             // 
             // pbHinhanh
             // 

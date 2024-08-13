@@ -152,3 +152,19 @@ select *
 from SANPHAM
 select *
 from KHO
+
+
+SELECT 
+    CTHD.THOIGIAN AS N'Thời gian',
+    SUM(CTHD.TONGTIEN) AS N'Doanh thu',
+    SUM(CTHD.SL) AS N'Số lượng',
+    SUM(CTHD.GIAMGIA) AS N'Giảm giá',
+    SUM(CTHD.TONGTIEN - ISNULL(CTHD.GIAMGIA, 0)) AS N'Thực thu'
+FROM 
+    CTHD
+WHERE 
+    CTHD.TRANGTHAI = N'Đã thanh toán'
+GROUP BY 
+    CTHD.THOIGIAN
+ORDER BY 
+    CTHD.THOIGIAN;

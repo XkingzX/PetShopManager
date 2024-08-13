@@ -45,7 +45,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         }
         private void ketnoicsdl()
         {
-            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
             {
                 string query = "SELECT * FROM KHO";
                 SqlDataAdapter da = new SqlDataAdapter(query, cn);

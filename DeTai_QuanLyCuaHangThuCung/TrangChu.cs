@@ -1,4 +1,4 @@
-﻿//using DeTai_QuanLyCuaHangThuCung.DangNhap;
+﻿using DeTai_QuanLyCuaHangThuCung.DangNhap;
 using DeTai_QuanLyCuaHangThuCung.GiaoDich;
 using DeTai_QuanLyCuaHangThuCung.HangHoa;
 using DeTai_QuanLyCuaHangThuCung.QuanLyKH;
@@ -7,15 +7,15 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using WindowsFormsApp1;
-//using static DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap;
+using static DeTai_QuanLyCuaHangThuCung.DangNhap.frm_DangNhap;
 
 namespace DeTai_QuanLyCuaHangThuCung
 {
     public partial class frm_trangchu : Form
     {
         private string quyen;
-        public string hoten {  get; set; }
-        public frm_trangchu(string hoten)
+        private string hoTEN;
+        public frm_trangchu()
         {
             InitializeComponent();
             this.IsMdiContainer = true;
@@ -34,7 +34,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void mn_tongquan_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frm_trangchu trangchu = new frm_trangchu("@HOTEN");
+            frm_trangchu trangchu = new frm_trangchu();
             trangchu.Show();
         }
 
@@ -78,28 +78,68 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         private void mn_thongtinnv_Click(object sender, EventArgs e)
         {
-            //frm_thongtinnv frm = new frm_thongtinnv();
-            //frm.MdiParent = this;
-            //frm.Dock = DockStyle.Fill;
-            //frm.Show();
+            frm_thongtinnv frmDangmo = null;
+            foreach (Form Frm in this.MdiChildren) //sử dụng vòng lặp for each để kiếm tra tất cả các form con, nếu có form con của form chính đang mở thì gán nó vào biến frmDangmo 
+            {
+                if (Frm is frm_thongtinnv)
+                {
+                    frmDangmo = (frm_thongtinnv)Frm;
+                    break; //Nếu có đã tìm đc frm đang mở thì hủy vòng lặp
+                }
+            }
+            if (frmDangmo != null) //tức là form đang mơ, đưa lên trước
+            {
+                frmDangmo.BringToFront();
+            }
+
+            else //ngược lại thì tạo form mới
+            {
+                frm_thongtinnv newfrm = new frm_thongtinnv();
+                newfrm.MdiParent = this;
+                newfrm.Dock = DockStyle.Fill;
+                newfrm.Show();
+            }
+            this.Width = 760;
+            this.Height = 680;
         }
 
         private void mnDangXuat_Click(object sender, EventArgs e)
         {
-            //DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if (result == DialogResult.Yes)
-            //{
-            //    this.Hide();
-            //    frm_DangNhap frm = new frm_DangNhap();
-            //    frm.Show();
-
-            //}
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                frm_DangNhap frm = new frm_DangNhap();
+                frm.Show();
+                this.Hide();
+            }
 
         }
 
         private void mnTTCN_Click(object sender, EventArgs e)
         {
+            frmTTCN frmDangmo = null;
+            foreach (Form Frm in this.MdiChildren)
+            {
+                if (Frm is frmTTCN)
+                {
+                    frmDangmo = (frmTTCN)Frm;
+                    break;
+                }
+            }
+            if (frmDangmo != null) //tức là form đang mơ, đưa lên trước
+            {
+                frmDangmo.BringToFront();
+            }
 
+            else
+            {
+                frmTTCN newfrm = new frmTTCN();
+                newfrm.MdiParent = this;
+                newfrm.Dock = DockStyle.Fill;
+                newfrm.Show();
+            }
+            this.Width = 800;
+            this.Height = 420;
         }
 
         private void mn_xemhoadon_Click(object sender, EventArgs e)
@@ -130,6 +170,14 @@ namespace DeTai_QuanLyCuaHangThuCung
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void mn_doanhthu_Click(object sender, EventArgs e)
+        {
+            DoanhThu frm = new DoanhThu();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
         }
     }
 

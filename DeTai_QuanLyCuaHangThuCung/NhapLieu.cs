@@ -47,7 +47,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         private string imagePath = null;
         private void ketnoicsdl()
         {
-            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True"))
+            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
             {
                 string query = "SELECT * FROM SANPHAM";
                 SqlDataAdapter da = new SqlDataAdapter(query, cn);

@@ -165,6 +165,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.txt_nhapmasp.Name = "txt_nhapmasp";
             this.txt_nhapmasp.Size = new System.Drawing.Size(169, 22);
             this.txt_nhapmasp.TabIndex = 5;
+            this.txt_nhapmasp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_nhapmasp_KeyDown);
             // 
             // gr_hinhsp
             // 
@@ -219,6 +220,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             this.btn_insp.TabIndex = 2;
             this.btn_insp.Text = "In mã sản phẩm";
             this.btn_insp.UseVisualStyleBackColor = true;
+            this.btn_insp.Click += new System.EventHandler(this.btn_insp_Click);
             // 
             // btn_lammoi
             // 

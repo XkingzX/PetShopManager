@@ -15,7 +15,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 {
     public partial class InHoaDon : Form
     {
-        protected string cnstr = @"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True";
+        protected string cnstr = @"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
         protected SqlConnection cn;
         protected SqlCommand cm;
         public DataTable dt;
