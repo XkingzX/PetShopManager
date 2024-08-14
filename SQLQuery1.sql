@@ -168,3 +168,7 @@ GROUP BY
     CTHD.THOIGIAN
 ORDER BY 
     CTHD.THOIGIAN;
+
+	SELECT MAKH as N'Mã khách hàng', HOTEN as N'Họ tên', LOAIKH as N'Loại khách hàng', DIEMTHUONG as N'Điểm thưởng', SODT as N'Số điện thoại',NGDK as N'Ngày đăng ký' FROM KHACHHANG
+	select *
+	from KHACHHANG

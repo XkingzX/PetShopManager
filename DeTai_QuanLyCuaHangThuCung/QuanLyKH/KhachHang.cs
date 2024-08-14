@@ -27,7 +27,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
             using (SqlConnection connection = new SqlConnection(cstr))
             {
                 connection.Open();
-                string query = "SELECT MAKH, HOTEN, SODT,NGDK FROM KHACHHANG";
+                string query = "SELECT MAKH as N'Mã khách hàng', HOTEN as N'Họ tên', LOAIKH as N'Loại khách hàng', DIEMTHUONG as N'Điểm thưởng', SODT as N'Số điện thoại',NGDK as N'Ngày đăng ký' FROM KHACHHANG";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -141,7 +141,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
         }
         private void TimKiemDuLieu(string value)
         {
-            string query = "SELECT * FROM KHACHHANG WHERE MAKH LIKE @Value OR HOTEN LIKE @Value OR SODT LIKE @Value";
+            string query = "SELECT MAKH as N'Mã khách hàng', HOTEN as N'Họ tên', LOAIKH as N'Loại khách hàng', DIEMTHUONG as N'Điểm thưởng', SODT as N'Số điện thoại',NGDK as N'Ngày đăng ký' FROM KHACHHANG WHERE MAKH LIKE @Value OR HOTEN LIKE @Value OR SODT LIKE @Value";
             try
             {
                 using (SqlConnection connection = new SqlConnection(cstr))
@@ -191,7 +191,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
                 using (SqlConnection connection = new SqlConnection(cstr))
                 {
                     connection.Open();
-                    string query = "SELECT * FROM KHACHHANG WHERE NGDK >= @StartDate AND NGDK <= @EndDate";
+                    string query = "SELECT MAKH as N'Mã khách hàng', HOTEN as N'Họ tên', LOAIKH as N'Loại khách hàng', DIEMTHUONG as N'Điểm thưởng', SODT as N'Số điện thoại',NGDK as N'Ngày đăng ký' FROM KHACHHANG WHERE NGDK >= @StartDate AND NGDK <= @EndDate";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@StartDate", TuNgay);
