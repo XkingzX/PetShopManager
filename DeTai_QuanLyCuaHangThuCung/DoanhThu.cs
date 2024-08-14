@@ -36,8 +36,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             DateTime currentTime = DateTime.Now;
             txt_ngaynhaptudong.Text = currentTime.ToString("dd/MM/yyyy HH:mm:ss");
             txt_ngaynhaptudong.Enabled = false;
-            string chinhanh = "Chi nhánh: Cửa hàng thú cưng - PetShop";
-            txt_chinhanh.Text = chinhanh;
+            txt_chinhanh.Text = "Chi nhánh: Cửa hàng thú cưng - PetShop";
             ketnoicsdl();
             cmb_thang.Items.AddRange(dsthang);
             cmb_nam.Items.AddRange(dsnam);
@@ -45,19 +44,15 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void ketnoicsdl()
         {
             cn.Open();
-            string sql = @"SELECT CTHD.THOIGIAN AS N'Thời gian',
-                        SUM(CTHD.TONGTIEN) AS N'Doanh thu',
-                        SUM(CTHD.SL) AS N'Số lượng',
-                        SUM(CTHD.GIAMGIA) AS N'Giảm giá',
-                        SUM(CTHD.TONGTIEN - ISNULL(CTHD.GIAMGIA, 0)) AS N'Thực thu'
-                        FROM 
-                            CTHD
-                        WHERE 
-                            CTHD.TRANGTHAI = N'Đã thanh toán'
-                        GROUP BY 
-                            CTHD.THOIGIAN
-                        ORDER BY 
-                            CTHD.THOIGIAN";
+            string sql = @"SELECT CONVERT(DATE, CTHD.THOIGIAN) AS N'Thời gian',
+                           SUM(CTHD.TONGTIEN) AS N'Doanh thu',
+                           SUM(CTHD.SL) AS N'Số lượng',
+                           SUM(CTHD.GIAMGIA) AS N'Giảm giá',
+                           SUM(CTHD.TONGTIEN - ISNULL(CTHD.GIAMGIA, 0)) AS N'Thực thu'
+                           FROM CTHD
+                           WHERE CTHD.TRANGTHAI = N'Đã thanh toán'
+                           GROUP BY CONVERT(DATE, CTHD.THOIGIAN)
+                           ORDER BY CONVERT(DATE, CTHD.THOIGIAN);";
             SqlCommand cmd = new SqlCommand(sql, cn);
             cmd.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -76,19 +71,15 @@ namespace DeTai_QuanLyCuaHangThuCung
             cm = new SqlCommand();
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
-            cm.CommandText = $@"SELECT CTHD.THOIGIAN AS N'Thời gian',
-                        SUM(CTHD.TONGTIEN) AS N'Doanh thu',
-                        SUM(CTHD.SL) AS N'Số lượng',
-                        SUM(CTHD.GIAMGIA) AS N'Giảm giá',
-                        SUM(CTHD.TONGTIEN - ISNULL(CTHD.GIAMGIA, 0)) AS N'Thực thu'
-                        FROM 
-                            CTHD
-                        WHERE 
-                            CTHD.TRANGTHAI = N'Đã thanh toán' AND YEAR(CTHD.THOIGIAN) = '{nam}'
-                        GROUP BY 
-                            CTHD.THOIGIAN
-                        ORDER BY 
-                            CTHD.THOIGIAN";
+            cm.CommandText = $@"SELECT CONVERT(DATE, CTHD.THOIGIAN) AS N'Thời gian',
+                           SUM(CTHD.TONGTIEN) AS N'Doanh thu',
+                           SUM(CTHD.SL) AS N'Số lượng',
+                           SUM(CTHD.GIAMGIA) AS N'Giảm giá',
+                           SUM(CTHD.TONGTIEN - ISNULL(CTHD.GIAMGIA, 0)) AS N'Thực thu'
+                           FROM CTHD
+                           WHERE CTHD.TRANGTHAI = N'Đã thanh toán AND YEAR(CTHD.THOIGIAN) = '{nam}''
+                           GROUP BY CONVERT(DATE, CTHD.THOIGIAN)
+                           ORDER BY CONVERT(DATE, CTHD.THOIGIAN);";
             cm.Parameters.AddWithValue("thang", thang);
             cm.Parameters.AddWithValue("nam", nam);
             cm.ExecuteNonQuery();
@@ -108,19 +99,15 @@ namespace DeTai_QuanLyCuaHangThuCung
             cm = new SqlCommand();
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
-            cm.CommandText = $@"SELECT CTHD.THOIGIAN AS N'Thời gian',
-                        SUM(CTHD.TONGTIEN) AS N'Doanh thu',
-                        SUM(CTHD.SL) AS N'Số lượng',
-                        SUM(CTHD.GIAMGIA) AS N'Giảm giá',
-                        SUM(CTHD.TONGTIEN - ISNULL(CTHD.GIAMGIA, 0)) AS N'Thực thu'
-                        FROM 
-                            CTHD
-                        WHERE 
-                            CTHD.TRANGTHAI = N'Đã thanh toán' AND MONTH(CTHD.THOIGIAN) = '{thang}'
-                        GROUP BY 
-                            CTHD.THOIGIAN
-                        ORDER BY 
-                            CTHD.THOIGIAN";
+            cm.CommandText = $@"SELECT CONVERT(DATE, CTHD.THOIGIAN) AS N'Thời gian',
+                           SUM(CTHD.TONGTIEN) AS N'Doanh thu',
+                           SUM(CTHD.SL) AS N'Số lượng',
+                           SUM(CTHD.GIAMGIA) AS N'Giảm giá',
+                           SUM(CTHD.TONGTIEN - ISNULL(CTHD.GIAMGIA, 0)) AS N'Thực thu'
+                           FROM CTHD
+                           WHERE CTHD.TRANGTHAI = N'Đã thanh toán AND YEAR(CTHD.THOIGIAN) = '{thang}''
+                           GROUP BY CONVERT(DATE, CTHD.THOIGIAN)
+                           ORDER BY CONVERT(DATE, CTHD.THOIGIAN);";
             cm.Parameters.AddWithValue("thang", thang);
             cm.Parameters.AddWithValue("nam", nam);
             cm.ExecuteNonQuery();
@@ -134,21 +121,21 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void laydulieusp()
         {
             cn.Open();
-            cm = new SqlCommand();
-            cm.Connection = cn;
-            cm.CommandType = CommandType.Text;
-            cm.CommandText = @"SELECT CTHD.THOIGIAN AS N'Thời gian',
-                SUM(CTHD.TONGTIEN) AS N'Doanh thu',
-                SUM(CTHD.SL) AS N'Số lượng',
-                SUM(CTHD.GIAMGIA) AS N'Giảm giá',
-                SUM(CTHD.TONGTIEN - ISNULL(CTHD.GIAMGIA, 0)) AS N'Thực thu'
-                FROM CTHD WHERE CTHD.TRANGTHAI = N'Đã thanh toán'
-                GROUP BY CTHD.THOIGIAN ORDER BY CTHD.THOIGIAN";
-            SqlDataReader reader = cm.ExecuteReader();
+            string sql = @"SELECT CTHD.THOIGIAN AS N'Thời gian',
+                   SUM(CTHD.TONGTIEN) AS N'Doanh thu',
+                   SUM(CTHD.SL) AS N'Số lượng',
+                   SUM(CTHD.GIAMGIA) AS N'Giảm giá',
+                   SUM(CTHD.TONGTIEN - ISNULL(CTHD.GIAMGIA, 0)) AS N'Thực thu'
+                   FROM CTHD
+                   WHERE CTHD.TRANGTHAI = N'Đã thanh toán'
+                   GROUP BY CTHD.THOIGIAN
+                   ORDER BY CTHD.THOIGIAN";
+            SqlCommand cmd = new SqlCommand(sql, cn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             dt = new DataTable();
-            dt.Load(reader);
+            da.Fill(dt);
             cn.Close();
-            dgv_doanhthu.DataSource= dt;
+            dgv_doanhthu.DataSource = dt;
         }
         private void btn_cancel_Click(object sender, EventArgs e)
         {

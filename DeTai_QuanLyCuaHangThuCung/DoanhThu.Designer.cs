@@ -134,14 +134,14 @@
             // 
             this.dgv_doanhthu.AllowUserToAddRows = false;
             this.dgv_doanhthu.AllowUserToDeleteRows = false;
-            this.dgv_doanhthu.AllowUserToResizeRows = false;
+            this.dgv_doanhthu.AllowUserToResizeColumns = false;
             this.dgv_doanhthu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_doanhthu.Enabled = false;
             this.dgv_doanhthu.Location = new System.Drawing.Point(15, 100);
             this.dgv_doanhthu.Name = "dgv_doanhthu";
+            this.dgv_doanhthu.ReadOnly = true;
             this.dgv_doanhthu.RowHeadersWidth = 51;
             this.dgv_doanhthu.RowTemplate.Height = 24;
-            this.dgv_doanhthu.Size = new System.Drawing.Size(696, 59);
+            this.dgv_doanhthu.Size = new System.Drawing.Size(696, 58);
             this.dgv_doanhthu.TabIndex = 17;
             // 
             // txt_chinhanh
@@ -159,7 +159,7 @@
             this.label7.Font = new System.Drawing.Font("Stencil", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(213, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(357, 39);
+            this.label7.Size = new System.Drawing.Size(298, 32);
             this.label7.TabIndex = 15;
             this.label7.Text = "Báo cáo doanh thu";
             // 

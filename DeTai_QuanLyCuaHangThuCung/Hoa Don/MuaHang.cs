@@ -439,11 +439,11 @@ namespace DeTai_QuanLyCuaHangThuCung
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
             cm.CommandText = "UPDATE CTHD SET SOHD = @SOHD, MASP = @MASP, SL = @SL,GIAMGIA = @GIAMGIA,TONGTIEN=@TONGTIEN,THOIGIAN = @THOIGIAN,MAKH = @MAKH,MANV = @MANV WHERE MASP = @MASP AND SOHD = @SOHD";
-            cm.Parameters.AddWithValue("SOHD", lbl_mahd.Text);
+            cm.Parameters.AddWithValue("SOHD", int.Parse(lbl_mahd.Text));
             cm.Parameters.AddWithValue("MASP", dgv_giohang.CurrentRow.Cells["col_masp"].Value);
-            cm.Parameters.AddWithValue("SL", num_sl.Value);
+            cm.Parameters.AddWithValue("SL", (int)num_sl.Value);
             cm.Parameters.AddWithValue("TONGTIEN", 0);
-            cm.Parameters.AddWithValue("GIAMGIA", lbl_giamgia.Text);
+            cm.Parameters.AddWithValue("GIAMGIA", decimal.Parse(lbl_giamgia.Text));
             cm.Parameters.AddWithValue("MANV", cmb_manv.Text);
             cm.Parameters.AddWithValue("THOIGIAN", dtp_thoigian.Value);
             cm.Parameters.AddWithValue("MAKH", cmb_makh.Text);
@@ -691,8 +691,8 @@ namespace DeTai_QuanLyCuaHangThuCung
                 cm.Connection = cn;
                 cm.CommandType = CommandType.Text;
                 cm.CommandText = "UPDATE CTHD SET GIAMGIA = @GIAMGIA WHERE SOHD = @SOHD";
-                cm.Parameters.AddWithValue("SOHD", lbl_mahd.Text);
-                cm.Parameters.AddWithValue("GIAMGIA", lbl_giamgia.Text);
+                cm.Parameters.AddWithValue("SOHD", int.Parse(lbl_mahd.Text));
+                cm.Parameters.AddWithValue("GIAMGIA", decimal.Parse(lbl_giamgia.Text));
                 int row = cm.ExecuteNonQuery();
                 if (float.Parse(lbl_giamgia.Text) > float.Parse(lbl_tongthanhtoan.Text))
                 {
@@ -725,8 +725,8 @@ namespace DeTai_QuanLyCuaHangThuCung
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
             cm.CommandText = "UPDATE CTHD SET GIAMGIA = @GIAMGIA WHERE SOHD = @SOHD";
-            cm.Parameters.AddWithValue("SOHD", lbl_mahd.Text);
-            cm.Parameters.AddWithValue("GIAMGIA", lbl_giamgia.Text);
+            cm.Parameters.AddWithValue("SOHD", int.Parse(lbl_mahd.Text));
+            cm.Parameters.AddWithValue("GIAMGIA", decimal.Parse(lbl_giamgia.Text));
             int row = cm.ExecuteNonQuery();
             if (float.Parse(lbl_giamgia.Text) > float.Parse(lbl_tongthanhtoan.Text))
             {

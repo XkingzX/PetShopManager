@@ -32,158 +32,156 @@ namespace DeTai_QuanLyCuaHangThuCung.DangNhap
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_DangNhap));
-            txtTendn = new TextBox();
-            pictureBox1 = new PictureBox();
-            txtMatkhau = new TextBox();
-            btn_DangNhap = new Button();
-            lbDangnhap = new Label();
-            dgvDangnhap = new DataGridView();
-            pictureBox2 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pbiconDangnhap = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDangnhap).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbiconDangnhap).BeginInit();
-            SuspendLayout();
+            this.txtTendn = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtMatkhau = new System.Windows.Forms.TextBox();
+            this.btn_DangNhap = new System.Windows.Forms.Button();
+            this.lbDangnhap = new System.Windows.Forms.Label();
+            this.dgvDangnhap = new System.Windows.Forms.DataGridView();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pbiconDangnhap = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDangnhap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbiconDangnhap)).BeginInit();
+            this.SuspendLayout();
             // 
             // txtTendn
             // 
-            txtTendn.BorderStyle = BorderStyle.FixedSingle;
-            txtTendn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTendn.ForeColor = SystemColors.InactiveCaption;
-            txtTendn.Location = new Point(92, 224);
-            txtTendn.Name = "txtTendn";
-            txtTendn.Size = new Size(258, 35);
-            txtTendn.TabIndex = 2;
-            txtTendn.Text = "MÃ NHÂN VIÊN";
-            txtTendn.Click += txtTendn_Click;
-            txtTendn.TextChanged += txtTendn_TextChanged;
-            txtTendn.Enter += txtTendn_Enter;
-            txtTendn.Leave += txtTendn_Leave;
+            this.txtTendn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTendn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTendn.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtTendn.Location = new System.Drawing.Point(105, 239);
+            this.txtTendn.Name = "txtTendn";
+            this.txtTendn.Size = new System.Drawing.Size(295, 35);
+            this.txtTendn.TabIndex = 2;
+            this.txtTendn.Text = "MÃ NHÂN VIÊN";
+            this.txtTendn.TextChanged += new System.EventHandler(this.txtTendn_TextChanged);
+            this.txtTendn.Enter += new System.EventHandler(this.txtTendn_Enter);
+            this.txtTendn.Leave += new System.EventHandler(this.txtTendn_Leave);
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Location = new Point(130, 89);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(166, 102);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(149, 95);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(190, 109);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // txtMatkhau
             // 
-            txtMatkhau.BorderStyle = BorderStyle.FixedSingle;
-            txtMatkhau.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMatkhau.ForeColor = SystemColors.InactiveCaption;
-            txtMatkhau.Location = new Point(92, 280);
-            txtMatkhau.Name = "txtMatkhau";
-            txtMatkhau.Size = new Size(258, 35);
-            txtMatkhau.TabIndex = 2;
-            txtMatkhau.Text = "MẬT KHẨU";
-            txtMatkhau.Click += txtMatkhau_Click;
-            txtMatkhau.TextChanged += txtMatkhau_TextChanged;
-            txtMatkhau.Enter += txtMatkhau_Enter;
-            txtMatkhau.Leave += txtMatkhau_Leave;
+            this.txtMatkhau.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMatkhau.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMatkhau.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtMatkhau.Location = new System.Drawing.Point(105, 299);
+            this.txtMatkhau.Name = "txtMatkhau";
+            this.txtMatkhau.Size = new System.Drawing.Size(295, 35);
+            this.txtMatkhau.TabIndex = 2;
+            this.txtMatkhau.Text = "MẬT KHẨU";
+            this.txtMatkhau.TextChanged += new System.EventHandler(this.txtMatkhau_TextChanged);
+            this.txtMatkhau.Enter += new System.EventHandler(this.txtMatkhau_Enter);
+            this.txtMatkhau.Leave += new System.EventHandler(this.txtMatkhau_Leave);
             // 
             // btn_DangNhap
             // 
-            btn_DangNhap.BackColor = Color.White;
-            btn_DangNhap.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_DangNhap.Location = new Point(130, 333);
-            btn_DangNhap.Name = "btn_DangNhap";
-            btn_DangNhap.Size = new Size(166, 50);
-            btn_DangNhap.TabIndex = 6;
-            btn_DangNhap.Text = "Đăng Nhập";
-            btn_DangNhap.UseVisualStyleBackColor = false;
-            btn_DangNhap.BackColorChanged += btn_DangNhap_BackColorChanged;
-            btn_DangNhap.Click += btn_DangNhap_Click;
-            btn_DangNhap.MouseLeave += btn_DangNhap_MouseLeave;
-            btn_DangNhap.MouseHover += btn_DangNhap_MouseHover;
-            btn_DangNhap.MouseMove += btn_DangNhap_MouseMove;
+            this.btn_DangNhap.BackColor = System.Drawing.Color.White;
+            this.btn_DangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DangNhap.Location = new System.Drawing.Point(149, 355);
+            this.btn_DangNhap.Name = "btn_DangNhap";
+            this.btn_DangNhap.Size = new System.Drawing.Size(190, 53);
+            this.btn_DangNhap.TabIndex = 6;
+            this.btn_DangNhap.Text = "Đăng Nhập";
+            this.btn_DangNhap.UseVisualStyleBackColor = false;
+            this.btn_DangNhap.Click += new System.EventHandler(this.btn_DangNhap_Click);
             // 
             // lbDangnhap
             // 
-            lbDangnhap.AutoSize = true;
-            lbDangnhap.BackColor = Color.SteelBlue;
-            lbDangnhap.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDangnhap.ForeColor = SystemColors.ButtonHighlight;
-            lbDangnhap.Location = new Point(130, 9);
-            lbDangnhap.Name = "lbDangnhap";
-            lbDangnhap.Size = new Size(181, 37);
-            lbDangnhap.TabIndex = 7;
-            lbDangnhap.Text = "ĐĂNG NHẬP";
+            this.lbDangnhap.AutoSize = true;
+            this.lbDangnhap.BackColor = System.Drawing.Color.SteelBlue;
+            this.lbDangnhap.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDangnhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbDangnhap.Location = new System.Drawing.Point(149, 10);
+            this.lbDangnhap.Name = "lbDangnhap";
+            this.lbDangnhap.Size = new System.Drawing.Size(181, 37);
+            this.lbDangnhap.TabIndex = 7;
+            this.lbDangnhap.Text = "ĐĂNG NHẬP";
             // 
             // dgvDangnhap
             // 
-            dgvDangnhap.BackgroundColor = Color.SteelBlue;
-            dgvDangnhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDangnhap.Location = new Point(-2, -3);
-            dgvDangnhap.Name = "dgvDangnhap";
-            dgvDangnhap.Size = new Size(430, 60);
-            dgvDangnhap.TabIndex = 8;
+            this.dgvDangnhap.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dgvDangnhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDangnhap.Location = new System.Drawing.Point(-2, -3);
+            this.dgvDangnhap.Name = "dgvDangnhap";
+            this.dgvDangnhap.Size = new System.Drawing.Size(491, 64);
+            this.dgvDangnhap.TabIndex = 8;
             // 
             // pictureBox2
             // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Location = new Point(50, 224);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(36, 35);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(57, 239);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 37);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
             // 
             // pictureBox4
             // 
-            pictureBox4.BackColor = Color.Transparent;
-            pictureBox4.Location = new Point(50, 280);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(36, 35);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 9;
-            pictureBox4.TabStop = false;
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(57, 299);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(41, 37);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 9;
+            this.pictureBox4.TabStop = false;
             // 
             // pbiconDangnhap
             // 
-            pbiconDangnhap.BackColor = Color.White;
-            pbiconDangnhap.Location = new Point(138, 346);
-            pbiconDangnhap.Name = "pbiconDangnhap";
-            pbiconDangnhap.Size = new Size(25, 24);
-            pbiconDangnhap.SizeMode = PictureBoxSizeMode.Zoom;
-            pbiconDangnhap.TabIndex = 9;
-            pbiconDangnhap.TabStop = false;
-            pbiconDangnhap.Click += pictureBox3_Click;
+            this.pbiconDangnhap.BackColor = System.Drawing.Color.White;
+            this.pbiconDangnhap.Image = ((System.Drawing.Image)(resources.GetObject("pbiconDangnhap.Image")));
+            this.pbiconDangnhap.Location = new System.Drawing.Point(158, 369);
+            this.pbiconDangnhap.Name = "pbiconDangnhap";
+            this.pbiconDangnhap.Size = new System.Drawing.Size(29, 26);
+            this.pbiconDangnhap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbiconDangnhap.TabIndex = 9;
+            this.pbiconDangnhap.TabStop = false;
             // 
             // frm_DangNhap
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(423, 410);
-            Controls.Add(pbiconDangnhap);
-            Controls.Add(pictureBox4);
-            Controls.Add(pictureBox2);
-            Controls.Add(lbDangnhap);
-            Controls.Add(dgvDangnhap);
-            Controls.Add(btn_DangNhap);
-            Controls.Add(pictureBox1);
-            Controls.Add(txtMatkhau);
-            Controls.Add(txtTendn);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "frm_DangNhap";
-            Text = "Đăng Nhập";
-            FormClosing += frm_DangNhap_FormClosing;
-            Load += frm_DangNhap_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDangnhap).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbiconDangnhap).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(483, 437);
+            this.Controls.Add(this.pbiconDangnhap);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.lbDangnhap);
+            this.Controls.Add(this.dgvDangnhap);
+            this.Controls.Add(this.btn_DangNhap);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.txtMatkhau);
+            this.Controls.Add(this.txtTendn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "frm_DangNhap";
+            this.Text = "Đăng Nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_DangNhap_FormClosing);
+            this.Load += new System.EventHandler(this.frm_DangNhap_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDangnhap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbiconDangnhap)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

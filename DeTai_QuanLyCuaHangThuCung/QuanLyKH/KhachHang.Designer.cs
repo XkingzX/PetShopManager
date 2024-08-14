@@ -56,7 +56,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
             this.lblKH.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblKH.Location = new System.Drawing.Point(10, 23);
             this.lblKH.Name = "lblKH";
-            this.lblKH.Size = new System.Drawing.Size(147, 32);
+            this.lblKH.Size = new System.Drawing.Size(116, 25);
             this.lblKH.TabIndex = 0;
             this.lblKH.Text = "Khách Hàng";
             // 
@@ -93,7 +93,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
             this.lblDenNgay.AutoSize = true;
             this.lblDenNgay.Location = new System.Drawing.Point(12, 68);
             this.lblDenNgay.Name = "lblDenNgay";
-            this.lblDenNgay.Size = new System.Drawing.Size(76, 19);
+            this.lblDenNgay.Size = new System.Drawing.Size(60, 13);
             this.lblDenNgay.TabIndex = 2;
             this.lblDenNgay.Text = "Đến ngày:";
             // 
@@ -102,7 +102,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
             this.lblTuNgay.AutoSize = true;
             this.lblTuNgay.Location = new System.Drawing.Point(23, 34);
             this.lblTuNgay.Name = "lblTuNgay";
-            this.lblTuNgay.Size = new System.Drawing.Size(67, 19);
+            this.lblTuNgay.Size = new System.Drawing.Size(52, 13);
             this.lblTuNgay.TabIndex = 2;
             this.lblTuNgay.Text = "Từ ngày:";
             // 
@@ -112,7 +112,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
             this.dtpDenNgay.Location = new System.Drawing.Point(96, 62);
             this.dtpDenNgay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpDenNgay.Name = "dtpDenNgay";
-            this.dtpDenNgay.Size = new System.Drawing.Size(111, 26);
+            this.dtpDenNgay.Size = new System.Drawing.Size(111, 22);
             this.dtpDenNgay.TabIndex = 1;
             // 
             // dtpTuNgay
@@ -121,7 +121,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
             this.dtpTuNgay.Location = new System.Drawing.Point(96, 28);
             this.dtpTuNgay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpTuNgay.Name = "dtpTuNgay";
-            this.dtpTuNgay.Size = new System.Drawing.Size(111, 26);
+            this.dtpTuNgay.Size = new System.Drawing.Size(111, 22);
             this.dtpTuNgay.TabIndex = 1;
             // 
             // dgvThongTinKhachHang
@@ -202,6 +202,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
             this.txtTimKiem.Size = new System.Drawing.Size(218, 22);
             this.txtTimKiem.TabIndex = 9;
             this.txtTimKiem.Text = "Tìm kiếm";
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // frmKhachHang
             // 

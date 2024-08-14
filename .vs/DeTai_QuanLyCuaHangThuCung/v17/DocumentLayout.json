@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6E8D5179-5DC4-49EE-9989-6C87875D3FF5}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|d:\\bai tap\\lap trinh .net\\detai_quanlycuahangthucung\\detai_quanlycuahangthucung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E8D5179-5DC4-49EE-9989-6C87875D3FF5}|DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung.csproj|solutionrelative:detai_quanlycuahangthucung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\Program.cs",
+              "RelativeDocumentMoniker": "DeTai_QuanLyCuaHangThuCung\\Program.cs",
+              "ToolTip": "D:\\Bai Tap\\Lap Trinh .Net\\DeTai_QuanLyCuaHangThuCung\\DeTai_QuanLyCuaHangThuCung\\Program.cs",
+              "RelativeToolTip": "DeTai_QuanLyCuaHangThuCung\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T08:19:13.601Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

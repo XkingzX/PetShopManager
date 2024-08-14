@@ -43,6 +43,8 @@ namespace DeTai_QuanLyCuaHangThuCung
             frm_danhmuc frm = new frm_danhmuc();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
+            this.Width = 755;
+            this.Width = 845;
             frm.Show();
 
 
@@ -53,6 +55,8 @@ namespace DeTai_QuanLyCuaHangThuCung
             frm_KiemKho frm = new frm_KiemKho();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
+            this.Width = 755;
+            this.Width = 845;
             frm.Show();
         }
 
@@ -72,6 +76,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             frmKhachHang frm = new frmKhachHang();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
+            this.Width = 890;
             this.Height = 500;
             frm.Show();
         }
@@ -147,6 +152,8 @@ namespace DeTai_QuanLyCuaHangThuCung
             frm_hoadon frm = new frm_hoadon();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
+            this.Width = 890;
+            this.Height = 470;
             frm.Show();
         }
 
@@ -177,6 +184,8 @@ namespace DeTai_QuanLyCuaHangThuCung
             DoanhThu frm = new DoanhThu();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
+            this.Width = 855;
+            this.Height = 440;
             frm.Show();
         }
     }
