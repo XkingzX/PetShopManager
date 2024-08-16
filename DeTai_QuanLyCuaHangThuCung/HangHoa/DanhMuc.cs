@@ -20,7 +20,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             InitializeComponent();
             this.txt_nhapmasp.KeyDown += new KeyEventHandler(this.txt_nhapmasp_KeyDown);
         }
-        SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
+        SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
         private void ketnoicsdl()
         {
             cn.Open();
@@ -244,7 +244,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
                     cn.Open();
                     string sql = "select MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá',SLHETHONG, LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA from SANPHAM";
@@ -268,7 +268,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             int tongSoLuong = 0;
             string sql = "SELECT SUM(SLHETHONG) FROM SANPHAM";
 
-            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
             {
                 cn.Open();
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
@@ -295,7 +295,6 @@ namespace DeTai_QuanLyCuaHangThuCung
             string query = $"SELECT MASP as N'Mã Sản Phẩm', TENSP as N'Tên Sản Phẩm', GIA as N'Giá', SLHETHONG, LOAI as N'Loại', HINH as N'Hình Sản Phẩm', MOTA FROM SANPHAM WHERE LOAI = @LOAI";
             SqlCommand cm = new SqlCommand(query, cn);
             cm.Parameters.AddWithValue("@LOAI", LOAISP);
-
             SqlDataAdapter da = new SqlDataAdapter(cm);
             DataTable dt = new DataTable();
             da.Fill(dt);

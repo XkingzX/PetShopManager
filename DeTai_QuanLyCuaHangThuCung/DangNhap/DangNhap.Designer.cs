@@ -55,7 +55,7 @@ namespace DeTai_QuanLyCuaHangThuCung.DangNhap
             this.txtTendn.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtTendn.Location = new System.Drawing.Point(105, 239);
             this.txtTendn.Name = "txtTendn";
-            this.txtTendn.Size = new System.Drawing.Size(295, 35);
+            this.txtTendn.Size = new System.Drawing.Size(295, 42);
             this.txtTendn.TabIndex = 2;
             this.txtTendn.Text = "MÃ NHÂN VIÊN";
             this.txtTendn.TextChanged += new System.EventHandler(this.txtTendn_TextChanged);
@@ -80,7 +80,7 @@ namespace DeTai_QuanLyCuaHangThuCung.DangNhap
             this.txtMatkhau.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtMatkhau.Location = new System.Drawing.Point(105, 299);
             this.txtMatkhau.Name = "txtMatkhau";
-            this.txtMatkhau.Size = new System.Drawing.Size(295, 35);
+            this.txtMatkhau.Size = new System.Drawing.Size(295, 42);
             this.txtMatkhau.TabIndex = 2;
             this.txtMatkhau.Text = "MẬT KHẨU";
             this.txtMatkhau.TextChanged += new System.EventHandler(this.txtMatkhau_TextChanged);
@@ -96,6 +96,7 @@ namespace DeTai_QuanLyCuaHangThuCung.DangNhap
             this.btn_DangNhap.Size = new System.Drawing.Size(190, 53);
             this.btn_DangNhap.TabIndex = 6;
             this.btn_DangNhap.Text = "Đăng Nhập";
+            this.btn_DangNhap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_DangNhap.UseVisualStyleBackColor = false;
             this.btn_DangNhap.Click += new System.EventHandler(this.btn_DangNhap_Click);
             // 
@@ -107,7 +108,7 @@ namespace DeTai_QuanLyCuaHangThuCung.DangNhap
             this.lbDangnhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbDangnhap.Location = new System.Drawing.Point(149, 10);
             this.lbDangnhap.Name = "lbDangnhap";
-            this.lbDangnhap.Size = new System.Drawing.Size(181, 37);
+            this.lbDangnhap.Size = new System.Drawing.Size(227, 46);
             this.lbDangnhap.TabIndex = 7;
             this.lbDangnhap.Text = "ĐĂNG NHẬP";
             // 
@@ -117,6 +118,7 @@ namespace DeTai_QuanLyCuaHangThuCung.DangNhap
             this.dgvDangnhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDangnhap.Location = new System.Drawing.Point(-2, -3);
             this.dgvDangnhap.Name = "dgvDangnhap";
+            this.dgvDangnhap.RowHeadersWidth = 51;
             this.dgvDangnhap.Size = new System.Drawing.Size(491, 64);
             this.dgvDangnhap.TabIndex = 8;
             // 

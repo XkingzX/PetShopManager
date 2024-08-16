@@ -18,7 +18,7 @@ namespace DeTai_QuanLyCuaHangThuCung
 {
     public partial class MuaHang : Form
     {
-        protected string cnstr = @"Data Source=TIENTOi\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
+        protected string cnstr = @"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
         protected SqlConnection cn;
         protected SqlCommand cm;
         public DataTable dt;
@@ -415,9 +415,9 @@ namespace DeTai_QuanLyCuaHangThuCung
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
             cm.CommandText = "UPDATE HOADON SET SOHD = @SOHD, MASP = @MASP, SL = @SL,TONGTIEN=@TONGTIEN,NGHD = @THOIGIAN,MAKH = @MAKH WHERE MASP = @MASP AND SOHD = @SOHD";
-            cm.Parameters.AddWithValue("SOHD", lbl_mahd.Text);
+            cm.Parameters.AddWithValue("SOHD", int.Parse(lbl_mahd.Text));
             cm.Parameters.AddWithValue("MASP", dgv_giohang.CurrentRow.Cells["col_masp"].Value);
-            cm.Parameters.AddWithValue("SL", num_sl.Value);
+            cm.Parameters.AddWithValue("SL", (int)num_sl.Value);
             cm.Parameters.AddWithValue("TONGTIEN", tong);
             cm.Parameters.AddWithValue("THOIGIAN", dtp_thoigian.Value);
             cm.Parameters.AddWithValue("MAKH", cmb_makh.Text);
@@ -498,12 +498,23 @@ namespace DeTai_QuanLyCuaHangThuCung
                 {
                     diemsudung = int.Parse(txt_diem.Text);
                 }
-                ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon(lbl_mahd.Text, lbl_tongthanhtoan.Text, int.Parse(txt_diem.Text), diemsudung,lbl_giamgia.Text);
+                pushgiamgia();
+                ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon(lbl_mahd.Text, lbl_tongthanhtoan.Text, int.Parse(txt_diem.Text), diemsudung);
                 chiTietHoaDon.Show();
                 btn_taomoi.Enabled = true;
 
             }
 
+        }
+        private void pushgiamgia()
+        {
+            cm = new SqlCommand();
+            cm.Connection = cn;
+            cm.CommandType = CommandType.Text;
+            cm.CommandText = "UPDATE CTHD SET GIAMGIA = @GIAMGIA WHERE SOHD = @SOHD";
+            cm.Parameters.AddWithValue("SOHD", int.Parse(lbl_mahd.Text));
+            cm.Parameters.AddWithValue("GIAMGIA", decimal.Parse(lbl_giamgia.Text));
+            int row = cm.ExecuteNonQuery();
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
@@ -531,7 +542,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                         capnhatsoluongsaukhisua();
                         tinhtongtienhang();
                         tinhtongthanhtoan();
-                    }    
+                    }
 
                 }
 
@@ -541,7 +552,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                     btn_sua.Text = "Sửa";
                     cmb_masp.Enabled = true;
                     btn_them.Enabled = true;
-                }    
+                }
             }
         }
 
@@ -554,7 +565,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
             else
             {
-                if(kiemtratrung() == false)
+                if (kiemtratrung() == false)
                 {
                     test();
                     laydulieugiohang();
@@ -649,8 +660,15 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         private void btn_lammoi_Click_1(object sender, EventArgs e)
         {
-            lammoigiohang();
-            TaoMaHoaDon();
+            if (dgv_giohang.DataSource != null)
+            {
+                lammoigiohang();
+                TaoMaHoaDon();
+            }
+            else
+            {
+                MessageBox.Show("Giỏ hàng hiện đang rỗng, không thể xoá");
+            }
         }
         private void btn_taomoi_Click(object sender, EventArgs e)
         {
@@ -691,8 +709,8 @@ namespace DeTai_QuanLyCuaHangThuCung
                 cm.Connection = cn;
                 cm.CommandType = CommandType.Text;
                 cm.CommandText = "UPDATE CTHD SET GIAMGIA = @GIAMGIA WHERE SOHD = @SOHD";
-                cm.Parameters.AddWithValue("SOHD", int.Parse(lbl_mahd.Text));
-                cm.Parameters.AddWithValue("GIAMGIA", decimal.Parse(lbl_giamgia.Text));
+                cm.Parameters.AddWithValue("SOHD", lbl_mahd.Text);
+                cm.Parameters.AddWithValue("GIAMGIA", lbl_giamgia.Text);
                 int row = cm.ExecuteNonQuery();
                 if (float.Parse(lbl_giamgia.Text) > float.Parse(lbl_tongthanhtoan.Text))
                 {
@@ -725,8 +743,8 @@ namespace DeTai_QuanLyCuaHangThuCung
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
             cm.CommandText = "UPDATE CTHD SET GIAMGIA = @GIAMGIA WHERE SOHD = @SOHD";
-            cm.Parameters.AddWithValue("SOHD", int.Parse(lbl_mahd.Text));
-            cm.Parameters.AddWithValue("GIAMGIA", decimal.Parse(lbl_giamgia.Text));
+            cm.Parameters.AddWithValue("SOHD", lbl_mahd.Text);
+            cm.Parameters.AddWithValue("GIAMGIA", lbl_giamgia.Text);
             int row = cm.ExecuteNonQuery();
             if (float.Parse(lbl_giamgia.Text) > float.Parse(lbl_tongthanhtoan.Text))
             {
@@ -774,7 +792,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                             query = "UPDATE SanPham SET SLHETHONG = @soLuongMoi WHERE MASP = @MASP";
                             command.CommandText = query;
                             command.Parameters.AddWithValue("@soLuongMoi", soLuongMoi);
-                            command.ExecuteNonQuery(); 
+                            command.ExecuteNonQuery();
                             pushsqlhd();
                             pushsqlcthd();
                         }
@@ -810,7 +828,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                         if (soLuongTon >= soluongban)
                         {
                             // Cập nhật số lượng
-                            
+
                             int soLuongMoi = soLuongTon + soluongtrckhisua - soluongban;
                             query = "UPDATE SanPham SET SLHETHONG = @soLuongMoi WHERE MASP = @MASP";
                             command.CommandText = query;
@@ -853,11 +871,11 @@ namespace DeTai_QuanLyCuaHangThuCung
                         query = "UPDATE SanPham SET SLHETHONG = @soLuongMoi WHERE MASP = @MASP";
                         command.CommandText = query;
                         command.Parameters.AddWithValue("@soLuongMoi", soLuongMoi);
-                        command.ExecuteNonQuery(); 
+                        command.ExecuteNonQuery();
                     }
                 }
             }
         }
     }
 }
-    
+

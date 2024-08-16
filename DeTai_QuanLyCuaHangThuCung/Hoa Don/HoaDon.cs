@@ -88,7 +88,13 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
 
         private void btn_xemhd_Click(object sender, EventArgs e)
         {
-            ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon(dgv_hoadon.CurrentRow.Cells[0].Value.ToString(), dgv_hoadon.CurrentRow.Cells[4].Value.ToString(),0,0,"0");
+            if (dgv_hoadon.CurrentRow == null)
+            {
+                MessageBox.Show("Không có hóa đơn nào được chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon(dgv_hoadon.CurrentRow.Cells[0].Value.ToString(), dgv_hoadon.CurrentRow.Cells[4].Value.ToString(), 0, 0);
             chiTietHoaDon.Show();
         }
 
@@ -100,9 +106,19 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            xoadulieucthd();
-            xoadulieuhd();
-            laydulieu();
+            if (dgv_hoadon.CurrentRow == null)
+            {
+                MessageBox.Show("Không có hóa đơn nào được chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+
+            }
+            else 
+            {
+                xoadulieucthd();
+                xoadulieuhd();
+                laydulieu();
+            }
+            
         }
         private void xoadulieuhd()
         {
@@ -123,6 +139,7 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             cm.CommandType = CommandType.Text;
             cm.CommandText = "DELETE FROM CTHD WHERE SOHD = @SOHD";
             cm.Parameters.AddWithValue("SOHD", dgv_hoadon.CurrentRow.Cells[0].Value);
+            
             int row = cm.ExecuteNonQuery();
             SqlDataReader reader = cm.ExecuteReader();
             dt = new DataTable();
@@ -156,7 +173,7 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             else
             {
                 laydulieu();
-            }    
+            }
         }
 
         private void rd_dahuy_CheckedChanged(object sender, EventArgs e)
@@ -189,8 +206,19 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             cm = new SqlCommand();
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
-            cm.CommandText = $@"select CTHD.SOHD,CTHD.THOIGIAN,CTHD.MAKH,CTHD.MANV,CTHD.TONGTIEN,CTHD.TRANGTHAI,CTHD.PTTHANHTOAN, CTHD.MASP 
-                            from HOADON,CTHD WHERE HOADON.SOHD = CTHD.SOHD AND CTHD.MASP = HOADON.MASP AND MONTH(CTHD.THOIGIAN) = '{thang}' ";
+            if (string.IsNullOrEmpty(cmb_nam.Text))
+            {
+                cm.CommandText = $@"select CTHD.SOHD,CTHD.THOIGIAN,CTHD.MAKH,CTHD.MANV,CTHD.TONGTIEN,CTHD.TRANGTHAI,CTHD.PTTHANHTOAN, CTHD.MASP 
+                            from HOADON,CTHD WHERE HOADON.SOHD = CTHD.SOHD AND CTHD.MASP = HOADON.MASP AND MONTH(CTHD.THOIGIAN) = '{thang}' 
+                            ";
+            }
+
+            else
+            {
+                cm.CommandText = $@"select CTHD.SOHD,CTHD.THOIGIAN,CTHD.MAKH,CTHD.MANV,CTHD.TONGTIEN,CTHD.TRANGTHAI,CTHD.PTTHANHTOAN, CTHD.MASP 
+                            from HOADON,CTHD WHERE HOADON.SOHD = CTHD.SOHD AND CTHD.MASP = HOADON.MASP AND MONTH(CTHD.THOIGIAN) = '{thang}' AND YEAR(CTHD.THOIGIAN) = '{nam}'; 
+                            ";
+            }
             cm.Parameters.AddWithValue("thang", thang);
             cm.Parameters.AddWithValue("nam", nam);
             cm.ExecuteNonQuery();
@@ -208,8 +236,19 @@ namespace DeTai_QuanLyCuaHangThuCung.GiaoDich
             cm = new SqlCommand();
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
-            cm.CommandText = $"select CTHD.SOHD,CTHD.THOIGIAN,CTHD.MAKH,CTHD.MANV,CTHD.TONGTIEN,CTHD.TRANGTHAI,CTHD.PTTHANHTOAN, CTHD.MASP from HOADON,CTHD WHERE HOADON.SOHD = CTHD.SOHD AND CTHD.MASP = HOADON.MASP AND YEAR(CTHD.THOIGIAN) = '{nam}'";
-            cm.Parameters.AddWithValue("thang", thang);
+            if (string.IsNullOrEmpty(cmb_thang.Text))
+            {
+                cm.CommandText = $@"select CTHD.SOHD,CTHD.THOIGIAN,CTHD.MAKH,CTHD.MANV,CTHD.TONGTIEN,CTHD.TRANGTHAI,CTHD.PTTHANHTOAN, CTHD.MASP 
+                            from HOADON,CTHD WHERE HOADON.SOHD = CTHD.SOHD AND CTHD.MASP = HOADON.MASP AND YEAR(CTHD.THOIGIAN) = '{nam}' 
+                            ";
+            }
+
+            else
+            {
+                cm.CommandText = $@"select CTHD.SOHD,CTHD.THOIGIAN,CTHD.MAKH,CTHD.MANV,CTHD.TONGTIEN,CTHD.TRANGTHAI,CTHD.PTTHANHTOAN, CTHD.MASP 
+                            from HOADON,CTHD WHERE HOADON.SOHD = CTHD.SOHD AND CTHD.MASP = HOADON.MASP AND MONTH(CTHD.THOIGIAN) = '{thang}' AND YEAR(CTHD.THOIGIAN) = '{nam}'; 
+                            ";
+            }
             cm.Parameters.AddWithValue("nam", nam);
             cm.ExecuteNonQuery();
             int row = cm.ExecuteNonQuery();

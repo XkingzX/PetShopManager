@@ -147,6 +147,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                             dgvTTNV.DataSource = dt;
                         }
                     }
+                    txtTimkiem.Text = string.Empty;
                     cn.Close();
                 }
             }
@@ -348,6 +349,11 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void button1_Click_2(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void dgvTTNV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

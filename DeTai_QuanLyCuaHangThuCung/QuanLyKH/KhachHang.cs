@@ -15,7 +15,6 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
     {
         // Chuỗi kết nối cơ sở dữ liệu
         private string cstr = @"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;";
-
         public frmKhachHang()
         {
             InitializeComponent();
@@ -32,12 +31,17 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
                 dgvThongTinKhachHang.DataSource = dataTable;
+                txtTimKiem.Text = "";
             }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+            var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa khách hàng này?",
+                                                     "Xác nhận xóa",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -50,19 +54,12 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
                                                      MessageBoxIcon.Question);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    try
+                    foreach (DataGridViewRow row in dgvThongTinKhachHang.SelectedRows)
                     {
-                        foreach (DataGridViewRow row in dgvThongTinKhachHang.SelectedRows)
-                        {
-                            string maKhachHang = row.Cells["MAKH"].Value.ToString();
-                            XoaDuLieu(maKhachHang);
-                        }
-                        LoadData();
+                        string maKhachHang = row.Cells["Mã khách hàng"].Value.ToString();
+                        XoaDuLieu(maKhachHang);
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    LoadData();
                 }
             }
             else
@@ -73,24 +70,17 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
 
         private void XoaDuLieu(string maKhachHang)
         {
-            try
+            using (SqlConnection connection = new SqlConnection(cstr))
             {
-                using (SqlConnection connection = new SqlConnection(cstr))
+                connection.Open();
+                string query = "DELETE FROM KHACHHANG WHERE MAKH = @MaKH";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    connection.Open();
-                    string query = "DELETE FROM KHACHHANG WHERE MAKH = @MaKH";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@MaKH", maKhachHang);
-                        command.ExecuteNonQuery();
-                    }
+                    command.Parameters.AddWithValue("@MaKH", maKhachHang);
+                    command.ExecuteNonQuery();
                 }
-                MessageBox.Show("Xóa khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            MessageBox.Show("Xóa khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnThemKhachHang_Click(object sender, EventArgs e)
@@ -99,20 +89,18 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
             using (ThemThongTinKhachHang formThemThongTin = new ThemThongTinKhachHang(maKhachHang))
             {
                 DialogResult result = formThemThongTin.ShowDialog();
-
                 if (result == DialogResult.Cancel)
                 {
                     LoadData();
                 }
-
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if(dgvThongTinKhachHang.SelectedRows.Count > 0)
-    {
-                string maKhachHang = dgvThongTinKhachHang.SelectedRows[0].Cells["MAKH"].Value.ToString();
+            if (dgvThongTinKhachHang.SelectedRows.Count > 0)
+            {
+                string maKhachHang = dgvThongTinKhachHang.SelectedRows[0].Cells["Mã khách hàng"].Value.ToString();
 
                 using (ThemThongTinKhachHang formThemThongTin = new ThemThongTinKhachHang(maKhachHang))
                 {
@@ -120,7 +108,7 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
                     LoadData();
                 }
             }
-    else
+            else
             {
                 MessageBox.Show("Vui lòng chọn dòng dữ liệu để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -141,31 +129,24 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
         }
         private void TimKiemDuLieu(string value)
         {
-            string query = "SELECT MAKH as N'Mã khách hàng', HOTEN as N'Họ tên', LOAIKH as N'Loại khách hàng', DIEMTHUONG as N'Điểm thưởng', SODT as N'Số điện thoại',NGDK as N'Ngày đăng ký' FROM KHACHHANG WHERE MAKH LIKE @Value OR HOTEN LIKE @Value OR SODT LIKE @Value";
-            try
+            string query = "SELECT MAKH as N'Mã khách hàng', HOTEN as N'Họ tên', LOAIKH as N'Loại khách hàng', DIEMTHUONG as N'Điểm thưởng', SODT as N'Số điện thoại', NGDK as N'Ngày đăng ký' FROM KHACHHANG WHERE MAKH LIKE @Value OR HOTEN LIKE @Value OR SODT LIKE @Value";
+            using (SqlConnection connection = new SqlConnection(cstr))
             {
-                using (SqlConnection connection = new SqlConnection(cstr))
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    command.Parameters.AddWithValue("@Value", "%" + value + "%");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dgvThongTinKhachHang.DataSource = dt;
+
+                    if (dt.Rows.Count == 0)
                     {
-                        command.Parameters.AddWithValue("@Value", "%" + value + "%");
-
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-                        dgvThongTinKhachHang.DataSource = dt;
-
-                        if (dt.Rows.Count == 0)
-                        {
-                            MessageBox.Show("Không tìm thấy kết quả.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        MessageBox.Show("Không tìm thấy kết quả.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -186,32 +167,47 @@ namespace DeTai_QuanLyCuaHangThuCung.QuanLyKH
 
         private void LocTheoNgay(DateTime TuNgay, DateTime DenNgay)
         {
+            using (SqlConnection connection = new SqlConnection(cstr))
+            {
+                connection.Open();
+                string query = "SELECT MAKH as N'Mã khách hàng', HOTEN as N'Họ tên', LOAIKH as N'Loại khách hàng', DIEMTHUONG as N'Điểm thưởng', SODT as N'Số điện thoại', NGDK as N'Ngày đăng ký' FROM KHACHHANG WHERE NGDK >= @StartDate AND NGDK <= @EndDate";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@StartDate", TuNgay);
+                    command.Parameters.AddWithValue("@EndDate", DenNgay.AddDays(1).AddTicks(-1));
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dgvThongTinKhachHang.DataSource = dt;
+
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có khách hàng nào trong khoảng thời gian này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+
+        private void btn_hienthitatca_Click(object sender, EventArgs e)
+        {
             try
             {
-                using (SqlConnection connection = new SqlConnection(cstr))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
-                    connection.Open();
-                    string query = "SELECT MAKH as N'Mã khách hàng', HOTEN as N'Họ tên', LOAIKH as N'Loại khách hàng', DIEMTHUONG as N'Điểm thưởng', SODT as N'Số điện thoại',NGDK as N'Ngày đăng ký' FROM KHACHHANG WHERE NGDK >= @StartDate AND NGDK <= @EndDate";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    cn.Open();
+                    string sql = "SELECT MAKH as N'Mã khách hàng', HOTEN as N'Họ tên', LOAIKH as N'Loại khách hàng', DIEMTHUONG as N'Điểm thưởng', SODT as N'Số điện thoại',NGDK as N'Ngày đăng ký' FROM KHACHHANG";
+                    using (SqlDataAdapter da = new SqlDataAdapter(sql, cn))
                     {
-                        command.Parameters.AddWithValue("@StartDate", TuNgay);
-                        command.Parameters.AddWithValue("@EndDate", DenNgay.AddDays(1).AddTicks(-1));
-
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
                         DataTable dt = new DataTable();
-                        adapter.Fill(dt);
+                        da.Fill(dt);
                         dgvThongTinKhachHang.DataSource = dt;
-
-                        if (dt.Rows.Count == 0)
-                        {
-                            MessageBox.Show("Không có khách hàng nào trong khoảng thời gian này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Đã xảy ra lỗi khi lọc dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
             }
         }
     }

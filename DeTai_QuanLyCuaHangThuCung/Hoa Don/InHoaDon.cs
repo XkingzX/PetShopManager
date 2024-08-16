@@ -22,7 +22,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         public BindingSource bd;
         string mahd1;
         string tongtien;
-        public InHoaDon(string mahd1,string tongtien)
+        public InHoaDon(string mahd1, string tongtien)
         {
             InitializeComponent();
             this.mahd1 = mahd1;

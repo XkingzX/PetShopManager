@@ -20,7 +20,7 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
             this.txt_nhapmapk.KeyDown += new KeyEventHandler(this.txt_nhapmapk_KeyDown);
 
         }
-        SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
+        SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
         private void ketnoicsdl()
         {
             cn.Open();
@@ -276,7 +276,7 @@ namespace DeTai_QuanLyCuaHangThuCung.HangHoa
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
                 {
                     cn.Open();
                     string sql = @"SELECT K.MAPK AS N'Mã phiếu kho', 

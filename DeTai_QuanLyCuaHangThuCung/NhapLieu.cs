@@ -101,7 +101,7 @@ namespace DeTai_QuanLyCuaHangThuCung
                 {
                     imageData = reader.ReadBytes((int)stream.Length);
                 }
-                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True"))
                 {
                     cn.Open();
                     string query;

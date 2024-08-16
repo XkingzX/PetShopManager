@@ -78,7 +78,7 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void ThongTinCaNhan_Load(object sender, EventArgs e)
         {
 
-            pbHinhanh.SizeMode = PictureBoxSizeMode.Zoom;
+            
         }
 
         private void pbHinhanh_Click(object sender, EventArgs e)
@@ -89,6 +89,16 @@ namespace DeTai_QuanLyCuaHangThuCung
         private void txtDiachi_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmTTCN_Load(object sender, EventArgs e)
+        {
+            pbHinhanh.SizeMode = PictureBoxSizeMode.Zoom;
         }
     }
 }

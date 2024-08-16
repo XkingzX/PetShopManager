@@ -42,6 +42,8 @@ namespace DeTai_QuanLyCuaHangThuCung
             }
 
             this.manv = manv;
+            loadnhanvien();
+            TaoMaPhieuKho();
         }
         private void ketnoicsdl()
         {
@@ -70,7 +72,7 @@ namespace DeTai_QuanLyCuaHangThuCung
             ghichu = rtxt_ghichu.Text;
             manv = cmb_nguoitao.Text;
 
-            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOi;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
+            using (SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;"))
             {
                 cn.Open();
                 string ktraMaSP = "SELECT COUNT(*) FROM SANPHAM WHERE MASP = @MASP";
@@ -159,8 +161,8 @@ namespace DeTai_QuanLyCuaHangThuCung
 
         private void cmb_nguoitao_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ketnoicsdl();
-            SqlConnection cn = new SqlConnection(@"Data Source=HOAGGMINH\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
+            SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
+            cn.Open();
             SqlCommand cm = new SqlCommand();
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
@@ -171,6 +173,43 @@ namespace DeTai_QuanLyCuaHangThuCung
             cmb_nguoitao.DataSource = dt;
             cmb_nguoitao.DisplayMember = "MANV";
             cmb_nguoitao.ValueMember = "MANV";
+            cn.Close();
+        }
+        private void loadnhanvien()
+        {
+            
+            SqlConnection cn = new SqlConnection(@"Data Source=TIENTOI\SQLEXPRESS;Initial Catalog=DB_CuaHangThuCung;Integrated Security=True;");
+            cn.Open();
+            SqlCommand cm = new SqlCommand();
+            cm.Connection = cn;
+            cm.CommandType = CommandType.Text;
+            cm.CommandText = "SELECT * FROM NHANVIEN";
+            SqlDataReader reader = cm.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            BindingSource bd = new BindingSource();
+            bd.DataSource = dt;
+            cmb_nguoitao.DataSource = bd;
+            cmb_nguoitao.DisplayMember = "MANV";
+            cmb_nguoitao.ValueMember = "MANV";
+            cn.Close();
+        }
+        private void TaoMaPhieuKho()
+        {
+            if(mode != "Edit")
+            {
+                txt_maPK.Text = "PK" + ChuoiSoNgauNhien(2);
+            }
+        }
+        private string ChuoiSoNgauNhien(int length)
+        {
+            Random random = new Random();
+            char[] stringChars = new char[length];
+            for (int i = 0; i < length; i++)
+            {
+                stringChars[i] = (char)('0' + random.Next(10));
+            }
+            return new string(stringChars);
         }
     }
 }

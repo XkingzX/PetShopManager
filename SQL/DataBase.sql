@@ -179,27 +179,34 @@ INSERT INTO XA (TENXA, MAHUYEN) VALUES
 go
 --SANPHAM
 insert into SANPHAM values
-('H01', N'Hạt Cát Trang', '90000', 10, N'Thức Ăn', NULL, NULL),
-('DC02', N'Can Cầu Mèo', '15000', 9, N'Đồ Chơi', NULL, NULL),
-('DC03', N'Viên Bi', '90000', 8, N'Đồ Chơi', NULL, NULL),
-('C04', N'Cát Đầu Nanh', '120000', 7, N'Cát', NULL, NULL);
-go
+('TA01', N'Hạt Royal Canin', '95000', 15, N'Thức Ăn', NULL, NULL),
+('TA02', N'Pate Whiskas', '35000', 20, N'Thức Ăn', NULL, NULL),
+('TA03', N'Hạt Me-O', '80000', 12, N'Thức Ăn', NULL, NULL),
+('TA04', N'Hạt ANF', '105000', 18, N'Thức Ăn', NULL, NULL),
+('DC01', N'Quả Bóng Len', '12000', 25, N'Đồ Chơi', NULL, NULL),
+('DC02', N'Chuột Giả', '15000', 30, N'Đồ Chơi', NULL, NULL),
+('DC03', N'Gậy Câu Cá', '18000', 22, N'Đồ Chơi', NULL, NULL),
+('CT01', N'Cát Vón Mèo', '95000', 10, N'Cát', NULL, NULL),
+('CT02', N'Cát Gỗ', '110000', 8, N'Cát', NULL, NULL),
+('CT03', N'Cát Silica', '120000', 7, N'Cát', NULL, NULL);
+GO
 -- NHANVIEN
-insert into NHANVIEN values('QL01',N'ADMIN','' ,'' , '000', N'Quản lý','','','','','',null)
-insert into NHANVIEN values('NV01',N'Nguyễn Hoàng Minh','' ,'16/04/2004', '123', N'Nhân viên','','','','','',null)
-insert into NHANVIEN values('NV02',N'Ngô Tiến Tới','' ,'21/04/2004', '456', N'Nhân viên','','','','','',null)
-insert into NHANVIEN values('NV03',N'Chu Thế Trường','' ,'27/04/2004', '789', N'Nhân viên','','','','','',null)
-insert into NHANVIEN values('NV04',N'Đỗ Trung Tín','' ,'24/06/2004' ,'234' , N'Nhân viên','','','','','',null)
+
+insert into NHANVIEN values('QL01',N'ADMIN','' ,'' , '000', N'Quản lý','','','3/10/1980','','',null)
+insert into NHANVIEN values('NV01',N'Nguyễn Hoàng Minh','' ,'11/7/2020', '123', N'Nhân viên','','','16/02/2002','','',null)
+insert into NHANVIEN values('NV02',N'Ngô Tiến Tới','' ,'7/5/2023', '456', N'Nhân viên','','','1/07/2003','','',null)
+insert into NHANVIEN values('NV03',N'Chu Thế Trường','' ,'16/2/2023', '789', N'Nhân viên','','','27/03/1996','','',null)
+insert into NHANVIEN values('NV04',N'Đỗ Trung Tín','' ,'8/8/2024' ,'234' , N'Nhân viên','','','14/06/1999','','',null)
 go
 --KHO
-INSERT INTO KHO (MAPK, MASP, NGAYNHAP, SLTHUCTE, GHICHU, TRANGTHAI, MANV) VALUES
-('PK05', 'DC03', GETDATE(), 9, N'Nhập kho lần đầu', null, 'NV03'),
-('PK02', 'H01', GETDATE(), 9, N'Nhập kho lần đầu', null, 'NV03'),
-('PK01', 'DC02', GETDATE(), 9, N'Nhập kho lần đầu', null, 'NV03');
-go
+--INSERT INTO KHO (MAPK, MASP, NGAYNHAP, SLTHUCTE, GHICHU, TRANGTHAI, MANV) VALUES
+--('PK05', 'DC03', GETDATE(), 9, N'Nhập kho lần đầu', null, 'NV03'),
+--('PK02', 'H01', GETDATE(), 9, N'Nhập kho lần đầu', null, 'NV03'),
+--('PK01', 'DC02', GETDATE(), 9, N'Nhập kho lần đầu', null, 'NV03');
+--go
 --KHACHHANG
 INSERT INTO KHACHHANG (MAKH, HOTEN,NGDK,LOAIKH) VALUES
-('KH01',N'Lê Vi',GETDATE(),N'Khách quen'),
+('KH01',N'Lê Vi','14/8/2024',N'Khách quen'),
 ('KH02',N'Đỗ Chung Tình',GETDATE(),N'Khách quen'),
 ('KH03',N'Phan Nguyễn Đức Trọng',GETDATE(),N'Khách quen'),
 ('KH04',N'Nguyễn Hoàng Minh',GETDATE(),N'Nhân viên'),
